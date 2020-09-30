@@ -1,0 +1,140 @@
+@import "/template/authlogin/index.wxss";
+
+page{
+  height: 100%;
+}
+.index-container{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+/* 能量 金币布局 */
+.info-data {
+  padding: 20rpx 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.info-data .group{
+  display: flex;
+}
+.info-data .img{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.info-data .tv{
+  font-size: 30rpx;
+  margin-left: 5rpx;
+}
+
+/* 兑换运动步数 */
+.convert-strps {
+  width: 350rpx;
+  height: 350rpx;
+  position: relative;
+  margin: 0 auto;
+}
+
+.cs-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.cs-tv {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cs-tv .cs-tv-f {
+  font-size: 25rpx;
+  margin-top: 24%;
+  color: #313131;
+}
+
+.cs-tv .cs-tv-t {
+  font-size: 18rpx;
+  color: #939393;
+}
+
+.cs-tv .cs-tv-n {
+  font-size: 50rpx;
+  color: #313131;
+}
+
+.cs-tv .cs-tv-c {
+  font-size: 28rpx;
+  color: #F7365F;
+}
+
+/* 邀请好友 */
+.invite-friend{
+  width: 70% ;
+  height: 90rpx;
+  font-size: 35rpx;
+  line-height: 90rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  background:linear-gradient(#FF3E3B,#FD502D);
+  border-radius: 50rpx;
+  color: white;
+}
+
+.iv-explain{
+  width: 100%;
+  display: inline-block;
+  font-size: 30rpx;
+  text-align: center;
+  margin-top: 25rpx;
+}
+
+.iv-group{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30rpx;
+}
+
+.iv-img{
+  width: 90rpx;
+  height: 90rpx;
+  border:1px solid #F3F3F3;
+  background-color: #F4F8FB;
+  border-radius: 50%;
+  /* margin: 12rpx 12rpx; */
+}
+
+.iv-img-plus{
+  width: 90rpx;
+  height: 90rpx;
+  border:1px solid red;
+  background-color: #F4F8FB;
+  border-radius: 50%;
+  /* margin: 12rpx 12rpx; */
+}
+
+.ad-group{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #F4F8FB;
+  margin-top: 50rpx;
+}
+
+.ad-tv{
+  width: 500rpx;
+  height: 260rpx;
+  font-size: 45rpx;
+  line-height: 260rpx;
+  text-align: center;
+  color: white;
+  background:linear-gradient(#60A13D,#83C144);
+  top: 120rpx;
+}

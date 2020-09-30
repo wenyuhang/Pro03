@@ -1,0 +1,118 @@
+
+.swiper1 {
+  width: 750rpx;
+  height: 375rpx;
+  background: white;
+}
+
+.swiper1 image{
+  width: 95%;
+  height: 95%;
+  display: flex;
+  margin: 0 auto;
+}
+
+.goods-tag{
+  display: flex;
+  background-color: #F2F2F2;
+  padding: 24rpx 24rpx 0 24rpx;
+}
+
+.goods-tag .img-tag{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.goods-tag .tv-tag{
+  border: 1rpx solid red;
+  color: red;
+  padding: 0 25rpx 0 25rpx;
+  text-align: center;
+  margin-left: 30rpx;
+}
+
+.goods-container{
+  display: flex;
+  /* 控制子元素 两端对齐各自贴边 */
+  justify-content: space-between;
+  /* 控制子元素换行 */
+  flex-wrap: wrap;
+  /* 告诉浏览器以标准盒子模型计算元素的总宽度和总高度 */
+  box-sizing: content-box;
+  padding: 24rpx;
+  background-color: #F2F2F2;
+}
+
+.goods-box{
+  width: 340rpx;
+  height: 670rpx;
+  background-color: white;
+  /* 规定内容溢出元素组件时处理逻辑 */
+  overflow: hidden;
+  margin-bottom: 24rpx;
+  border-radius: 5rpx;
+}
+
+.goods-box .img-box{
+  width: 100%;
+  height: 430rpx;
+  overflow: hidden;
+}
+
+.goods-box .image{
+  width: 100%;
+  height: 430rpx;
+}
+
+.goods-box .goods-title{
+  width: 280rpx;
+  /* 规定内容溢出text组件时处理逻辑 */
+  text-overflow: ellipsis;
+  /* 设置不换行 */
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin: 10rpx 0 0 20rpx;
+  color: black;
+}
+
+.goods-box .goods-price{
+  overflow: hidden;
+  font-size: 40rpx;
+  margin-left:20rpx;
+  color:#e64340;
+}
+
+.goods-box .unit{
+  font-size: 20rpx;
+  color:#e64340;
+  margin: 23rpx 0 10rpx 5rpx;
+}
+
+.goods-box .goods-plus{
+  font-size: 30rpx;
+  font-weight: bold;
+  margin: 10rpx 0 0 20rpx;
+}
+
+.goods-original-price{
+  margin-left: 20rpx;
+  font-size: 25rpx;
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+
+
+
+.goods-box .goods-convert{
+  border-top: 1px solid #f5f5f5;
+  width: 100%;
+  height: 85rpx;
+  text-align: center;
+  line-height: 85rpx;
+  font-size: 30rpx;
+  color:red;
+  margin: 0 auto;
+}

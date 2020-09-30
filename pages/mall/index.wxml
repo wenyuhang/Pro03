@@ -1,0 +1,38 @@
+<view>
+
+  <swiper class="swiper1" indicator-dots="true" indicator-active-color="#fff" autoplay circular>
+    <swiper-item wx:for="{{banners}}" wx:key="id">
+      <image  mode="aspectFit" bindtap="tapBanner"  src="{{item.picUrl}}" />
+    </swiper-item>
+  </swiper>
+
+  <view class="goods-tag">
+    <image class="img-tag" src="../../image/tag.png"></image>
+    <view class="tv-tag">包邮专区</view>
+  </view>
+
+
+  <view class="goods-container">
+    <view class="goods-box" wx:for="{{items}}" wx:key="item">
+      <view class="img-box">
+        <image src="{{item.imageurl}}" class="image" mode="aspectFill" lazy-load="true" />
+      </view>
+      <view class="goods-title">{{item.name}}</view>
+
+      <view class="goods-original-price">原价：{{item.price}}</view>
+
+      <view style='display:flex;'>
+        <view class="goods-price">{{item.energy}}</view>
+        <view class="unit">能量</view>
+
+        <view class="goods-plus">＋</view>
+
+        <view class="goods-price">{{item.coin}}</view>
+        <view class="unit">金币</view>
+      </view>
+
+      <view class="goods-convert">免邮兑换</view>
+
+    </view>
+  </view>
+</view>

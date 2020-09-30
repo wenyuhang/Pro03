@@ -1,0 +1,89 @@
+@import "/template/authlogin/index.wxss";
+
+page{
+  background: #eee;
+}
+.userinfo {
+  padding: 30rpx;
+  background: #fff;
+  padding-bottom: 70rpx;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  font-size: 35rpx;
+  font-weight: bold;
+}
+
+.asset {
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+  margin-top: 20rpx;
+  padding-top: 30rpx;
+  padding-bottom: 20rpx;
+}
+
+.asset .item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 13px;
+  line-height: 20px;
+  color: #333;
+}
+
+.asset .item .text{
+  font-size: 50rpx;
+  margin-bottom: 10rpx;
+}
+.asset .item .tv{
+  font-size: 30rpx;
+  color: #999;
+}
+
+
+.order-address-line{
+  border-top: 20rpx solid #eee;
+}
+
+.order-address {
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+}
+
+.order-address .item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  width: 150rpx;
+  text-align: center;
+}
+
+
+
+.order-address .item .icon {
+  width: 67rpx;
+  height: 67rpx;
+  margin-left: 45rpx;
+}
+
+.order-address .item .text {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.push{
+  display: flex;
+  margin: 0 auto;
+}
