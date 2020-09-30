@@ -6,7 +6,7 @@ const AUTH = require('../../utils/auth');
 Page({
   data: {
     wxlogin: true,
-    userInfo: app.globalData.userInfo,
+    userInfo: {},
     energy:'88.88',
     coin:'1024',
     invite:'0'
@@ -26,8 +26,10 @@ Page({
       if(res && !this.userInfo){
         wx.getUserInfo({
           success: res => {
+            app.globalData.userInfo = res.userInfo;
             this.setData({
-              userInfo:  res.userInfo
+              wxlogin: true,
+              userInfo: res.userInfo
             })
            
           }
