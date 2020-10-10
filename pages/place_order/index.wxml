@@ -1,0 +1,20 @@
+<view class="index-container">
+  <view class="cl">
+    <image class="ad-icon" src="../../image/myaddress.png" background-size="cover" mode="aspectFit"></image>
+    <view class="cl-group">
+      <view class="l">收件人：温啊多</view>
+      <view class="a">山西省吕梁市文水县水上公园东区</view>
+    </view>
+    <image class="into-icon" src="../../image/enter.png" background-size="cover" mode="aspectFit"></image>
+
+    <view class="line"></view>
+
+    <image class="pro-img" src="http://p15.qhimg.com/bdr/__85/t01baddceee97109922.jpg" background-size="cover" mode="aspectFill"></image>
+
+    <view class="cl-group">
+      <view class="name">女仆服务</view>
+      <view class="price">20能量 + 20金币</view>
+    </view>
+
+  </view>
+</view>

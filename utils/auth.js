@@ -55,7 +55,7 @@ async function userLogin(page) {
           //下面开始调用注册接口
           $api.login(data).then(res => {
             //请求成功
-            wx.setStorageSync('uid', res.data.id);
+            wx.setStorageSync('uid', res.data.openid);
             //回调页面 刷新数据
             if (page) {
               page.onShow();

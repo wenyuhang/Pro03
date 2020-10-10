@@ -1,0 +1,43 @@
+<view class="index-container">
+  <view>
+    <image wx:if="{{item.imageurl}}" src="{{baseurl + item.imageurl}}" class="pro-info-img" mode="aspectFit"
+      lazy-load="true" />
+  </view>
+
+  <view class="pro-info-title">
+    <view wx:if="{{item.subTitle}}" class="pro-info-subtitle">{{item.subTitle}}</view>
+    <view wx:if="{{item.name}}" class="pro-info-name">{{item.name}}</view>
+  </view>
+
+  <view class="pro-info-original-price">原价：{{item.price}}</view>
+
+  <view class="pro-info-coin-group">
+    <view class="pro-info-energy">{{item.energy}}</view>
+    <view class="unit">能量</view>
+
+    <view class="goods-plus">＋</view>
+
+    <view class="pro-info-energy">{{item.coin}}</view>
+    <view class="unit">金币</view>
+    <view class="pro-info-stock">剩余{{item.stock}}件</view>
+  </view>
+
+  <view>
+    <view class="convert-list-text">兑换记录</view>
+
+    <view class="convert-info" wx:for="{{15}}">
+      <view class="convert-erinfo">
+        <image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKy2a2yT95r6HGgGYsykL5DS1rIAAWcQSibqn2YsgkaY30hLPJIycc5yopCPovogr0px1I7vJV56Xg/132" class="convert-header" mode="aspectFit" lazy-load="true"/>
+      <text class="convert-name">张三</text>
+      </view>
+    
+      <text class="convert-time">2020-10-09 16:48</text>
+    </view>
+  </view>
+
+
+  <view class="convert-group">
+    <button class="pro-convert" bindtap="convertClick" id="{{item.id}}">立即兑换</button>
+  </view>
+ 
+</view>

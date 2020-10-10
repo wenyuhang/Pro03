@@ -38,7 +38,10 @@ function request(method,url,data){
 }
 
 const API = {
-  login : (data) => request(POST,'/wxlogin',data)
+  login : (data) => request(POST,'/wxlogin',data),
+  getProductList : (data) => request(POST,'/product/productList',data),
+  getProduct : (data) => request(POST,'/product/getProduct',data),
+  checkBalance : (data) =>request(POST,'/order/checkBalance',data)
 }
 
 module.exports = {

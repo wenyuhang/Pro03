@@ -2,7 +2,9 @@
   "pages":[
     "pages/home/index",
     "pages/mall/index",
-    "pages/mine/index"
+    "pages/mine/index",
+    "pages/product/index",
+    "pages/place_order/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

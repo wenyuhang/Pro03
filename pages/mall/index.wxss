@@ -79,7 +79,7 @@
 
 .goods-box .goods-price{
   overflow: hidden;
-  font-size: 40rpx;
+  font-size: 35rpx;
   margin-left:20rpx;
   color:#e64340;
 }
@@ -87,13 +87,13 @@
 .goods-box .unit{
   font-size: 20rpx;
   color:#e64340;
-  margin: 23rpx 0 10rpx 5rpx;
+  margin: 13rpx 0 10rpx 5rpx;
 }
 
 .goods-box .goods-plus{
   font-size: 30rpx;
   font-weight: bold;
-  margin: 10rpx 0 0 20rpx;
+  margin: 4rpx 0 0 20rpx;
 }
 
 .goods-original-price{
