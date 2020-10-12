@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "订单确认",
+  "disableScroll":true,
   "usingComponents": {}
 }
