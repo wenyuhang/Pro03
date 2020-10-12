@@ -15,23 +15,33 @@ Page({
   },
   //查询余额
   convertClick: function (e) {
-    //填充参数
-    let data = {
-      'pid': e.currentTarget.id,
-      'uid': wx.getStorageSync('uid')
+    //判断库存
+    if (this.data.item.stock <= 0) {
+      wx.showModal({
+        title: '提示',
+        content: '商品已被兑换完毕，工作人员正在加紧补货！~',
+        showCancel: false
+      })
+    } else {
+      //填充参数
+      let data = {
+        'pid': e.currentTarget.id,
+        'uid': wx.getStorageSync('uid')
+      }
+      //下面开始调用查询余额接口
+      $api.checkBalance(data).then(res => {
+        //请求成功
+        wx.navigateTo({
+          url: '/pages/place_order/index?id=' + e.currentTarget.id,
+        })
+      }).catch(err => {
+        //请求失败
+        wx.showToast({
+          title: err,
+        })
+      })
     }
-    //下面开始调用查询余额接口
-    $api.checkBalance(data).then(res => {
-      //请求成功
-      wx.navigateTo({
-        url: '/pages/place_order/index?id=' + e.currentTarget.id,
-      })
-    }).catch(err => {
-      //请求失败
-      wx.showToast({
-        title: err,
-      })
-    })
+
   },
   //获取商品信息
   getProduct: function (id) {

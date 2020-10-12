@@ -16,5 +16,49 @@
       <view class="price">20能量 + 20金币</view>
     </view>
 
+    <view class="pro-original-price">￥25.00</view>
+
+    <view class="line"></view>
+    <view class="express">
+      <text class="express-value">兑换数量</text>
+      <text class="express-key">1</text>
+    </view>
+
+    <view class="line"></view>
+    <view class="express">
+      <text class="express-value">支出金币</text>
+      <text class="express-key">1</text>
+    </view>
+
+    <view class="line"></view>
+    <view class="express">
+      <text class="express-value">支出包邮能量</text>
+      <text class="express-key">20</text>
+    </view>
+
+    <view class="line"></view>
+    <view class="express">
+      <text class="express-value">快递类型</text>
+      <text class="express-key">普通快递(包邮)</text>
+    </view>
+
+    <view class="line"></view>
+
+    <view class="pro-postage">
+      <text>需要支付邮费</text>
+      <text> 0.00 </text>
+      <text>元</text>
+    </view>
+
+  </view>
+  <view style="margin-bottom: 20rpx;"></view>
+  <view class="express-remark">
+      确认兑换后，我们会在1-5个工作日内确认订单并安排发货
+    </view>
+    <view class="express-remark">
+      （新疆、西藏等偏远地区暂不支持发货）
+    </view>
+  <view class="convert-group">
+    <button class="pro-convert" bindtap="convertClick" id="{{item.id}}">立即兑换</button>
   </view>
 </view>

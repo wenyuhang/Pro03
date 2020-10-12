@@ -10,18 +10,18 @@ page{
 }
 
 .cl{
-  height: 50%;
+  height: 760rpx;
   margin-left: 20rpx;
   margin-right: 20rpx;
   background: #fff;
   border-radius: 10rpx;
+  padding-top: 15rpx;
 }
 .cl .ad-icon{
   width: 50rpx;
   height: 130rpx;
   margin-left: 25rpx;
   margin-right: 25rpx;
-  background: greenyellow;
 }
 
 .cl .into-icon{
@@ -35,35 +35,31 @@ page{
 .cl .cl-group{
   display: inline-block;
   margin-left: 20rpx;
-  position: static;
+  position: fixed;
 }
 
 .cl .cl-group .l{
   height: 65rpx;
-  line-height: 75rpx;
+  line-height: 65rpx;
   font-size: 30rpx;
   font-weight: bold;
-  position: absolute;
-  top: 20rpx;
 }
 
 .cl .cl-group .a{
   height: 65rpx;
   line-height: 65rpx;
   font-size: 25rpx;
-  position: absolute;
-  top: 85rpx;
 }
 
 .line{
   border-top: 1px solid #F8F8F8;
-  margin: 0rpx 25rpx 25rpx 25rpx;
+  margin: 0 25rpx 0 25rpx;
 }
 
 .cl .pro-img{
   width: 150rpx;
   height: 150rpx;
-  margin-left: 25rpx;
+  margin: 25rpx 0 15rpx 25rpx;
 }
 
 .cl .name{
@@ -71,12 +67,73 @@ page{
   line-height: 75rpx;
   font-size: 30rpx;
   font-weight: bold;
-  background: red;
+  margin-top: 25rpx;
 }
 
 .cl .price{
   height: 75rpx;
   line-height: 75rpx;
+  font-size: 30rpx;
+  color: red;
+}
+
+.pro-original-price{
+  height: 75rpx;
+  line-height: 75rpx;
+  float: right;
   font-size: 25rpx;
-  background: red;
+  color: #aaa;
+  text-decoration: line-through;
+  margin-top: 100rpx;
+  margin-right: 20rpx;
+}
+
+.express{
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+}
+
+.express .express-value{
+  display: inline-block;
+  margin-left: 25rpx;
+}
+.express .express-key{
+  float: right;
+  margin-right: 25rpx;
+}
+
+.pro-postage{
+  float: right;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin-right: 25rpx;
+}
+
+.express-remark{
+  text-align: center;
+  font-size: 25rpx;
+  color: #aaa;
+  margin-top: 10rpx;
+}
+
+.convert-group{
+  width: 100%;
+  position: fixed;
+  background: white;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #E9E9E9;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.pro-convert{
+  width: 88% ;
+  height: 90rpx;
+  font-size: 35rpx;
+  line-height: 90rpx;
+  background:linear-gradient(#FF3E3B,#FD502D);
+  border-radius: 10rpx;
+  color: white;
 }
