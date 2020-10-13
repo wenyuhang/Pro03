@@ -14,10 +14,21 @@ Page({
     if (e.id > 0) {
       this.getProduct(e.id)
     }
+  },
+  onShow:function(e){
     //获取用户收货地址
     if (this.data.userid) {
       this.getAddress(this.data.userid);
     }
+  },
+  /**
+   * 我的地址
+   */
+  toMyAddress: function () {
+    //去编辑收货地址
+    wx.navigateTo({
+      url: '/pages/address/index',
+    })
   },
   //点击下单
   convertClick: function (e) {
@@ -36,14 +47,14 @@ Page({
       title: '提示',
       content: '下单成功后我们扣除您的包邮能量和金币！~',
       showCancel: true,
-      success(res){
-        if(res.confirm){
+      success(res) {
+        if (res.confirm) {
           //确认下单
           let pid = that.data.item.id;
           let uid = that.data.userid;
           let adid = that.data.address.id;
-          that.placeOrder(pid,uid,adid);
-        }else{
+          that.placeOrder(pid, uid, adid);
+        } else {
           //取消下单
           wx.showToast({
             title: '取消下单',
@@ -98,9 +109,9 @@ Page({
    * @param {*商品id} pid  
    * @param {*用户id} uid  
    */
-  placeOrder:function(pid,uid,adid){
+  placeOrder: function (pid, uid, adid) {
     wx.showToast({
-      title: pid+'下单成功'+uid,
+      title: pid + '下单成功' + uid,
     })
 
     // //填充参数

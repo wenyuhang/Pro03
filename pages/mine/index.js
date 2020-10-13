@@ -38,6 +38,48 @@ Page({
      
     })
   },
+
+  /**
+   * 我的订单
+   */
+  toMyOrder:function(){
+    wx.showToast({
+      title: '我的订单',
+    })
+  },
+  /**
+   * 我的地址
+   */
+  toMyAddress:function(){
+    //去编辑收货地址
+    wx.navigateTo({
+      url: '/pages/address/index',
+    })
+  },
+  /**
+   * 规则说明
+   */
+  toRule:function(){
+    wx.showToast({
+      title: '规则说明',
+    })
+  },
+  /**
+   * 反馈建议
+   */
+  toFeedBack:function(){
+    wx.showToast({
+      title: '反馈建议',
+    })
+  },
+  /**
+   * 关于我们
+   */
+  toAbout:function(){
+    wx.showToast({
+      title: '关于我们',
+    })
+  },
   //授权登录 获取用户信息回调
   processLogin(e) {
     if (!this.data.userInfo) return;

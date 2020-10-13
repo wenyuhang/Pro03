@@ -44,6 +44,8 @@ const API = {
   getProduct: (data) => request(POST, '/product/getProduct', data),
   checkBalance: (data) => request(POST, '/order/checkBalance', data),
   getAddress: (data) => request(POST, '/userinfo/getAddress', data),
+  addAddress: (data) => request(POST, '/userinfo/addAddress', data),
+  updateAddress: (data) => request(POST, '/userinfo/updateAddress', data),
   placeOrder: (data) => request(POST, '', data)
 }
 

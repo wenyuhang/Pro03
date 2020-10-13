@@ -1,0 +1,61 @@
+
+.index-container{
+  height: 100%;
+  background: #fff;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+}
+
+.tv-title{
+  display: inline-block;
+  width: 170rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 32rpx;
+}
+
+.tv-input{
+  display: inline-block;
+  height: 100rpx;
+  line-height: 100rpx;
+  vertical-align:top;
+  font-size: 30rpx;
+}
+
+.tv-text{
+  display: inline-block;
+  font-size: 30rpx;
+}
+
+.into-icon{
+  width: 30rpx;
+  height: 100rpx;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  float: right;
+}
+
+.line{
+  border-top: 1px solid #D6D6D6;
+}
+
+.confirm-group{
+  width: 100%;
+  position: fixed;
+  background: white;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #E9E9E9;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.btn-confirm{
+  width: 88% ;
+  height: 90rpx;
+  font-size: 35rpx;
+  line-height: 90rpx;
+  background:linear-gradient(#FF3E3B,#FD502D);
+  border-radius: 10rpx;
+  color: white;
+}

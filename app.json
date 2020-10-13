@@ -4,7 +4,8 @@
     "pages/mall/index",
     "pages/mine/index",
     "pages/product/index",
-    "pages/place_order/index"
+    "pages/place_order/index",
+    "pages/address/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

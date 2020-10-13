@@ -28,17 +28,17 @@
 
   <view class='order-address'>
 
-    <view class='item' bindtap=''>
+    <view class='item' bindtap='toMyOrder'>
       <image class="icon" src="../../image/myorder.png" background-size="cover"></image>
       <view class='text'>我的订单</view>
     </view>
 
-    <view class='item' bindtap=''>
+    <view class='item' bindtap='toMyAddress'>
       <image class="icon" src="../../image/myaddress.png" background-size="cover"></image>
       <view class='text'>我的地址</view>
     </view>
 
-    <view class='item' bindtap=''>
+    <view class='item' bindtap='toRule'>
       <image class="icon" src="../../image/rule.png" background-size="cover"></image>
       <view class='text'>规则说明</view>
     </view>
@@ -47,12 +47,12 @@
 
   <view class='order-address'>
 
-    <view class='item' bindtap=''>
+    <view class='item' bindtap='toFeedBack'>
       <image class="icon" src="../../image/feedback.png" background-size="cover"></image>
       <view class='text'>反馈建议</view>
     </view>
 
-    <view class='item' bindtap=''>
+    <view class='item' bindtap='toAbout'>
       <image class="icon" src="../../image/about.png" background-size="cover"></image>
       <view class='text'>关于我们</view>
     </view>

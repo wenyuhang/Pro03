@@ -1,22 +1,27 @@
 <view class="index-container">
   <view class="cl">
-    <image class="ad-icon" src="../../image/myaddress.png" background-size="cover" mode="aspectFit"></image>
-    <view class="cl-group">
-      <view class="l">收件人：温啊多</view>
-      <view class="a">山西省吕梁市文水县水上公园东区</view>
+
+    <view bindtap="toMyAddress">
+      <image class="ad-icon" src="../../image/myaddress.png" background-size="cover" mode="aspectFit"></image>
+      <view class="cl-group">
+        <view class="l">收件人：{{address.receiver}} {{address.mobile}}</view>
+        <view class="a">{{address.province + address.city + address.area + address.address}}</view>
+      </view>
+      <image class="into-icon" src="../../image/enter.png" background-size="cover" mode="aspectFit"></image>
     </view>
-    <image class="into-icon" src="../../image/enter.png" background-size="cover" mode="aspectFit"></image>
+
 
     <view class="line"></view>
 
-    <image class="pro-img" src="http://p15.qhimg.com/bdr/__85/t01baddceee97109922.jpg" background-size="cover" mode="aspectFill"></image>
+    <image class="pro-img" wx:if="{{ item.imageurl}}" src="{{baseurl + item.imageurl}}" background-size="cover"
+      mode="aspectFill"></image>
 
     <view class="cl-group">
-      <view class="name">女仆服务</view>
-      <view class="price">20能量 + 20金币</view>
+      <view class="name">{{item.name}}</view>
+      <view class="price">{{item.energy}}能量 + {{item.coin}}金币</view>
     </view>
 
-    <view class="pro-original-price">￥25.00</view>
+    <view class="pro-original-price">￥{{item.price}}</view>
 
     <view class="line"></view>
     <view class="express">
@@ -27,13 +32,13 @@
     <view class="line"></view>
     <view class="express">
       <text class="express-value">支出金币</text>
-      <text class="express-key">1</text>
+      <text class="express-key">{{item.coin}}</text>
     </view>
 
     <view class="line"></view>
     <view class="express">
       <text class="express-value">支出包邮能量</text>
-      <text class="express-key">20</text>
+      <text class="express-key">{{item.energy}}</text>
     </view>
 
     <view class="line"></view>
@@ -53,11 +58,11 @@
   </view>
   <view style="margin-bottom: 20rpx;"></view>
   <view class="express-remark">
-      确认兑换后，我们会在1-5个工作日内确认订单并安排发货
-    </view>
-    <view class="express-remark">
-      （新疆、西藏等偏远地区暂不支持发货）
-    </view>
+    确认兑换后，我们会在1-5个工作日内确认订单并安排发货
+  </view>
+  <view class="express-remark">
+    （新疆、西藏等偏远地区暂不支持发货）
+  </view>
   <view class="convert-group">
     <button class="pro-convert" bindtap="convertClick" id="{{item.id}}">立即兑换</button>
   </view>
