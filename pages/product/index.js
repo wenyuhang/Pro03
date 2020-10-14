@@ -30,14 +30,19 @@ Page({
       }
       //下面开始调用查询余额接口
       $api.checkBalance(data).then(res => {
-        //请求成功
-        wx.navigateTo({
-          url: '/pages/place_order/index?id=' + e.currentTarget.id,
-        })
+        //请求成功  判断状态码
+        if (res.code == 200) {
+          wx.navigateTo({
+            url: '/pages/place_order/index?id=' + e.currentTarget.id,
+          })
+        } else {
+          $api.showModal('提示', res.message, false);
+        }
       }).catch(err => {
         //请求失败
         wx.showToast({
           title: err,
+          icon: 'none'
         })
       })
     }
@@ -51,12 +56,18 @@ Page({
     }
     //下面开始调用商品详情接口
     $api.getProduct(data).then(res => {
-      this.setData({
-        item: res.data
-      })
+      //请求成功  判断状态码
+      if (res.code == 200) {
+        this.setData({
+          item: res.data
+        })
+      } else {
+        $api.showToast(res.message, 'none');
+      }
     }).catch(err => {
       //请求失败
       console.log(err);
+      $api.showToast(res.message, 'none');
     })
   }
 })

@@ -60,30 +60,16 @@ App({
   },
 
   onShow(e){
+    console.log(e)
     //保存邀请人
     if (e && e.query && e.query.inviter_id) {
-      wx.setStorageSync('referrer',e.query.inviter_id);
-      if (e.shareTicket) {
-        wx.getShareInfo({
-          shareTicket: e.shareTicket,
-          success:(res) =>{
-            console.log(res);
-            console.log({
-              referrer:e.query.inviter_id,
-              encryptedData:res.encryptedData,
-              iv:res.iv
-            })
-
-            // wx.login({
-            //   success: (res) =>{
-            //     if(res.code){
-            //       //处理登录逻辑
-            //     }
-            //   }
-            // })
-          }
-        })
+      if(!(wx.getStorageSync('uid') === e.query.inviter_id)){
+        console.log("不相等")
+        wx.setStorageSync('referrer',e.query.inviter_id);
+      }else{
+        console.log("相等")
       }
+   
     }
   },
 

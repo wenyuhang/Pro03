@@ -22,10 +22,10 @@
       <view class="goods-original-price">原价：{{item.price}}</view>
 
       <view style='display:flex;'>
-        <view class="goods-price">{{item.energy}}</view>
+        <!-- <view class="goods-price">{{item.energy}}</view>
         <view class="unit">能量</view>
 
-        <view class="goods-plus">＋</view>
+        <view class="goods-plus">＋</view> -->
 
         <view class="goods-price">{{item.coin}}</view>
         <view class="unit">金币</view>

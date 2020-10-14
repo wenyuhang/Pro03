@@ -5,7 +5,9 @@
     "pages/mine/index",
     "pages/product/index",
     "pages/place_order/index",
-    "pages/address/index"
+    "pages/address/index",
+    "pages/order_complete/index",
+    "pages/order_record/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -26,8 +26,20 @@ Page({
     //获取商品列表
     this.products();
   },
+  //页面显示
+  onShow: function (e) {
+    // if (wx.getStorageSync('pro_refresh') === 10) {
+    //   //清除状态
+    //   wx.removeStorageSync('pro_refresh');
+    //   //回到顶部
+    //   this.goTop();
+    //   //刷新商品列表
+    //   this.onPullDownRefresh();
+    // }
+  },
   //下拉刷新触发函数
   onPullDownRefresh: function () {
+    console.log("12345");
     this.setData({
       page: 1
     })
@@ -41,7 +53,7 @@ Page({
       //显示loading 框 需主动关闭
       wx.showLoading({
         title: '加载中...',
-        mask:true
+        mask: true
       })
       this.products()
     } else {
@@ -60,31 +72,38 @@ Page({
     }
     //下面开始调用商品列表接口
     $api.getProductList(data).then(res => {
-      let dataList = [];
-      if(this.data.page > 1){
-        dataList = this.data.items.concat(res.data.list);
-      }else{
-        dataList = res.data.list;
-      }
-      
-      this.setData({
-        items: dataList,
-        hasNextPage: res.data.hasNextPage,
-        page: res.data.nextPage
-      })
-       //关闭刷新
+      //关闭刷新
       this.cancelLoading();
+      //请求成功  判断状态码
+      if (res.code == 200) {
+        let dataList = [];
+        if (this.data.page > 1) {
+          dataList = this.data.items.concat(res.data.list);
+        } else {
+          dataList = res.data.list;
+        }
+        this.setData({
+          items: dataList,
+          hasNextPage: res.data.hasNextPage,
+          page: res.data.nextPage
+        })
+      } else {
+        $api.showToast(res.message, 'none');
+      }
+
     }).catch(err => {
       //请求失败
       console.log(err);
       //关闭刷新
       this.cancelLoading();
+      //网络错误
+      $api.showToast();
     })
   },
   /**
    * 关闭刷新
    */
-  cancelLoading:function(){
+  cancelLoading: function () {
     //隐藏loading框
     wx.hideLoading();
     //隐藏导航条加载动画

@@ -5,13 +5,13 @@
 
   <view class="info-data">
     <view class="group">
-      <image class="img" src="../../image/energy.png"/>
-      <view class="tv">包邮能量：{{energy}}</view>
-    </view>
-    
-    <view class="group">
     <image class="img" src="../../image/coin.png"/>
     <view class="tv">步数金币：{{coin}}</view>
+
+    <view class="group">
+      <!-- <image class="img" src="../../image/energy.png"/>
+      <view class="tv">包邮能量：{{energy}}</view> -->
+    </view>
   </view>
     
   </view>
@@ -28,9 +28,9 @@
     </view>
   </view>
 
-  <button class="invite-friend">邀请好友得10点包邮能量</button>
+  <button class="invite-friend" bindtap="inviteClick" open-type="share">邀请好友得10金币</button>
 
-  <text class="iv-explain">包邮能量可帮您免费包邮哦</text>
+  <text class="iv-explain">金币可帮您兑换包邮商品哦</text>
 
   <view class="iv-group">
     <image class="iv-img"></image>
@@ -43,7 +43,7 @@
   
   <view class="ad-group">
   
-    <button class="ad-tv">赚取更多包邮能量</button>
+    <button class="ad-tv">赚取更多金币</button>
   </view>
 
 

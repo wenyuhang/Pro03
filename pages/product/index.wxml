@@ -12,10 +12,10 @@
   <view class="pro-info-original-price">原价：{{item.price}}</view>
 
   <view class="pro-info-coin-group">
-    <view class="pro-info-energy">{{item.energy}}</view>
+    <!-- <view class="pro-info-energy">{{item.energy}}</view>
     <view class="unit">能量</view>
 
-    <view class="goods-plus">＋</view>
+    <view class="goods-plus">＋</view> -->
 
     <view class="pro-info-energy">{{item.coin}}</view>
     <view class="unit">金币</view>

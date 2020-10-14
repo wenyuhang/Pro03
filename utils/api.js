@@ -21,13 +21,8 @@ function request(method, url, data) {
       data: method === POST ? JSON.stringify(data) : data,
       header: header,
       success: (res) => {
-        //请求成功 判断状态码 errCode
-        if (res.data.code == 200) {
-          resolve(res.data);
-        } else {
-          //其他错误
-          reject(res.data.message);
-        }
+        //请求成功 errCode
+        resolve(res.data);
       },
       fail(err) {
         //请求失败s
@@ -38,7 +33,35 @@ function request(method, url, data) {
   })
 }
 
+/**
+ * 封装toast 
+ * @param {*内容} msg 
+ * @param {*logo} icon 
+ */
+function showToast(msg, icon) {
+  wx.showToast({
+    title: msg,
+    icon: icon
+  })
+}
+
+/**
+ * 封装 dialog
+ * @param {*标题} title 
+ * @param {*内容} msg 
+ * @param {*是否显示取消按钮} bool 
+ */
+function showModal(title, msg, bool) {
+  wx.showModal({
+    title: title,
+    content: msg,
+    showCancel: bool
+  })
+}
+
 const API = {
+  showToast: (msg, icon) => showToast(msg, icon),
+  showModal: (title, msg, bool) => showModal(title, msg, bool),
   login: (data) => request(POST, '/wxlogin', data),
   getProductList: (data) => request(POST, '/product/productList', data),
   getProduct: (data) => request(POST, '/product/getProduct', data),
@@ -46,7 +69,8 @@ const API = {
   getAddress: (data) => request(POST, '/userinfo/getAddress', data),
   addAddress: (data) => request(POST, '/userinfo/addAddress', data),
   updateAddress: (data) => request(POST, '/userinfo/updateAddress', data),
-  placeOrder: (data) => request(POST, '', data)
+  placeOrder: (data) => request(POST, '/order/placeOrder', data),
+  getMyOrder: (data) => request(POST, '/order/myOrder', data)
 }
 
 module.exports = {

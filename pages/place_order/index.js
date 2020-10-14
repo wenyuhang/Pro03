@@ -4,10 +4,10 @@ const $api = require("../../utils/api").API;
 
 Page({
   data: {
-    'baseurl': app.globalData.BASE_URL,
-    'userid': wx.getStorageSync('uid'),
-    'item': {},
-    'address': {}
+    baseurl: app.globalData.BASE_URL,
+    userid: wx.getStorageSync('uid'),
+    item: {},
+    address: {}
   },
   onLoad: function (e) {
     //获取商品详情
@@ -15,7 +15,7 @@ Page({
       this.getProduct(e.id)
     }
   },
-  onShow:function(e){
+  onShow: function (e) {
     //获取用户收货地址
     if (this.data.userid) {
       this.getAddress(this.data.userid);
@@ -110,23 +110,43 @@ Page({
    * @param {*用户id} uid  
    */
   placeOrder: function (pid, uid, adid) {
-    wx.showToast({
-      title: pid + '下单成功' + uid,
-    })
-
-    // //填充参数
-    // let data = {
-    //   'pid': pid,
-    //   'uid':uid,
-    //   'adid':adid
-    // }
-    // //下面开始调用用户下单扣款接口
-    // $api.placeOrder(data).then(res => {
-    //   //请求成功
-    // }).catch(err => {
-    //   //请求失败
-    //   console.log(err);
+    // wx.showToast({
+    //   title: pid + '下单成功' + uid,
     // })
+
+    //填充参数
+    let data = {
+      'pid': pid,
+      'uid': uid,
+      'adid': adid
+    }
+    //下面开始调用用户下单扣款接口
+    $api.placeOrder(data).then(res => {
+      //请求成功  判断状态码
+      if (res.code == 200) {
+        //tips
+        $api.showToast(res.message, 'success')
+        //延时跳转
+        setTimeout(this.jumpSUccess, 1000);
+      } else {
+        $api.showModal('提示', res.message, false);
+      }
+    }).catch(err => {
+      //请求失败
+      $api.showToast(err, 'none')
+    })
+  },
+  jumpSUccess: function () {
+    //关闭当前页和商品详情页
+    wx.navigateBack({
+      delta: 2,
+    })
+    //保存商品列表刷新状态
+    // wx.setStorageSync('pro_refresh', 10)
+    //跳转成功页
+    wx.navigateTo({
+      url: '/pages/order_complete/index',
+    })
   }
 
 

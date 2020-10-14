@@ -18,7 +18,7 @@
 
     <view class="cl-group">
       <view class="name">{{item.name}}</view>
-      <view class="price">{{item.energy}}能量 + {{item.coin}}金币</view>
+      <view class="price">{{item.coin}}金币</view>
     </view>
 
     <view class="pro-original-price">￥{{item.price}}</view>

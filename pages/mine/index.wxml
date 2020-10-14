@@ -10,10 +10,10 @@
   </view>
 
   <view class="asset">
-    <view class='item' bindtap='goAsset'>
+    <!-- <view class='item' bindtap='goAsset'>
       <view class="text">{{energy}}</view>
       <view class="tv">包邮能量</view>
-    </view>
+    </view> -->
     <view class='item' bindtap='goAsset'>
       <view class="text">{{coin}}</view>
       <view class="tv">金币</view>

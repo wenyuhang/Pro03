@@ -43,8 +43,8 @@ Page({
    * 我的订单
    */
   toMyOrder:function(){
-    wx.showToast({
-      title: '我的订单',
+    wx.navigateTo({
+      url: '/pages/order_record/index',
     })
   },
   /**

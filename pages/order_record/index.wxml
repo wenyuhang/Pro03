@@ -1,0 +1,25 @@
+<view class="index-container">
+  <view class="order-group" wx:for="{{items}}" wx:key="item">
+
+    <view class="order">
+      <text class="tv-order-code">订单编号:</text>
+      <text class="order-code">N202010141107290001</text>
+      <text class="order-status">已发货</text>
+
+      <image src="http://192.168.1.142:8080/steps/img/product/1602559008089.jpg" class="pro-img" mode="aspectFill"
+        lazy-load="true" />
+      <view class="cl-group">
+        <view class="name">奥迪A4L</view>
+        <view class="price">9999金币 x1</view>
+      </view>
+
+      <view>
+        <text class="tv-order-number">订单编号:</text>
+        <text class="order-number">1232541654681523</text>
+      </view>
+      <view class="order-time">2020.10.14 17:27</view>
+    </view>
+
+  </view>
+
+</view>

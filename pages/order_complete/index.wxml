@@ -1,0 +1,11 @@
+<view>
+
+  <image class="house-icon" src="../../image/house.png" background-size="cover" mode="aspectFit"></image>
+  <view class="tv">兑换完成</view>
+  <view class="tv">工作人员正在快速审核订单</view>
+
+  <button class="btn">分享给朋友和家人</button>
+
+
+
+</view>
