@@ -70,7 +70,9 @@ const API = {
   addAddress: (data) => request(POST, '/userinfo/addAddress', data),
   updateAddress: (data) => request(POST, '/userinfo/updateAddress', data),
   placeOrder: (data) => request(POST, '/order/placeOrder', data),
-  getMyOrder: (data) => request(POST, '/order/myOrder', data)
+  getMyOrder: (data) => request(POST, '/order/myOrder', data),
+  getInviteRecord: (data) => request(POST, '/userinfo/getInviteRecord', data),
+  getCoinRecord:(data) => request(POST,'/userinfo/coinRecord',data)
 }
 
 module.exports = {

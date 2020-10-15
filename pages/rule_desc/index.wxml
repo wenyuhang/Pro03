@@ -1,0 +1,97 @@
+<view class="index-container">
+  <view class="tv-title">小程序简介</view>
+
+  <view class="tv-content">
+    步数多多是一款运动健康为主的小程序，您可以通过每日的运动步数免费兑换平台内的任何商品。当然您还可以通过邀请好友得方式快速积攒金币兑换心仪的商品。
+  </view>
+
+  <view class="tv-title">什么是金币</view>
+
+  <view class="tv-content">
+    金币是用户在步数多多里获得的奖励，可以在商城里兑换各种免费包邮的商品。
+  </view>
+
+  <view class="tv-content">
+    金币可以通过每日微信运动步数进行兑换，具体兑换 汇率受平台运营收益影响（上下会有浮动）。
+  </view>
+
+  <view class="tv-title">如何获取金币？</view>
+
+  <view class="tv-title-h1">1、通过步数兑换</view>
+
+  <view class="tv-content">
+    · 步数多多的步数数据来源于微信运动，并且会跟着微信运动每日清零，记得及时兑换。
+  </view>
+
+  <view class="tv-content">
+    · 每人每日的有效步数最多为20000步。例如：您当日走了30000步，平台只认定20000步有效。
+  </view>
+
+  <view class="tv-title-h1">2、通过邀请好友获得</view>
+
+  <view class="tv-content">
+    · 通过邀请未注册的好友，您可以获得10金币的奖励。
+  </view>
+
+  <view class="tv-title">金币如何使用？</view>
+
+  <view class="tv-content">
+    1、可以在商城专区选择自己喜欢的商品进行免邮兑换；
+  </view>
+
+  <view class="tv-content">
+    2、金币可以累积，不清零。
+  </view>
+
+  <view class="tv-title">注意事项</view>
+
+  <view class="tv-content">
+    1、目前暂不支持新疆、西藏等偏远地区发货；
+  </view>
+
+  <view class="tv-content">
+    2、兑换成功后会在1~5工作日内确认订单并安排发货，可以在 “我的” - “我的订单” 页面查看订单详情；
+  </view>
+
+  <view class="tv-content">
+    3、订单一旦提交后，不支持修改地址信息，请确认无误后再提交信息；
+  </view>
+
+  <view class="tv-content">
+    4、如因地址、手机等收货信息填写错误，邮递人员多次联系不上，导致商品自动退回的情况，平台不会补寄商品；
+  </view>
+
+  <view class="tv-content">
+    5、发货信息请尽量填写真实姓名，如因收件人姓名原因导致快递无法正常发货，平台不会安排补发。
+  </view>
+
+  <view class="tv-title">违规行为</view>
+
+  <view class="tv-content">
+    1、使用摇步器获取步数；
+  </view>
+
+  <view class="tv-content">
+    2、使用外挂程序刷步数；
+  </view>
+
+  <view class="tv-content">
+    3、家庭宠物代步；
+  </view>
+
+  <view class="tv-content">
+    4、多名用户同步同一计步设备；
+  </view>
+
+  <view class="tv-content">
+    5、通过除行走/跑步外的作弊方式积累步数；
+  </view>
+
+  <view class="tv-content">
+    6、同一地址、同一姓名、同一联系方式多账号兑换。
+  </view>
+
+  <view class="tv-content">
+    步数多多提倡健康运动、自由兑换。一旦出现上述违规或恶意刷步行为，步数多多有缘判定订单无效进行账户清零。严重者将做永久封号处理。
+  </view>
+</view>

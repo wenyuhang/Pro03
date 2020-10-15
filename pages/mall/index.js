@@ -6,10 +6,10 @@ const $api = require("../../utils/api").API;
 
 Page({
   data: {
-    'baseurl': app.globalData.BASE_URL,
-    'page': 1,
-    'hasNextPage': true,
-    "items": [],
+    baseurl: app.globalData.BASE_URL,
+    page: 1,
+    hasNextPage: true,
+    items: [],
     banners: [{
         "picUrl": "https://dcdn.it120.cc/2019/12/29/8396f65d-d615-46d8-b2e5-aa41820b9fe5.png"
       },

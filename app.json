@@ -7,7 +7,12 @@
     "pages/place_order/index",
     "pages/address/index",
     "pages/order_complete/index",
-    "pages/order_record/index"
+    "pages/order_record/index",
+    "pages/invite_record/index",
+    "pages/coin_record/index",
+    "pages/rule_desc/index",
+    "pages/faq/index",
+    "pages/feedback/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

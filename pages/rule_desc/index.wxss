@@ -1,0 +1,23 @@
+
+.index-container{
+  padding: 30rpx;
+}
+
+.tv-title{
+  font-weight: bold;
+  font-size: 40rpx;
+  margin-top: 30rpx;
+}
+
+.tv-title-h1{
+  font-weight: bold;
+  font-size: 35rpx;
+  margin-top: 30rpx;
+}
+
+
+.tv-content{
+  color: #676767;
+  font-size: 27rpx;
+  margin-top: 20rpx;
+}

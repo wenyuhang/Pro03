@@ -1,0 +1,29 @@
+.invite-info{
+  height: 100rpx;
+  border-bottom: 1px solid #F8F8F8;
+  margin-left: 25rpx;
+  margin-right: 30rpx;
+}
+
+.invite-info .invite-header{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  margin-top: 15rpx;
+}
+
+.invite-info .invite-name{
+  display: inline-block;
+  height: 100rpx;
+  line-height: 100rpx;
+  vertical-align: top;
+  margin-left: 20rpx;
+}
+
+.invite-info .invite-time{
+  height: 100rpx;
+  line-height: 100rpx;
+  vertical-align: top;
+  float: right;
+
+}

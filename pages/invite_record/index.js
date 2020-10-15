@@ -2,7 +2,6 @@
 const app = getApp();
 const $api = require("../../utils/api").API;
 
-
 Page({
   data: {
     baseurl: app.globalData.BASE_URL,
@@ -10,15 +9,14 @@ Page({
     hasNextPage: true,
     items: []
   },
-
   onLoad: function (e) {
     let uid = wx.getStorageSync('uid');
     if (uid) {
-      this.getMyOrder(uid);
+      this.getInviteRecord(uid);
     }
   },
-  //触底函数
-  onReachBottom: function () {
+   //触底函数
+   onReachBottom: function () {
     if (this.data.hasNextPage) {
       //显示loading 框 需主动关闭
       wx.showLoading({
@@ -26,7 +24,7 @@ Page({
         mask: true
       })
       let uid = wx.getStorageSync('uid');
-      this.getMyOrder(uid)
+      this.getInviteRecord(uid)
     } else {
       wx.showToast({
         title: '没有更多数据',
@@ -34,18 +32,18 @@ Page({
     }
   },
   /**
-   * 获取我的订单列表
+   * 获取我的邀请记录
    * @param {*} id 
    */
-  getMyOrder: function (id) {
+  getInviteRecord: function (id) {
     //填充参数
     let data = {
       'id': id,
       'page': this.data.page,
       'size': 10
     }
-    //下面开始调用商品列表接口
-    $api.getMyOrder(data).then(res => {
+    //下面开始调用邀请记录接口
+    $api.getInviteRecord(data).then(res => {
       //关闭刷新
       this.cancelLoading();
       //请求成功  判断状态码

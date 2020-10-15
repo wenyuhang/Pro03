@@ -14,11 +14,11 @@
       <view class="text">{{energy}}</view>
       <view class="tv">包邮能量</view>
     </view> -->
-    <view class='item' bindtap='goAsset'>
+    <view class='item' bindtap='coinRecord'>
       <view class="text">{{coin}}</view>
       <view class="tv">金币</view>
     </view>
-    <view class='item' bindtap='goScore'>
+    <view class='item' bindtap='inviteRecord'>
       <view class="text">{{invite}}</view>
       <view class="tv">邀请好友</view>
     </view>
@@ -54,7 +54,7 @@
 
     <view class='item' bindtap='toAbout'>
       <image class="icon" src="../../image/about.png" background-size="cover"></image>
-      <view class='text'>关于我们</view>
+      <view class='text'>常见问题</view>
     </view>
 
     <view class='item'>

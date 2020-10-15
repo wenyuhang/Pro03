@@ -30,15 +30,29 @@ Page({
             this.setData({
               wxlogin: true,
               userInfo: res.userInfo
-            })
-           
+            })     
           }
         })
       }
      
     })
   },
-
+  /**
+   * 金币记录
+   */
+  coinRecord:function(){
+    wx.navigateTo({
+      url: '/pages/coin_record/index',
+    })
+  },
+  /**
+   * 邀请记录
+   */
+  inviteRecord:function(){
+    wx.navigateTo({
+      url: '/pages/invite_record/index',
+    })
+  },
   /**
    * 我的订单
    */
@@ -60,24 +74,24 @@ Page({
    * 规则说明
    */
   toRule:function(){
-    wx.showToast({
-      title: '规则说明',
+    wx.navigateTo({
+      url: '/pages/rule_desc/index',
     })
   },
   /**
    * 反馈建议
    */
   toFeedBack:function(){
-    wx.showToast({
-      title: '反馈建议',
+    wx.navigateTo({
+      url: '/pages/feedback/index',
     })
   },
   /**
-   * 关于我们
+   * 常见问题
    */
   toAbout:function(){
-    wx.showToast({
-      title: '关于我们',
+    wx.navigateTo({
+      url: '/pages/faq/index',
     })
   },
   //授权登录 获取用户信息回调

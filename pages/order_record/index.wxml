@@ -3,21 +3,24 @@
 
     <view class="order">
       <text class="tv-order-code">订单编号:</text>
-      <text class="order-code">N202010141107290001</text>
-      <text class="order-status">已发货</text>
+      <text class="order-code">{{item.ordercode}}</text>
 
-      <image src="http://192.168.1.142:8080/steps/img/product/1602559008089.jpg" class="pro-img" mode="aspectFill"
-        lazy-load="true" />
+      <text class="order-status" wx:if="{{item.status === 10}}">已兑换</text>
+      <text class="order-status" wx:elif="{{item.status === 20}}">已发货</text>
+      <text class="order-status" wx:else>已完成</text>
+
+      <image src="{{baseurl + item.product.imageurl}}" class="pro-img" mode="aspectFill" lazy-load="true" />
       <view class="cl-group">
-        <view class="name">奥迪A4L</view>
-        <view class="price">9999金币 x1</view>
+        <view class="name">{{item.product.name}}</view>
+        <view class="price">{{item.product.coin}}金币 x1</view>
       </view>
 
       <view>
-        <text class="tv-order-number">订单编号:</text>
-        <text class="order-number">1232541654681523</text>
+        <text class="tv-order-number">快递编号:</text>
+        <text class="order-number" wx:if="{{item.couriernumber}}">{{item.couriernumber}}</text>
+        <text class="order-number" wx:else>暂未发货</text>
       </view>
-      <view class="order-time">2020.10.14 17:27</view>
+      <view class="order-time">{{item.createdate}}</view>
     </view>
 
   </view>

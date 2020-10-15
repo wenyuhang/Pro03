@@ -1,0 +1,25 @@
+<view class="index-container">
+
+  <view class="user-coin">
+    <view class="group">
+      <view class="coin-num">{{coin}}</view>
+      <view class="tv-coin">可用金币</view>
+    </view>
+
+    <text class="coin-rule">金币规则</text>
+  </view>
+
+  <view class="record-title">金币明细</view>
+
+  <view class="coin-info" wx:for="{{items}}" wx:key="item">
+    <view class="group">
+      <view class="coin-desc">{{item.tran_desc}}</view>
+
+      <view class="coin-time">{{item.createdate}}</view>
+    </view>
+    <view class="coin-num">
+      {{item.coin}} 金币
+    </view>
+  </view>
+
+</view>

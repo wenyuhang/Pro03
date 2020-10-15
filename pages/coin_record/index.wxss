@@ -1,0 +1,68 @@
+
+.user-coin{
+  height: 200rpx;
+  color: #fff;
+  background:radial-gradient(#FF6666,#FE877F);
+  border-radius: 10rpx;
+  margin: 25rpx;
+  padding-left: 25rpx;
+}
+.user-coin .group{
+  display: inline-block;
+}
+
+.user-coin .group .coin-num{
+  margin-top: 45rpx;
+  font-weight: bold;
+  font-size: 70rpx;
+}
+
+.user-coin .group .tv-coin{
+  font-size: 28rpx;
+}
+
+.user-coin .coin-rule{
+  float: right;
+  font-size: 25rpx;
+  margin: 25rpx;
+}
+
+.record-title{
+  font-size: 35rpx;
+  font-weight: bold;
+  margin-left: 25rpx;
+  margin-bottom: 25rpx;
+}
+
+.coin-info{
+  height: 120rpx;
+  border-bottom: 1rpx solid #D6D6D6;
+  padding-top: 15rpx;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+}
+
+.coin-info .group{
+  display: inline-block;
+  height: 50rpx;
+}
+
+.coin-info .group .coin-desc{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
+.coin-info .group .coin-time{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 25rpx;
+}
+
+.coin-info .coin-num{
+  float: right;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: red;
+}

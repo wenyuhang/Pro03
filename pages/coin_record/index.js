@@ -1,20 +1,17 @@
-//获取应用实例
-const app = getApp();
+//获取api实例
 const $api = require("../../utils/api").API;
-
 
 Page({
   data: {
-    baseurl: app.globalData.BASE_URL,
+    coin:0.00,
     page: 1,
     hasNextPage: true,
     items: []
   },
-
   onLoad: function (e) {
     let uid = wx.getStorageSync('uid');
     if (uid) {
-      this.getMyOrder(uid);
+      this.getCoinRecord(uid);
     }
   },
   //触底函数
@@ -26,7 +23,7 @@ Page({
         mask: true
       })
       let uid = wx.getStorageSync('uid');
-      this.getMyOrder(uid)
+      this.getCoinRecord(uid)
     } else {
       wx.showToast({
         title: '没有更多数据',
@@ -34,18 +31,18 @@ Page({
     }
   },
   /**
-   * 获取我的订单列表
+   * 获取我的金币交易记录
    * @param {*} id 
    */
-  getMyOrder: function (id) {
+  getCoinRecord: function (id) {
     //填充参数
     let data = {
       'id': id,
       'page': this.data.page,
       'size': 10
     }
-    //下面开始调用商品列表接口
-    $api.getMyOrder(data).then(res => {
+    //下面开始调用邀请记录接口
+    $api.getCoinRecord(data).then(res => {
       //关闭刷新
       this.cancelLoading();
       //请求成功  判断状态码
@@ -72,7 +69,7 @@ Page({
       $api.showToast();
     })
   },
-    /**
+  /**
    * 关闭刷新
    */
   cancelLoading: function () {
