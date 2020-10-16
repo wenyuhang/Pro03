@@ -1,3 +1,27 @@
-<view>
-  常见问题
+<view class='index-container'>
+
+  <!-- <view class='help_item' wx:for='{{maskData}}' wx:key='{{index}}'>
+    <view class='title' data-index='{{index + 1}}' catchtap='panel'>
+      <view class='title_1'>{{item.title}}{{index}}</view>
+      <view class='title_2'>
+        <image src="../../images/{{showIndex == index + 1 ? 'up':'down'}}.png"></image>
+      </view>
+    </view>
+    <view class='detail' wx:if="{{showIndex == index + 1}}">{{item.text}}{{index}}</view>
+  </view> -->
+
+
+
+  <view wx:for="{{maskData}}" wx:key='{{index}}'>
+    <view class="index-item">
+      <view data-index='{{index}}' catchtap='panel' class="group">
+        <view class="tv-title">{{item.title}}</view>
+        <image class="img" src="../../image/{{item.showIndex == 0 ? 'down' : 'up'}}.png" mode="aspectFit"></image>
+      </view>
+
+      <view class="tv-detail" wx:if="{{item.showIndex == 1 }}">{{item.text}}</view>
+    </view>
+
+
+  </view>
 </view>

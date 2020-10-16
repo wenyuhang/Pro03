@@ -1,0 +1,35 @@
+.index-container {
+  background: #F8F8F8;
+  padding-top: 20rpx;
+}
+
+.index-item {
+  border: 1rpx solid #EFEFEF;
+}
+
+.group {
+  background: #fff;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+.group .tv-title {
+  display: inline-block;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 28rpx;
+  color: #222222;
+}
+
+.group .img {
+  width: 30rpx;
+  height: 90rpx;
+  float: right;
+}
+
+.tv-detail {
+  background: #F8F8F8;
+  padding: 20rpx;
+  font-size: 23rpx;
+  color: #656565;
+}

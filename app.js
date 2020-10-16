@@ -60,7 +60,6 @@ App({
   },
 
   onShow(e){
-    console.log(e)
     //保存邀请人
     if (e && e.query && e.query.inviter_id) {
       if(!(wx.getStorageSync('uid') === e.query.inviter_id)){
@@ -76,6 +75,10 @@ App({
   globalData: {
     BASE_URL : 'http://192.168.1.142:8080/steps/',
     isConnected: true,
-    userInfo:{}
+    userInfo:{
+      name:'立即登录',
+      headimgurl:'',
+      coin_total:0
+    }
   }
 })

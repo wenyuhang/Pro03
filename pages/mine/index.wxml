@@ -1,8 +1,8 @@
 <import src="/template/authlogin/index.wxml" />
 <view>
-  <view wx:if="{{userInfo.avatarUrl}}" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  <view wx:if="{{userInfo.headimgurl}}" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.headimgurl}}" mode="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.name}}</text>
   </view>
   <view wx:else class="userinfo">
     <image class="userinfo-avatar" src="/image/nologin.png" background-size="cover"></image>
@@ -15,7 +15,7 @@
       <view class="tv">包邮能量</view>
     </view> -->
     <view class='item' bindtap='coinRecord'>
-      <view class="text">{{coin}}</view>
+      <view class="text">{{userInfo.coin_total}}</view>
       <view class="tv">金币</view>
     </view>
     <view class='item' bindtap='inviteRecord'>
@@ -47,12 +47,12 @@
 
   <view class='order-address'>
 
-    <view class='item' bindtap='toFeedBack'>
+    <view class='item' bindtap='toAbout'>
       <image class="icon" src="../../image/feedback.png" background-size="cover"></image>
-      <view class='text'>反馈建议</view>
+      <view class='text'>关于我们</view>
     </view>
 
-    <view class='item' bindtap='toAbout'>
+    <view class='item' bindtap='toFAQ'>
       <image class="icon" src="../../image/about.png" background-size="cover"></image>
       <view class='text'>常见问题</view>
     </view>

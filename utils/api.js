@@ -60,19 +60,36 @@ function showModal(title, msg, bool) {
 }
 
 const API = {
+  //封装Toast
   showToast: (msg, icon) => showToast(msg, icon),
+  //封装弹框
   showModal: (title, msg, bool) => showModal(title, msg, bool),
+  //登录注册
   login: (data) => request(POST, '/wxlogin', data),
+  //获取商品列表
   getProductList: (data) => request(POST, '/product/productList', data),
+  //获取单个商品详情
   getProduct: (data) => request(POST, '/product/getProduct', data),
+  //下单前查询余额
   checkBalance: (data) => request(POST, '/order/checkBalance', data),
+  //获取收货地址
   getAddress: (data) => request(POST, '/userinfo/getAddress', data),
+  //添加收货地址
   addAddress: (data) => request(POST, '/userinfo/addAddress', data),
+  //更新收货地址
   updateAddress: (data) => request(POST, '/userinfo/updateAddress', data),
+  //确认下单
   placeOrder: (data) => request(POST, '/order/placeOrder', data),
+  //获取我的订单记录
   getMyOrder: (data) => request(POST, '/order/myOrder', data),
+  //获取邀请好友记录
   getInviteRecord: (data) => request(POST, '/userinfo/getInviteRecord', data),
-  getCoinRecord:(data) => request(POST,'/userinfo/coinRecord',data)
+  //获取金币交易记录
+  getCoinRecord:(data) => request(POST,'/userinfo/coinRecord',data),
+  //解密微信步数
+  getRunSteps:(data) => request(POST,'/userinfo/getRunSteps',data),
+  //步数转换金币
+  convertSteps:(data) => request(POST,'/userinfo/convertSteps',data)
 }
 
 module.exports = {

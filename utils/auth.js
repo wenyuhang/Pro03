@@ -58,7 +58,7 @@ async function userLogin(page) {
             wx.setStorageSync('uid', res.data.id);
             //回调页面 刷新数据
             if (page) {
-              page.onShow();
+              page.onShow(res.data);
             }
           }).catch(err => {
             //请求失败

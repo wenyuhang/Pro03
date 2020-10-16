@@ -12,7 +12,7 @@
     "pages/coin_record/index",
     "pages/rule_desc/index",
     "pages/faq/index",
-    "pages/feedback/index"
+    "pages/about/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

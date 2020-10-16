@@ -6,7 +6,7 @@ const AUTH = require('../../utils/auth');
 Page({
   data: {
     wxlogin: true,
-    userInfo: {},
+    userInfo: app.globalData.userInfo,
     energy:'88.88',
     coin:'1024',
     invite:'0'
@@ -17,23 +17,24 @@ Page({
   },
 
   onShow: function () {
+    console.log(app.globalData.userInfo)
     //检查登录状态
     AUTH.checkHasLogined().then(res => {
       this.setData({
         wxlogin: res,
         userInfo: app.globalData.userInfo
       })
-      if(res && !this.userInfo){
-        wx.getUserInfo({
-          success: res => {
-            app.globalData.userInfo = res.userInfo;
-            this.setData({
-              wxlogin: true,
-              userInfo: res.userInfo
-            })     
-          }
-        })
-      }
+      // if(res && !this.userInfo){
+      //   wx.getUserInfo({
+      //     success: res => {
+      //       app.globalData.userInfo = res.userInfo;
+      //       this.setData({
+      //         wxlogin: true,
+      //         userInfo: res.userInfo
+      //       })     
+      //     }
+      //   })
+      // }
      
     })
   },
@@ -79,17 +80,17 @@ Page({
     })
   },
   /**
-   * 反馈建议
+   * 关于我们
    */
-  toFeedBack:function(){
+  toAbout:function(){
     wx.navigateTo({
-      url: '/pages/feedback/index',
+      url: '/pages/about/index',
     })
   },
   /**
    * 常见问题
    */
-  toAbout:function(){
+  toFAQ:function(){
     wx.navigateTo({
       url: '/pages/faq/index',
     })

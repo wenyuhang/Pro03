@@ -6,7 +6,7 @@
   <view class="info-data">
     <view class="group">
     <image class="img" src="../../image/coin.png"/>
-    <view class="tv">步数金币：{{coin}}</view>
+    <view class="tv">步数金币：{{userInfo.coin_total}}</view>
 
     <view class="group">
       <!-- <image class="img" src="../../image/energy.png"/>
@@ -18,17 +18,19 @@
 
   <!-- <button bindtap="getRun" type="defult">获取运动步数</button> -->
 
-  <view class="convert-strps">
+  <view class="convert-strps" bindtap="converClick">
     <image class="cs-bg" mode="scaleToFill" src="../../image/ring.png"></image>
     <view class="cs-tv">
       <text class="cs-tv-f">今日步数</text>
       <text class="cs-tv-t">(次日清零)</text>
-      <text class="cs-tv-n">3914</text>
+      <text class="cs-tv-n">{{steps}}</text>
       <text class="cs-tv-c">点击兑换金币</text>
     </view>
   </view>
 
-  <button class="invite-friend" bindtap="inviteClick" open-type="share">邀请好友得10金币</button>
+  <text class="iv-explain">试运营阶段邀请好友可获得30金币奖励</text>
+
+  <button class="invite-friend" bindtap="inviteClick" open-type="share">邀请好友得金币奖励</button>
 
   <text class="iv-explain">金币可帮您兑换包邮商品哦</text>
 
