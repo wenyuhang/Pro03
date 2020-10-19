@@ -89,7 +89,9 @@ const API = {
   //解密微信步数
   getRunSteps:(data) => request(POST,'/userinfo/getRunSteps',data),
   //步数转换金币
-  convertSteps:(data) => request(POST,'/userinfo/convertSteps',data)
+  convertSteps:(data) => request(POST,'/userinfo/convertSteps',data),
+  //获取用户信息
+  getUserInfo:(data) => request(POST,'/userinfo/getUserInfo',data)
 }
 
 module.exports = {

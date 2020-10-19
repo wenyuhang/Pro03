@@ -13,6 +13,9 @@ Page({
     if (uid) {
       this.getCoinRecord(uid);
     }
+    this.setData({
+      coin:e.coin_total
+    })
   },
   //触底函数
   onReachBottom: function () {

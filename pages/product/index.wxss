@@ -1,23 +1,24 @@
-page{
+page {
   height: 100%;
 }
-.index-container{
+
+.index-container {
   width: 100%;
   height: 100%;
   background-color: white;
 }
 
-.pro-info-img{
+.pro-info-img {
   width: 100%;
   height: 500rpx;
 }
 
-.pro-info-title{
+.pro-info-title {
   display: flex;
   align-items: center;
 }
 
-.pro-info-title .pro-info-subtitle{
+.pro-info-title .pro-info-subtitle {
   display: inline-block;
   background: #FE5D5C;
   color: #fff;
@@ -27,75 +28,56 @@ page{
   margin-left: 20rpx;
 }
 
-.pro-info-title .pro-info-name{
+.pro-info-title .pro-info-name {
   display: inline-block;
   font-size: 34rpx;
   font-weight: bold;
   margin-left: 5rpx;
 }
 
-.pro-info-coin-group{
+.pro-info-coin-group {
   display: flex;
   padding-bottom: 20rpx;
   border-bottom: 10px solid rgba(248, 245, 253, 0.3);
 }
 
-.pro-info-energy{
+.pro-info-coin {
   overflow: hidden;
   font-size: 35rpx;
-  margin-left:20rpx;
-  color:#e64340;
+  margin-left: 20rpx;
+  color: #e64340;
 }
 
-.unit{
+.unit {
   font-size: 20rpx;
-  color:#e64340;
+  color: #e64340;
   margin: 13rpx 0 10rpx 5rpx;
 }
 
-.goods-plus{
+.goods-plus {
   font-size: 30rpx;
   font-weight: bold;
   margin: 4rpx 0 0 20rpx;
 }
 
-.pro-info-original-price{
+.pro-info-original-price {
   margin-left: 20rpx;
   font-size: 25rpx;
   color: #aaa;
   text-decoration: line-through;
 }
 
-.pro-info-stock{
+.pro-info-stock {
   color: #aaa;
   font-size: 25rpx;
   margin-left: 120rpx;
   margin-top: 8rpx;
 }
 
-.convert-group{
-  width: 100%;
-  position: fixed;
-  background: white;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  border-top: 1px solid #E9E9E9;
-  padding-top: 20rpx;
-  padding-bottom: 20rpx;
-}
-.pro-convert{
-  width: 88% ;
-  height: 90rpx;
-  font-size: 35rpx;
-  line-height: 90rpx;
-  background:linear-gradient(#FF3E3B,#FD502D);
-  border-radius: 10rpx;
-  color: white;
-}
 
 
-.convert-list-text{
+
+.convert-list-text {
   height: 90rpx;
   line-height: 90rpx;
   text-align: center;
@@ -103,7 +85,7 @@ page{
   border-bottom: 1px solid #E9E9E9;
 }
 
-.convert-info{
+.convert-info {
   width: 100%;
   height: 100rpx;
   display: flex;
@@ -111,24 +93,67 @@ page{
   margin-top: 20rpx;
 }
 
-.convert-info .convert-header{
+.convert-info .convert-header {
   width: 70rpx;
   height: 70rpx;
   border-radius: 50%;
 }
 
-.convert-info .convert-erinfo{
-  width:60%;
+.convert-info .convert-erinfo {
+  width: 60%;
   display: flex;
   align-items: center;
   padding-left: 20rpx;
 }
-.convert-info .convert-name{
+
+.convert-info .convert-name {
   margin-left: 20rpx;
 }
 
-.convert-info .convert-time{
+.convert-info .convert-time {
   width: 40%;
   text-align: right;
   padding-right: 20rpx;
+}
+
+.convert-group {
+  width: 100%;
+  position: fixed;
+  background: white;
+  bottom: 0;
+  border-top: 1px solid #E9E9E9;
+}
+
+.pro-convert {
+  width: 40%;
+  height: 90rpx;
+  font-size: 35rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background: linear-gradient(#FF3E3B, #FD502D);
+  color: white;
+  float: right;
+}
+
+.pro-coin {
+  display: inline-block;
+  height: 75rpx;
+  line-height: 75rpx;
+  font-size: 32rpx;
+  color: #e64340;
+  margin-left: 20rpx;
+  margin-top: 15rpx;
+}
+
+.pro-coin-unit {
+  display: inline-block;
+  font-size: 25rpx;
+  color: #e64340;
+}
+
+.my-coin {
+  display: inline-block;
+  color: #aaa;
+  font-size: 25rpx;
+  margin-left: 10rpx;
 }

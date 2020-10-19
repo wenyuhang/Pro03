@@ -5,6 +5,7 @@ const $api = require("../../utils/api").API;
 Page({
   data: {
     'baseurl': app.globalData.BASE_URL,
+    coin_total:0,
     'item': {}
   },
   onLoad: function (option) {
@@ -12,6 +13,14 @@ Page({
     if (option.id > 0) {
       this.getProduct(option.id)
     }
+    console.log(option)
+    //用户金币总数
+    if(option.mycoin){
+      this.setData({
+        coin_total:option.mycoin
+      })
+    }
+  
   },
   //查询余额
   convertClick: function (e) {

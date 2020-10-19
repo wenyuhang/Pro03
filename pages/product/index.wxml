@@ -17,7 +17,7 @@
 
     <view class="goods-plus">＋</view> -->
 
-    <view class="pro-info-energy">{{item.coin}}</view>
+    <view class="pro-info-coin">{{item.coin}}</view>
     <view class="unit">金币</view>
     <view class="pro-info-stock">剩余{{item.stock}}件</view>
   </view>
@@ -25,19 +25,24 @@
   <view>
     <view class="convert-list-text">兑换记录</view>
 
-    <view class="convert-info" wx:for="{{15}}">
+    <view class="convert-info" wx:for="{{10}}">
       <view class="convert-erinfo">
-        <image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKy2a2yT95r6HGgGYsykL5DS1rIAAWcQSibqn2YsgkaY30hLPJIycc5yopCPovogr0px1I7vJV56Xg/132" class="convert-header" mode="aspectFit" lazy-load="true"/>
-      <text class="convert-name">张三</text>
+        <image
+          src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKy2a2yT95r6HGgGYsykL5DS1rIAAWcQSibqn2YsgkaY30hLPJIycc5yopCPovogr0px1I7vJV56Xg/132"
+          class="convert-header" mode="aspectFit" lazy-load="true" />
+        <text class="convert-name">张三</text>
       </view>
-    
+
       <text class="convert-time">2020-10-09 16:48</text>
     </view>
   </view>
 
 
   <view class="convert-group">
-    <button class="pro-convert" bindtap="convertClick" id="{{item.id}}">立即兑换</button>
+    <text class="pro-coin">{{item.coin}}</text>
+    <text class="pro-coin-unit">金币</text>
+    <text class="my-coin">我有{{coin_total}}金币</text>
+    <view class="pro-convert" bindtap="convertClick" id="{{item.id}}">立即兑换</view>
   </view>
- 
+
 </view>

@@ -7,6 +7,7 @@ const $api = require("../../utils/api").API;
 Page({
   data: {
     baseurl: app.globalData.BASE_URL,
+    userInfo: app.globalData.userInfo,
     page: 1,
     hasNextPage: true,
     items: [],
@@ -28,14 +29,17 @@ Page({
   },
   //页面显示
   onShow: function (e) {
-    // if (wx.getStorageSync('pro_refresh') === 10) {
-    //   //清除状态
-    //   wx.removeStorageSync('pro_refresh');
-    //   //回到顶部
-    //   this.goTop();
-    //   //刷新商品列表
-    //   this.onPullDownRefresh();
-    // }
+    //是否刷新
+    if (wx.getStorageSync('pro_refresh') === 10) {
+      //清除状态
+      wx.removeStorageSync('pro_refresh');
+      //刷新用户信息
+      this.getUserInfo(wx.getStorageSync('uid'));
+    }
+    //刷新用户信息
+    this.setData({
+      userInfo: app.globalData.userInfo
+    })
   },
   //下拉刷新触发函数
   onPullDownRefresh: function () {
@@ -62,8 +66,9 @@ Page({
       })
     }
   },
-
-
+  /**
+   * 获取商品列表
+   */
   products: function () {
     //填充参数
     let data = {
@@ -111,10 +116,39 @@ Page({
     //停止下拉刷新
     wx.stopPullDownRefresh();
   },
+  /**
+   * 获取用户信息
+   * @param {*请求参数} uid 
+   */
+  getUserInfo: function (uid) {
+    //封装请求参数
+    let data = {
+      'id': uid
+    }
+    $api.getUserInfo(data).then(res => {
+      //请求成功 判断状态码
+      if (res.code == 200) {
+        //更新用户信息
+        app.globalData.userInfo = res.data;
+        this.setData({
+          userInfo: res.data
+        })
+      } else {
+        // $api.showToast(res.message, 'none')
+      }
+    }).catch(err => {
+      //请求失败
+      // $api.showToast(err, 'none')
+    })
+  },
 
+  /**
+   * 列表点击
+   * @param {*} e 
+   */
   tabClick: function (e) {
     wx.navigateTo({
-      url: '/pages/product/index?id=' + e.currentTarget.id,
+      url: '/pages/product/index?id=' + e.currentTarget.id+'&mycoin='+this.data.userInfo.coin_total
     })
   }
 })

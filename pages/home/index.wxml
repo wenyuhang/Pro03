@@ -35,11 +35,11 @@
   <text class="iv-explain">金币可帮您兑换包邮商品哦</text>
 
   <view class="iv-group">
-    <image class="iv-img"></image>
-    <image class="iv-img"></image>
-    <image class="iv-img"></image>
-    <image class="iv-img"></image>
-    <image class="iv-img"></image>
+    <image class="iv-img" src="{{items[0].user.headimgurl}}"></image>
+    <image class="iv-img" src="{{items[1].user.headimgurl}}"></image>
+    <image class="iv-img" src="{{items[2].user.headimgurl}}"></image>
+    <image class="iv-img" src="{{items[3].user.headimgurl}}"></image>
+    <image class="iv-img" src="{{items[4].user.headimgurl}}"></image>
     <image class="iv-img-plus" src="../../image/plus.png" mode="center"></image>
   </view>
   

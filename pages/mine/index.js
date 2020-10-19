@@ -1,5 +1,6 @@
 const app = getApp();
 const AUTH = require('../../utils/auth');
+const $api = require("../../utils/api").API;
 
 
 
@@ -7,49 +8,47 @@ Page({
   data: {
     wxlogin: true,
     userInfo: app.globalData.userInfo,
-    energy:'88.88',
-    coin:'1024',
-    invite:'0'
+    coin: 0,
+    invite: 0
   },
   //事件处理函数
   onLoad: function () {
 
   },
 
-  onShow: function () {
-    console.log(app.globalData.userInfo)
+  onShow: function (e) {
+    //个人信息回显
+    if (e) {
+      app.globalData.userInfo = e;
+      this.setData({
+        userInfo: e,
+      })
+    }
     //检查登录状态
     AUTH.checkHasLogined().then(res => {
       this.setData({
         wxlogin: res,
         userInfo: app.globalData.userInfo
       })
-      // if(res && !this.userInfo){
-      //   wx.getUserInfo({
-      //     success: res => {
-      //       app.globalData.userInfo = res.userInfo;
-      //       this.setData({
-      //         wxlogin: true,
-      //         userInfo: res.userInfo
-      //       })     
-      //     }
-      //   })
-      // }
-     
+      //获取用户信息
+      let uid = wx.getStorageSync('uid');
+      if (!e && !this.data.userInfo.openid && res && uid) {
+        this.getUserInfo(uid);
+      }
     })
   },
   /**
    * 金币记录
    */
-  coinRecord:function(){
+  coinRecord: function () {
     wx.navigateTo({
-      url: '/pages/coin_record/index',
+      url: '/pages/coin_record/index?coin_total=' + this.data.userInfo.coin_total,
     })
   },
   /**
    * 邀请记录
    */
-  inviteRecord:function(){
+  inviteRecord: function () {
     wx.navigateTo({
       url: '/pages/invite_record/index',
     })
@@ -57,7 +56,7 @@ Page({
   /**
    * 我的订单
    */
-  toMyOrder:function(){
+  toMyOrder: function () {
     wx.navigateTo({
       url: '/pages/order_record/index',
     })
@@ -65,7 +64,7 @@ Page({
   /**
    * 我的地址
    */
-  toMyAddress:function(){
+  toMyAddress: function () {
     //去编辑收货地址
     wx.navigateTo({
       url: '/pages/address/index',
@@ -74,7 +73,7 @@ Page({
   /**
    * 规则说明
    */
-  toRule:function(){
+  toRule: function () {
     wx.navigateTo({
       url: '/pages/rule_desc/index',
     })
@@ -82,7 +81,7 @@ Page({
   /**
    * 关于我们
    */
-  toAbout:function(){
+  toAbout: function () {
     wx.navigateTo({
       url: '/pages/about/index',
     })
@@ -90,7 +89,7 @@ Page({
   /**
    * 常见问题
    */
-  toFAQ:function(){
+  toFAQ: function () {
     wx.navigateTo({
       url: '/pages/faq/index',
     })
@@ -109,6 +108,32 @@ Page({
     app.globalData.userInfo = e.detail.userInfo;
     AUTH.userLogin(this);
 
+  },
+  /**
+   * 获取用户信息
+   * @param {*请求参数} uid 
+   */
+  getUserInfo: function (uid) {
+    //封装请求参数
+    let data = {
+      'id': uid
+    }
+    $api.getUserInfo(data).then(res => {
+      //请求成功 判断状态码
+      if (res.code == 200) {
+        //更新用户信息
+        app.globalData.userInfo = res.data;
+        this.setData({
+          userInfo: res.data
+        })
+
+      } else {
+        $api.showToast(res.message, 'none')
+      }
+    }).catch(err => {
+      //请求失败
+      $api.showToast(err, 'none')
+    })
   },
 
   //取消授权

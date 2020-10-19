@@ -110,9 +110,6 @@ Page({
    * @param {*用户id} uid  
    */
   placeOrder: function (pid, uid, adid) {
-    // wx.showToast({
-    //   title: pid + '下单成功' + uid,
-    // })
 
     //填充参数
     let data = {
@@ -142,7 +139,7 @@ Page({
       delta: 2,
     })
     //保存商品列表刷新状态
-    // wx.setStorageSync('pro_refresh', 10)
+    wx.setStorageSync('pro_refresh', 10)
     //跳转成功页
     wx.navigateTo({
       url: '/pages/order_complete/index',
