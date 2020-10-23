@@ -5,9 +5,9 @@ const FORM = 'FORM';
 const DELETE = 'DELETE';
 
 //正式
-const BASE_URL = 'http://192.168.1.142:8080/steps';
+const BASE_URL = 'http://123.57.51.76/steps';
 //测试
-const BASE_DEV_URL = 'http://192.168.1.142:8080/steps';
+const BASE_DEV_URL = 'http://123.57.51.76/steps';
 
 //网络请求
 function request(method, url, data) {

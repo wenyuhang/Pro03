@@ -73,7 +73,7 @@ App({
   },
 
   globalData: {
-    BASE_URL : 'http://192.168.1.142:8080/steps/',
+    BASE_URL : 'http://123.57.51.76/steps/',
     isConnected: true,
     userInfo:{
       name:'立即登录',
