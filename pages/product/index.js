@@ -4,23 +4,24 @@ const $api = require("../../utils/api").API;
 
 Page({
   data: {
-    'baseurl': app.globalData.BASE_URL,
-    coin_total:0,
-    'item': {}
+    baseurl: app.globalData.BASE_URL,
+    coin_total: 0,
+    item: {},
+    convertList:[]
   },
   onLoad: function (option) {
     //获取商品详情
     if (option.id > 0) {
-      this.getProduct(option.id)
+      this.getProduct(option.id);
+      this.getProConvertList(option.id);
     }
-    console.log(option)
     //用户金币总数
-    if(option.mycoin){
+    if (option.mycoin) {
       this.setData({
-        coin_total:option.mycoin
+        coin_total: option.mycoin
       })
     }
-  
+
   },
   //查询余额
   convertClick: function (e) {
@@ -70,6 +71,33 @@ Page({
         this.setData({
           item: res.data
         })
+      } else {
+        $api.showToast(res.message, 'none');
+      }
+    }).catch(err => {
+      //请求失败
+      console.log(err);
+      $api.showToast(res.message, 'none');
+    })
+  },
+  //获取商品兑换记录
+  getProConvertList: function (id) {
+    //填充参数
+    let data = {
+      'page':1,
+      'size':10,
+      "isApp":1,
+      'id': id
+    }
+    //下面开始调用商品详情接口
+    $api.getProConvertList(data).then(res => {
+      //请求成功  判断状态码
+      if (res.code == 200) {
+
+        this.setData({
+          convertList: res.data.list
+        })
+
       } else {
         $api.showToast(res.message, 'none');
       }

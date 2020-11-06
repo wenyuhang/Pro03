@@ -12,7 +12,7 @@
       <image src="{{baseurl + item.product.imageurl}}" class="pro-img" mode="aspectFill" lazy-load="true" />
       <view class="cl-group">
         <view class="name">{{item.product.name}}</view>
-        <view class="price">{{item.product.coin}}金币 x1</view>
+        <view class="price">{{item.product.coin}}金币         x1</view>
       </view>
 
       <view>

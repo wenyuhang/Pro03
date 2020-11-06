@@ -6,6 +6,8 @@ const $api = require("../../utils/api").API;
 
 //获取微信运动 拒绝后不再获取
 var isGetRunData = true;
+//是否已经点击兑换 
+var isConvert = false;
 
 Page({
   data: {
@@ -59,6 +61,9 @@ Page({
       let uid = wx.getStorageSync('uid');
       if (!e && !this.data.userInfo.openid && res && uid) {
         this.getUserInfo(uid);
+      }
+      //获取邀请用户列表
+      if(uid){
         this.getInviteRecord(uid);
       }
     })
@@ -67,6 +72,8 @@ Page({
    * 按钮点击 步数兑换金币
    */
   converClick: function () {
+    //判断是否点击兑换 防止二次点击
+    if(isConvert)return
     let steps = this.data.steps;
     let that = this;
     if (steps === 0) {
@@ -101,7 +108,6 @@ Page({
       })
       return;
     }
-    console.log("已授权");
     AUTH.userLogin(this);
   },
   /**
@@ -127,11 +133,14 @@ Page({
    * @param {*请求参数} uid 
    */
   convertSteps: function (uid) {
+    isConvert = true;
     //封装请求参数
     let data = {
       'id': uid
     }
     $api.convertSteps(data).then(res => {
+      //修改状态  可点击兑换
+      isConvert = false;
       //请求成功 判断状态码
       if (res.code == 200) {
         $api.showToast("兑换成功", 'success')
@@ -145,6 +154,8 @@ Page({
         $api.showToast(res.message, 'none')
       }
     }).catch(err => {
+      //修改状态  可点击兑换
+      isConvert = false;
       //请求失败
       $api.showToast(err, 'none')
     })
@@ -198,7 +209,6 @@ Page({
       }
 
     }).catch(err => {
-
       //网络错误
       $api.showToast(err, 'none');
     })

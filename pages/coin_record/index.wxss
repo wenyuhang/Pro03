@@ -64,5 +64,16 @@
   float: right;
   height: 100rpx;
   line-height: 100rpx;
+  font-weight: bold;
+  font-size: 30rpx;
   color: red;
+}
+
+.coin-info .coin-num-plus{
+  float: right;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-weight: bold;
+  font-size: 30rpx;
+  color: #F1B331;
 }

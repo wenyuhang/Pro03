@@ -1,56 +1,47 @@
 <!--index.wxml-->
 <import src="/template/authlogin/index.wxml" />
-<view class="index-container">
+<view>
+  <view class="index-container">
+    <view class="info-data">
+      <view class="group">
+        <image class="img" src="../../image/coin.png" />
+        <view class="tv">步数金币：{{userInfo.coin_total}}</view>
 
+        <view class="group">
+          <!-- <image class="img" src="../../image/energy.png"/>
+    <view class="tv">包邮能量：{{energy}}</view> -->
+        </view>
+      </view>
 
-  <view class="info-data">
-    <view class="group">
-    <image class="img" src="../../image/coin.png"/>
-    <view class="tv">步数金币：{{userInfo.coin_total}}</view>
+    </view>
 
-    <view class="group">
-      <!-- <image class="img" src="../../image/energy.png"/>
-      <view class="tv">包邮能量：{{energy}}</view> -->
+    <view class="convert-strps" bindtap="converClick">
+      <image class="cs-bg" mode="scaleToFill" src="../../image/ring.png"></image>
+      <view class="cs-tv">
+        <text class="cs-tv-f">今日步数</text>
+        <text class="cs-tv-t">(次日清零)</text>
+        <text class="cs-tv-n">{{steps}}</text>
+        <text class="cs-tv-c">点击兑换金币</text>
+      </view>
+    </view>
+
+    <text class="iv-explain">试运营阶段邀请好友可获得30金币奖励</text>
+
+    <button class="invite-friend" bindtap="inviteClick" open-type="share">邀请好友得金币奖励</button>
+
+    <text class="iv-explain">金币可帮您兑换包邮商品哦</text>
+
+    <view class="iv-group">
+      <image class="iv-img" src="{{items[0].user.headimgurl}}"></image>
+      <image class="iv-img" src="{{items[1].user.headimgurl}}"></image>
+      <image class="iv-img" src="{{items[2].user.headimgurl}}"></image>
+      <image class="iv-img" src="{{items[3].user.headimgurl}}"></image>
+      <image class="iv-img" src="{{items[4].user.headimgurl}}"></image>
+      <image class="iv-img-plus" src="../../image/plus.png" mode="center"></image>
     </view>
   </view>
-    
-  </view>
-
-  <!-- <button bindtap="getRun" type="defult">获取运动步数</button> -->
-
-  <view class="convert-strps" bindtap="converClick">
-    <image class="cs-bg" mode="scaleToFill" src="../../image/ring.png"></image>
-    <view class="cs-tv">
-      <text class="cs-tv-f">今日步数</text>
-      <text class="cs-tv-t">(次日清零)</text>
-      <text class="cs-tv-n">{{steps}}</text>
-      <text class="cs-tv-c">点击兑换金币</text>
-    </view>
-  </view>
-
-  <text class="iv-explain">试运营阶段邀请好友可获得30金币奖励</text>
-
-  <button class="invite-friend" bindtap="inviteClick" open-type="share">邀请好友得金币奖励</button>
-
-  <text class="iv-explain">金币可帮您兑换包邮商品哦</text>
-
-  <view class="iv-group">
-    <image class="iv-img" src="{{items[0].user.headimgurl}}"></image>
-    <image class="iv-img" src="{{items[1].user.headimgurl}}"></image>
-    <image class="iv-img" src="{{items[2].user.headimgurl}}"></image>
-    <image class="iv-img" src="{{items[3].user.headimgurl}}"></image>
-    <image class="iv-img" src="{{items[4].user.headimgurl}}"></image>
-    <image class="iv-img-plus" src="../../image/plus.png" mode="center"></image>
-  </view>
-  
-  <view class="ad-group">
-  
-    <button class="ad-tv">赚取更多金币</button>
-  </view>
-
-
-
-
+  <button class="ad-tv">赚取更多金币</button>
 </view>
+
 
 <template is="apifmLogin" data="{{wxlogin: wxlogin}}" />

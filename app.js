@@ -2,6 +2,15 @@
 
 const AUTH = require('utils/auth');
 
+//正式
+const BASE_PRO_URL = 'http://8.131.75.5/steps/';
+//测试
+const BASE_DEV_URL = 'http://192.168.1.142/steps/';
+
+
+//api
+const BASE_URL = BASE_PRO_URL;
+
 App({
   onLaunch: function () {
    const that = this;
@@ -73,7 +82,7 @@ App({
   },
 
   globalData: {
-    BASE_URL : 'http://123.57.51.76/steps/',
+    BASE_URL : BASE_URL,
     isConnected: true,
     userInfo:{
       name:'立即登录',

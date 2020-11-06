@@ -29,10 +29,13 @@ page{
 
 .order .tv-order-code{
   font-weight: bold;
+  font-size: 32rpx;
 }
 
 .order .order-code{
   color: red;
+  font-size: 30rpx;
+  margin-left: 10rpx;
 }
 
 .order .order-status{
@@ -68,10 +71,13 @@ page{
 
 .order .tv-order-number{
   font-weight: bold;
+  font-size: 32rpx;
 }
 
 .order .order-number{
   color: red;
+  font-size: 30rpx;
+  margin-left: 10rpx;
 }
 
 .order .order-time{

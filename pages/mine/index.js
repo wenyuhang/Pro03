@@ -104,7 +104,6 @@ Page({
       })
       return;
     }
-    console.log("已授权");
     app.globalData.userInfo = e.detail.userInfo;
     AUTH.userLogin(this);
 

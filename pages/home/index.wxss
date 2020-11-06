@@ -1,11 +1,11 @@
 @import "/template/authlogin/index.wxss";
 
 page{
-  height: 100%;
+  background: #eee;
 }
 .index-container{
   width: 100%;
-  height: 100%;
+  padding-bottom: 30rpx;
   background-color: white;
 }
 /* 能量 金币布局 */
@@ -120,13 +120,7 @@ page{
   /* margin: 12rpx 12rpx; */
 }
 
-.ad-group{
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: #F4F8FB;
-  margin-top: 50rpx;
-}
+
 
 .ad-tv{
   width: 500rpx;
@@ -136,5 +130,6 @@ page{
   text-align: center;
   color: white;
   background:linear-gradient(#60A13D,#83C144);
-  top: 120rpx;
+  margin: 0 auto;
+  margin-top: 100rpx;
 }

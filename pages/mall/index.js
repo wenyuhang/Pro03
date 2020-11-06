@@ -43,7 +43,6 @@ Page({
   },
   //下拉刷新触发函数
   onPullDownRefresh: function () {
-    console.log("12345");
     this.setData({
       page: 1
     })

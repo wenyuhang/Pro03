@@ -33,6 +33,14 @@ Page({
       })
     }
   },
+    /**
+   * 规则说明
+   */
+  toRule: function () {
+    wx.navigateTo({
+      url: '/pages/rule_desc/index',
+    })
+  },
   /**
    * 获取我的金币交易记录
    * @param {*} id 

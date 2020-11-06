@@ -5,9 +5,13 @@ const FORM = 'FORM';
 const DELETE = 'DELETE';
 
 //正式
-const BASE_URL = 'http://123.57.51.76/steps';
+const BASE_PRO_URL = 'http://8.131.75.5/steps';
 //测试
-const BASE_DEV_URL = 'http://123.57.51.76/steps';
+const BASE_DEV_URL = 'http://192.168.1.142/steps';
+
+
+//api
+const BASE_URL = BASE_PRO_URL;
 
 //网络请求
 function request(method, url, data) {
@@ -22,12 +26,14 @@ function request(method, url, data) {
       header: header,
       success: (res) => {
         //请求成功 errCode
-        resolve(res.data);
+        if(res.statusCode === 200){
+          resolve(res.data);
+        }
+
       },
       fail(err) {
         //请求失败s
         reject(err.errMsg)
-        console.log(err)
       }
     })
   })
@@ -91,7 +97,9 @@ const API = {
   //步数转换金币
   convertSteps:(data) => request(POST,'/userinfo/convertSteps',data),
   //获取用户信息
-  getUserInfo:(data) => request(POST,'/userinfo/getUserInfo',data)
+  getUserInfo:(data) => request(POST,'/userinfo/getUserInfo',data),
+  //获取商品兑换记录
+  getProConvertList:(data) => request(POST,'/order/orderListByProduct',data)
 }
 
 module.exports = {

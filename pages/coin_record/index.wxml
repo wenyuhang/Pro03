@@ -6,7 +6,7 @@
       <view class="tv-coin">可用金币</view>
     </view>
 
-    <text class="coin-rule">金币规则</text>
+    <text class="coin-rule" bindtap='toRule'>金币规则</text>
   </view>
 
   <view class="record-title">金币明细</view>
@@ -17,9 +17,8 @@
 
       <view class="coin-time">{{item.createdate}}</view>
     </view>
-    <view class="coin-num">
-      {{item.coin}} 金币
-    </view>
+    <view class="coin-num-plus" wx:if="{{item.coin > 0}}">+{{item.coin}} 金币</view>
+    <view class="coin-num" wx:else >{{item.coin}} 金币</view>
   </view>
 
 </view>

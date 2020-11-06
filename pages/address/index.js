@@ -9,6 +9,7 @@ Page({
     region: [],
   },
   onLoad: function (e) {
+    console.log(this.data.userid);
     //获取用户收货地址
     if (this.data.userid) {
       this.getAddress(this.data.userid);

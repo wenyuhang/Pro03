@@ -25,15 +25,10 @@
   <view>
     <view class="convert-list-text">兑换记录</view>
 
-    <view class="convert-info" wx:for="{{10}}">
-      <view class="convert-erinfo">
-        <image
-          src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKy2a2yT95r6HGgGYsykL5DS1rIAAWcQSibqn2YsgkaY30hLPJIycc5yopCPovogr0px1I7vJV56Xg/132"
-          class="convert-header" mode="aspectFit" lazy-load="true" />
-        <text class="convert-name">张三</text>
-      </view>
-
-      <text class="convert-time">2020-10-09 16:48</text>
+    <view class="convert-info" wx:for="{{convertList}}" wx:for-item="dat">
+      <image src="{{dat.user.headimgurl}}" class="convert-header" mode="aspectFit" lazy-load="true" />
+      <text class="convert-name">{{dat.user.name}}</text>
+      <text class="convert-time">{{dat.distancedate}}</text>
     </view>
   </view>
 

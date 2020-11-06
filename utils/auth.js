@@ -70,7 +70,7 @@ async function userLogin(page) {
 
     },
     fail: err => {
-      console.log(res);
+      console.log(err);
     }
   })
 }
