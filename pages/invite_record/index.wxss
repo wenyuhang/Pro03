@@ -25,5 +25,10 @@
   line-height: 100rpx;
   vertical-align: top;
   float: right;
+}
 
+.empty-text{
+  text-align: center;
+  font-size: 32rpx;
+  margin-top: 600rpx;
 }

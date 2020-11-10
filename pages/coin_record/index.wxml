@@ -11,7 +11,8 @@
 
   <view class="record-title">金币明细</view>
 
-  <view class="coin-info" wx:for="{{items}}" wx:key="item">
+  <view wx:if="{{items.length>0}}">
+    <view class="coin-info"  wx:for="{{items}}" wx:key="item">
     <view class="group">
       <view class="coin-desc">{{item.tran_desc}}</view>
 
@@ -19,6 +20,10 @@
     </view>
     <view class="coin-num-plus" wx:if="{{item.coin > 0}}">+{{item.coin}} 金币</view>
     <view class="coin-num" wx:else >{{item.coin}} 金币</view>
+  </view>
+  </view>
+  <view class="empty-text" wx:else>
+  暂无明细
   </view>
 
 </view>

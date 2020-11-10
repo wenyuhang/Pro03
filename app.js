@@ -87,7 +87,8 @@ App({
     userInfo:{
       name:'立即登录',
       headimgurl:'',
-      coin_total:0
+      coin_total:0,
+      invite_total:0
     }
   }
 })

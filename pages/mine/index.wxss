@@ -16,8 +16,13 @@ page{
 }
 
 .userinfo-nickname {
+  display: inline-block;
+  height: 128rpx;
+  line-height: 128rpx;
   font-size: 35rpx;
   font-weight: bold;
+  vertical-align:top; 
+  margin-left: 20rpx;
 }
 
 .asset {

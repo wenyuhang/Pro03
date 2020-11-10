@@ -16,7 +16,7 @@
     </view>
 
     <view class="convert-strps" bindtap="converClick">
-      <image class="cs-bg" mode="scaleToFill" src="../../image/ring.png"></image>
+      <view class="cs-bg"></view>
       <view class="cs-tv">
         <text class="cs-tv-f">今日步数</text>
         <text class="cs-tv-t">(次日清零)</text>

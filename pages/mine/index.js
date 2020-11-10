@@ -37,6 +37,17 @@ Page({
       }
     })
   },
+  //下拉刷新触发函数
+  onPullDownRefresh: function () {
+    //检查登录状态
+    AUTH.checkHasLogined().then(res => {
+      //获取用户信息
+      let uid = wx.getStorageSync('uid');
+      if (res && uid) {
+        this.getUserInfo(uid);
+      }
+    })
+  },
   /**
    * 金币记录
    */
@@ -118,6 +129,8 @@ Page({
       'id': uid
     }
     $api.getUserInfo(data).then(res => {
+      //隐藏loading
+      wx.stopPullDownRefresh();
       //请求成功 判断状态码
       if (res.code == 200) {
         //更新用户信息
@@ -130,6 +143,8 @@ Page({
         $api.showToast(res.message, 'none')
       }
     }).catch(err => {
+      //隐藏loading
+      wx.stopPullDownRefresh();
       //请求失败
       $api.showToast(err, 'none')
     })
@@ -145,6 +160,39 @@ Page({
     this.setData({
       wxlogin: false
     })
+  },
+    /**
+   * 用户点击分享
+   */
+  onShareAppMessage: function (res) {
+    let url = '';
+    let uid = wx.getStorageSync('uid');
+    if (uid > 0) {
+      url = '/pages/home/index?inviter_id=' + uid;
+    } else {
+      url = '/pages/home/index';
+    }
+    console.log(url)
+    return {
+      title: '步数多多',
+      path: url
+    }
+  },
+  /**
+   * 用户分享到朋友圈
+   */
+  onShareTimeline: function (res) {
+    let url = '';
+    let uid = wx.getStorageSync('uid');
+    if (uid > 0) {
+      url = '/pages/home/index?inviter_id=' + uid;
+    } else {
+      url = '/pages/home/index';
+    }
+    return {
+      title: '步数多多',
+      query: url
+    }
   }
 
 

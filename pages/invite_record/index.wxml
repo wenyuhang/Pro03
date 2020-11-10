@@ -1,12 +1,16 @@
 <view class="index-container">
+  <view wx:if="{{items.length>0}}">
+    <view class="invite-info" wx:for="{{items}}" wx:key="item">
 
-  <view class="invite-info" wx:for="{{items}}" wx:key="item">
+      <image src="{{item.user.headimgurl}}" class="invite-header" mode="aspectFill" lazy-load="true" />
 
-    <image src="{{item.user.headimgurl}}" class="invite-header" mode="aspectFill" lazy-load="true" />
+      <text class="invite-name">{{item.user.name}}</text>
 
-    <text class="invite-name">{{item.user.name}}</text>
-    
-    <text class="invite-time">{{item.createdate}}</text>
+      <text class="invite-time">{{item.createdate}}</text>
+    </view>
+  </view>
+  <view class="empty-text" wx:else>
+    您还没有成功邀请好友哦！
   </view>
 
 </view>

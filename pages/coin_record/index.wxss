@@ -77,3 +77,9 @@
   font-size: 30rpx;
   color: #F1B331;
 }
+
+.empty-text{
+  text-align: center;
+  font-size: 32rpx;
+  margin-top: 400rpx;
+}

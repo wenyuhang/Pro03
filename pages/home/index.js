@@ -63,7 +63,7 @@ Page({
         this.getUserInfo(uid);
       }
       //获取邀请用户列表
-      if(uid){
+      if (uid) {
         this.getInviteRecord(uid);
       }
     })
@@ -73,7 +73,7 @@ Page({
    */
   converClick: function () {
     //判断是否点击兑换 防止二次点击
-    if(isConvert)return
+    if (isConvert) return
     let steps = this.data.steps;
     let that = this;
     if (steps === 0) {
@@ -133,12 +133,18 @@ Page({
    * @param {*请求参数} uid 
    */
   convertSteps: function (uid) {
+    //显示loading
+    wx.showLoading({
+      title: '兑换中',
+    })
     isConvert = true;
     //封装请求参数
     let data = {
       'id': uid
     }
     $api.convertSteps(data).then(res => {
+      //隐藏loading
+      wx.hideLoading();
       //修改状态  可点击兑换
       isConvert = false;
       //请求成功 判断状态码
@@ -154,6 +160,8 @@ Page({
         $api.showToast(res.message, 'none')
       }
     }).catch(err => {
+      //隐藏loading
+      wx.hideLoading();
       //修改状态  可点击兑换
       isConvert = false;
       //请求失败

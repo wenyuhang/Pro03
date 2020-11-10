@@ -110,7 +110,10 @@ Page({
    * @param {*用户id} uid  
    */
   placeOrder: function (pid, uid, adid) {
-
+    //显示loading
+    wx.showLoading({
+      title: '兑换中',
+    })
     //填充参数
     let data = {
       'pid': pid,
@@ -119,6 +122,8 @@ Page({
     }
     //下面开始调用用户下单扣款接口
     $api.placeOrder(data).then(res => {
+      //隐藏loading
+      wx.hideLoading();
       //请求成功  判断状态码
       if (res.code == 200) {
         //tips
@@ -129,6 +134,8 @@ Page({
         $api.showModal('提示', res.message, false);
       }
     }).catch(err => {
+      //隐藏loading
+      wx.hideLoading();
       //请求失败
       $api.showToast(err, 'none')
     })
@@ -144,16 +151,39 @@ Page({
     wx.navigateTo({
       url: '/pages/order_complete/index',
     })
+  },
+    /**
+   * 用户点击分享
+   */
+  onShareAppMessage: function (res) {
+    let url = '';
+    let uid = wx.getStorageSync('uid');
+    if (uid > 0) {
+      url = '/pages/home/index?inviter_id=' + uid;
+    } else {
+      url = '/pages/home/index';
+    }
+    console.log(url)
+    return {
+      title: '步数多多',
+      path: url
+    }
+  },
+  /**
+   * 用户分享到朋友圈
+   */
+  onShareTimeline: function (res) {
+    let url = '';
+    let uid = wx.getStorageSync('uid');
+    if (uid > 0) {
+      url = '/pages/home/index?inviter_id=' + uid;
+    } else {
+      url = '/pages/home/index';
+    }
+    return {
+      title: '步数多多',
+      query: url
+    }
   }
-
-
-
-
-
-
-
-
-
-
 
 })

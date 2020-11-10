@@ -46,9 +46,13 @@ page{
 }
 
 .cl .cl-group .a{
+  width: 500rpx;
   height: 65rpx;
   line-height: 65rpx;
   font-size: 25rpx;
+  word-break: keep-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .line{

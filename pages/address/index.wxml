@@ -11,7 +11,9 @@
   <view class="line"></view>
 
   <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
-    <text class="tv-title">地址</text>
+    <text class="tv-title">地 址</text>
+
+    <image class="into-icon" src="../../image/enter.png" background-size="cover" mode="aspectFit"></image>
 
     <view wx:if="{{region.length>0}}" class="tv-input">
       {{region[0]}}，{{region[1]}}，{{region[2]}}
@@ -20,7 +22,7 @@
       点击选择
     </view>
 
-    <image class="into-icon" src="../../image/enter.png" background-size="cover" mode="aspectFit"></image>
+ 
   </picker>
 
 
@@ -35,6 +37,7 @@
   <input type="number" placeholder="邮政编码" maxlength="6" value="{{address.post}}" class="tv-input" bindinput="postInput"/>
 
   <view class="line"></view>
+
 
 
 

@@ -7,19 +7,20 @@
 }
 
 .tv-title{
-  display: inline-block;
   width: 170rpx;
   height: 100rpx;
   line-height: 100rpx;
   font-size: 32rpx;
+  float: left;
+
 }
 
 .tv-input{
-  display: inline-block;
-  height: 100rpx;
+  min-height: 100rpx;
   line-height: 100rpx;
   vertical-align:top;
   font-size: 30rpx;
+  padding-right: 30rpx;
 }
 
 .tv-text{
