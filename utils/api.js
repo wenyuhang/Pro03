@@ -5,9 +5,9 @@ const FORM = 'FORM';
 const DELETE = 'DELETE';
 
 //正式
-const BASE_PRO_URL = 'http://8.131.75.5/steps';
+const BASE_PRO_URL = 'https://www.manysteps.cn/steps';
 //测试
-const BASE_DEV_URL = 'http://192.168.1.142/steps';
+const BASE_DEV_URL = 'https://192.168.1.142/steps';
 
 
 //api

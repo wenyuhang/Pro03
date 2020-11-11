@@ -64,7 +64,7 @@
   </view>
 
   <official-account></official-account>
-  <image class="push" src="../../image/push.jpg" mode="aspectFit"/>
+  <!-- <image class="push" src="../../image/push.jpg" mode="aspectFit"/> -->
 
 </view>
 
