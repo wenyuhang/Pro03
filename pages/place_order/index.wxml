@@ -13,7 +13,7 @@
 
     <view class="line"></view>
 
-    <image class="pro-img" wx:if="{{ item.imageurl}}" src="{{baseurl + item.imageurl}}" background-size="cover"
+    <image class="pro-img" wx:if="{{item.imageurl}}" src="{{baseurl + item.imageurl}}" background-size="cover"
       mode="aspectFill"></image>
 
     <view class="cl-group">

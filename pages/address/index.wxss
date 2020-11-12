@@ -62,6 +62,7 @@
 }
 
 .test{
+  max-lines: 2;
   width: 430rpx;
   font-size: 30rpx;
   padding-right: 30rpx;

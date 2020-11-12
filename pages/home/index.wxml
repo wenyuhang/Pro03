@@ -40,7 +40,8 @@
       <image class="iv-img-plus" src="../../image/plus.png" mode="center"></image>
     </view>
   </view>
-  <button class="ad-tv">赚取更多金币</button>
+  <!-- <button class="ad-tv">赚取更多金币</button> -->
+  <official-account></official-account>
 </view>
 
 

@@ -84,7 +84,7 @@ Page({
     }
     let uid = wx.getStorageSync('uid');
     if (uid) {
-      let coin = steps / 1000;
+      let coin = (steps / 1000).toFixed(2);
       wx.showModal({
         title: '兑换提示',
         content: '确定用' + steps + '步兑换' + coin + '个金币吗？',
