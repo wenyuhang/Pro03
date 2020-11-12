@@ -6,12 +6,13 @@ Page({
   data: {
     userid: wx.getStorageSync('uid'),
     address: {},
+    item:{},
     region: [],
   },
   onLoad: function (e) {
     let uid = wx.getStorageSync('uid');
     this.setData({
-      userid:uid
+      userid: uid
     })
     //获取用户收货地址
     if (uid) {
@@ -23,64 +24,70 @@ Page({
    * @param {*} e 
    */
   receiverInput: function (e) {
-    let obj = this.data.address;
+    let obj = this.data.item;
     obj.receiver = e.detail.value;
-    this.setData({
-      address: obj
-    })
   },
   /**
    * 手机号码输入监听
    * @param {*} e 
    */
   mobileInput: function (e) {
-    let obj = this.data.address;
+    let obj = this.data.item;
     obj.mobile = e.detail.value;
-    this.setData({
-      address: obj
-    })
   },
   /**
    * 详细地址输入监听
    * @param {*} e 
    */
   addressInput: function (e) {
-    let obj = this.data.address;
+    let obj = this.data.item;
     obj.address = e.detail.value;
-    this.setData({
-      address: obj
-    })
   },
   /**
    * 邮政编码输入监听
    * @param {*} e 
    */
   postInput: function (e) {
-    let obj = this.data.address;
+    let obj = this.data.item;
     obj.post = e.detail.value;
-    this.setData({
-      address: obj
-    })
   },
   /**
    * 省市区选择器
    */
   bindRegionChange: function (e) {
     let value = e.detail.value;
-    let obj = this.data.address;
+    let obj = this.data.item;
     obj.province = value[0];
     obj.city = value[1];
     obj.area = value[2];
     this.setData({
-      address: obj,
-      region: value
+      region:value
     })
+  },
+  /**
+   * 比较两个字符串 类型 值
+   * @param {*} str1 
+   * @param {*} str2 
+   */
+  equalsString: function (str1,str2) {
+    if(str2 == null || str2.length==0 || str1 === str2){
+      return true;
+    }
+    return false;
+  },
+  isEmpty:function (params) {
+    if(params == null || params.length==0){
+      return true;
+    }
+    return false;
   },
   /**
    * 保存编辑
    */
   confirmClick: function () {
     let address = this.data.address;
+    let item = this.data.item;
+
     //收货人
     if (!address.receiver) {
       this.showToast('请输入收货人姓名');
@@ -107,17 +114,30 @@ Page({
       return;
     }
 
+    //判断是否需要update
+    if (this.equalsString(address.receiver,item.receiver)
+    &&this.equalsString(address.mobile,item.mobile)
+    &&this.equalsString(address.province,item.province)
+    &&this.equalsString(address.city,item.city)
+    &&this.equalsString(address.area,item.area)
+    &&this.equalsString(address.address,item.address)
+    &&this.equalsString(address.post,item.post)) {
+      //关闭当前页面
+      setTimeout(this.finish, 1000);
+      return;
+    }
+
 
     //填充参数
     let data = {
       "uid": this.data.userid,
-      "receiver": address.receiver,
-      "address": address.address,
-      "mobile": address.mobile,
-      "province": address.province,
-      "city": address.city,
-      "area": address.area,
-      "post": address.post
+      "receiver": this.isEmpty(item.receiver)?address.receiver:item.receiver,
+      "address": this.isEmpty(item.address)?address.address:item.address,
+      "mobile": this.isEmpty(item.mobile)?address.mobile:item.mobile,
+      "province": this.data.region[0],
+      "city": this.data.region[1],
+      "area": this.data.region[2],
+      "post": this.isEmpty(item.post)?address.post:item.post
     }
 
     //判断新增还是更新

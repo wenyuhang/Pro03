@@ -25,12 +25,19 @@
   <view>
     <view class="convert-list-text">兑换记录</view>
 
-    <view class="convert-info" wx:for="{{convertList}}" wx:for-item="dat" wx:key="item">
-      <image src="{{dat.user.headimgurl}}" class="convert-header" mode="aspectFit" lazy-load="true" />
-      <text class="convert-name">{{dat.user.name}}</text>
-      <text class="convert-time">{{dat.distancedate}}</text>
+
+    <view wx:if="{{convertList.length>0}}">
+      <view class="convert-info" wx:for="{{convertList}}" wx:for-item="dat" wx:key="item">
+        <image src="{{dat.user.headimgurl}}" class="convert-header" mode="aspectFit" lazy-load="true" />
+        <text class="convert-name">{{dat.user.name}}</text>
+        <text class="convert-time">{{dat.distancedate}}</text>
+      </view>
+    </view>
+    <view class="empty-text" wx:else>
+      暂无兑换记录
     </view>
   </view>
+
 
 
   <view class="convert-group">

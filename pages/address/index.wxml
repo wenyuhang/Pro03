@@ -29,7 +29,8 @@
   <view class="line"></view>
 
   <text class="tv-title">详细地址</text>
-  <input type="text" placeholder="详细地址" maxlength="50" value="{{address.address}}" class="tv-input" bindinput="addressInput"/>
+  <!-- <input type="text" placeholder="详细地址" maxlength="50" value="{{address.address}}" class="tv-input" bindinput="addressInput"/> -->
+  <textarea  placeholder="详细地址"  class="test" auto-height="true" maxlength="50" value="{{address.address}}" bindinput="addressInput"></textarea>
 
   <view class="line"></view>
 
@@ -37,6 +38,7 @@
   <input type="number" placeholder="邮政编码" maxlength="6" value="{{address.post}}" class="tv-input" bindinput="postInput"/>
 
   <view class="line"></view>
+
 
 
 

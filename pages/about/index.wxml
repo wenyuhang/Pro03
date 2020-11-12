@@ -19,7 +19,7 @@
       <view class="tv-email">wyh3321@aliyun.com</view>
     </view>
 
-    <button class="btn-copy">
+    <button class="btn-copy" bindtap='btnCopy'>
     复制邮箱
     </button>
   </view>

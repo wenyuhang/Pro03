@@ -8,6 +8,8 @@ const $api = require("../../utils/api").API;
 var isGetRunData = true;
 //是否已经点击兑换 
 var isConvert = false;
+//是否已获取过邀请记录
+var isGetInviteData = false;
 
 Page({
   data: {
@@ -63,7 +65,7 @@ Page({
         this.getUserInfo(uid);
       }
       //获取邀请用户列表
-      if (uid) {
+      if (uid && !isGetInviteData) {
         this.getInviteRecord(uid);
       }
     })
@@ -209,6 +211,8 @@ Page({
     $api.getInviteRecord(data).then(res => {
       //请求成功  判断状态码
       if (res.code == 200) {
+        //邀请记录已获取标识
+        isGetInviteData = true;
         this.setData({
           items: res.data.list
         })

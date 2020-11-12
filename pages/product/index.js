@@ -91,9 +91,9 @@ Page({
     }
     //下面开始调用商品详情接口
     $api.getProConvertList(data).then(res => {
+      console.log(res.data.list)
       //请求成功  判断状态码
       if (res.code == 200) {
-
         this.setData({
           convertList: res.data.list
         })

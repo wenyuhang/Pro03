@@ -2,7 +2,6 @@
 .index-container{
   height: 100%;
   background: #fff;
-  padding-left: 25rpx;
   padding-right: 25rpx;
 }
 
@@ -12,7 +11,7 @@
   line-height: 100rpx;
   font-size: 32rpx;
   float: left;
-
+  margin-left: 25rpx;
 }
 
 .tv-input{
@@ -38,6 +37,7 @@
 
 .line{
   border-top: 1px solid #D6D6D6;
+  margin-left: 25rpx;
 }
 
 .confirm-group{
@@ -59,4 +59,12 @@
   background:linear-gradient(#FF3E3B,#FD502D);
   border-radius: 10rpx;
   color: white;
+}
+
+.test{
+  width: 430rpx;
+  font-size: 30rpx;
+  padding-right: 30rpx;
+  padding-top: 35rpx;
+  padding-bottom: 35rpx;
 }

@@ -155,3 +155,9 @@ page {
   font-size: 25rpx;
   margin-left: 10rpx;
 }
+
+.empty-text{
+  text-align: center;
+  font-size: 32rpx;
+  margin-top: 200rpx;
+}
