@@ -34,10 +34,10 @@
 
   <view class="line"></view>
 
-  <text class="tv-title">邮政编码</text>
+  <!-- <text class="tv-title">邮政编码</text>
   <input type="number" placeholder="邮政编码" maxlength="6" value="{{address.post}}" class="tv-input" bindinput="postInput"/>
 
-  <view class="line"></view>
+  <view class="line"></view> -->
 
 
 

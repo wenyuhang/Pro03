@@ -35,7 +35,7 @@ page{
 .cl .cl-group{
   display: inline-block;
   margin-left: 20rpx;
-  position: fixed;
+  vertical-align: top;
 }
 
 .cl .cl-group .l{
@@ -82,13 +82,11 @@ page{
 }
 
 .pro-original-price{
-  height: 75rpx;
-  line-height: 75rpx;
   float: right;
   font-size: 25rpx;
   color: #aaa;
   text-decoration: line-through;
-  margin-top: 100rpx;
+  margin-top: 125rpx;
   margin-right: 20rpx;
 }
 

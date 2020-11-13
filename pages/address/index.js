@@ -6,7 +6,7 @@ Page({
   data: {
     userid: wx.getStorageSync('uid'),
     address: {},
-    item:{},
+    item: {},
     region: [],
   },
   onLoad: function (e) {
@@ -61,7 +61,7 @@ Page({
     obj.city = value[1];
     obj.area = value[2];
     this.setData({
-      region:value
+      region: value
     })
   },
   /**
@@ -69,14 +69,14 @@ Page({
    * @param {*} str1 
    * @param {*} str2 
    */
-  equalsString: function (str1,str2) {
-    if(str2 == null || str2.length==0 || str1 === str2){
+  equalsString: function (str1, str2) {
+    if (str2 == null || str2.length == 0 || str1 === str2) {
       return true;
     }
     return false;
   },
-  isEmpty:function (params) {
-    if(params == null || params.length==0){
+  isEmpty: function (params) {
+    if (params == null || params.length == 0) {
       return true;
     }
     return false;
@@ -90,12 +90,12 @@ Page({
     let item = this.data.item;
 
     //收货人
-    if (!address.receiver) {
+    if (!address.receiver || (item.receiver != null && item.receiver.length == 0)) {
       this.showToast('请输入收货人姓名');
       return;
     }
     //手机号码
-    if (!address.mobile) {
+    if (!address.mobile || (item.mobile != null && item.mobile.length == 0)) {
       this.showToast('请输入11位手机号码');
       return;
     }
@@ -105,24 +105,27 @@ Page({
       return;
     }
     //详细地址
-    if (!address.address) {
+    if (!address.address || (item.address != null && item.address.length == 0)) {
       this.showToast('请输入详细地址');
       return;
     }
     //邮政编码
-    if (!address.post) {
-      this.showToast('请输入邮政编码');
-      return;
-    }
+    // if (!address.post) {
+    //   this.showToast('请输入邮政编码');
+    //   return;
+    // }
+
+
 
     //判断是否需要update
-    if (this.equalsString(address.receiver,item.receiver)
-    &&this.equalsString(address.mobile,item.mobile)
-    &&this.equalsString(address.province,item.province)
-    &&this.equalsString(address.city,item.city)
-    &&this.equalsString(address.area,item.area)
-    &&this.equalsString(address.address,item.address)
-    &&this.equalsString(address.post,item.post)) {
+    if (this.equalsString(address.receiver, item.receiver) &&
+      this.equalsString(address.mobile, item.mobile) &&
+      this.equalsString(address.province, item.province) &&
+      this.equalsString(address.city, item.city) &&
+      this.equalsString(address.area, item.area) &&
+      this.equalsString(address.address, item.address)
+      // &&this.equalsString(address.post,item.post)
+    ) {
       //关闭当前页面
       setTimeout(this.finish, 1000);
       return;
@@ -132,13 +135,13 @@ Page({
     //填充参数
     let data = {
       "uid": this.data.userid,
-      "receiver": this.isEmpty(item.receiver)?address.receiver:item.receiver,
-      "address": this.isEmpty(item.address)?address.address:item.address,
-      "mobile": this.isEmpty(item.mobile)?address.mobile:item.mobile,
+      "receiver": this.isEmpty(item.receiver) ? address.receiver : item.receiver,
+      "address": this.isEmpty(item.address) ? address.address : item.address,
+      "mobile": this.isEmpty(item.mobile) ? address.mobile : item.mobile,
       "province": this.data.region[0],
       "city": this.data.region[1],
       "area": this.data.region[2],
-      "post": this.isEmpty(item.post)?address.post:item.post
+      "post": '100000'
     }
 
     //判断新增还是更新
@@ -212,15 +215,20 @@ Page({
     $api.addAddress(data).then(res => {
       //关闭loading
       this.hideLoading();
-      //新增完成
-      this.showToast(res.message);
-      //关闭当前页面
-      setTimeout(this.finish, 1000);
+      //请求成功  判断状态码  新增完成
+      if (res.code == 200) {
+        $api.showToast(res.message, 'success');
+        //关闭当前页面
+        setTimeout(this.finish, 1000);
+      } else {
+        $api.showToast(res.message, 'none');
+      }
+      
     }).catch(err => {
       //关闭loading
       this.hideLoading();
       //请求失败
-      this.showToast(err);
+      $api.showToast(err, 'none');
     })
   },
   /**
@@ -233,17 +241,21 @@ Page({
     this.showLoading('处理中...');
     //下面开始调用新增收货地址接口
     $api.updateAddress(data).then(res => {
-      //关闭loading
-      this.hideLoading();
-      //新增完成
-      this.showToast(res.message);
-      //关闭当前页面
-      setTimeout(this.finish, 1000);
+     //关闭loading
+     this.hideLoading();
+     //请求成功  判断状态码  更新完成
+     if (res.code == 200) {
+       $api.showToast(res.message, 'success');
+       //关闭当前页面
+       setTimeout(this.finish, 1000);
+     } else {
+       $api.showToast(res.message, 'none');
+     }
     }).catch(err => {
       //关闭loading
       this.hideLoading();
       //请求失败
-      this.showToast(err);
+      $api.showToast(err, 'none');
     })
   },
   /**
