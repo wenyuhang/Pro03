@@ -13,9 +13,8 @@ Page({
     } else {
       url = '/pages/home/index';
     }
-    console.log(url)
     return {
-      title: '步数多多',
+      title: '走走换换',
       path: url
     }
   },
@@ -31,7 +30,7 @@ Page({
       url = '/pages/home/index';
     }
     return {
-      title: '步数多多',
+      title: '走走换换',
       query: url
     }
   }

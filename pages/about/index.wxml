@@ -3,14 +3,14 @@
   <image class="logo-img" src="../../image/steps.png" mode="aspectFit"  lazy-load="true"></image>
 
 
-  <view class="app-name">步数多多</view>
+  <view class="app-name"></view>
 
   <view class="tv-content">
-    步数多多是一款运动健康为主的小程序，您可以通过每日的运动步数免费兑换平台内的任何商品。当然您还可以通过邀请好友的方式快速积攒金币兑换心仪的商品。
+    这是一款运动健康为主的小程序，您可以通过每日的运动步数免费兑换平台内的任何商品。当然您还可以通过邀请好友的方式快速积攒金币兑换心仪的商品。
   </view>
 
   <view class="tv-content">
-    步数多多的核心理念是让大家通过运动使生活变得更加健康、快乐，让大家爱上运动、享受运动，您的支持是我们前进的动力，我们会用心做好产品，服务好大家。
+    核心理念是让大家通过运动使生活变得更加健康、快乐，让大家爱上运动、享受运动，您的支持是我们前进的动力，我们会用心做好产品，服务好大家。
   </view>
 
   <view class="coop">

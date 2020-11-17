@@ -17,7 +17,8 @@ Page({
     userInfo: app.globalData.userInfo,
     coin: 0.00,
     steps: 0,
-    items: []
+    items: [],
+    explain:''
   },
   //事件处理函数
   onLoad: function () {
@@ -78,12 +79,14 @@ Page({
     if (isConvert) return
     let steps = this.data.steps;
     let that = this;
-    if (steps === 0) {
-      $api.showModal('兑换提示', '步数为0无法兑换金币，多走一点步数再来兑换吧~', false);
-      return;
-    }
+
     let uid = wx.getStorageSync('uid');
     if (uid) {
+      if (steps === 0) {
+        $api.showModal('兑换提示', '步数为0无法兑换金币，多走一点步数再来兑换吧~', false);
+        return;
+      }
+      
       let coin = (steps / 1000).toFixed(2);
       wx.showModal({
         title: '兑换提示',
@@ -122,7 +125,8 @@ Page({
       if (res.code == 200) {
         //可兑换运动步数
         this.setData({
-          steps: res.data
+          steps: res.data,
+          explain: res.message
         })
       }
     }).catch(err => {
@@ -212,7 +216,7 @@ Page({
       //请求成功  判断状态码
       if (res.code == 200) {
         //邀请记录已获取标识
-        isGetInviteData = true;
+        isGetInviteData = false;
         this.setData({
           items: res.data.list
         })
@@ -236,9 +240,8 @@ Page({
     } else {
       url = '/pages/home/index';
     }
-    console.log(url)
     return {
-      title: '步数多多',
+      title: '走走换换',
       path: url
     }
   },
@@ -254,7 +257,7 @@ Page({
       url = '/pages/home/index';
     }
     return {
-      title: '步数多多',
+      title: '走走换换',
       query: url
     }
   },

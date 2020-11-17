@@ -15,9 +15,13 @@
 .invite-info .invite-name{
   display: inline-block;
   height: 100rpx;
+  width: 300rpx;
   line-height: 100rpx;
   vertical-align: top;
   margin-left: 20rpx;
+  word-break: keep-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .invite-info .invite-time{

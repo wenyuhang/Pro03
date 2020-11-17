@@ -88,26 +88,44 @@ Page({
   confirmClick: function () {
     let address = this.data.address;
     let item = this.data.item;
+    console.log(address)
+    console.log(item)
 
     //收货人
-    if (!address.receiver || (item.receiver != null && item.receiver.length == 0)) {
+    if (!address.receiver && !item.receiver) {
       this.showToast('请输入收货人姓名');
       return;
     }
     //手机号码
-    if (!address.mobile || (item.mobile != null && item.mobile.length == 0)) {
-      this.showToast('请输入11位手机号码');
+    if (!address.mobile && !item.mobile) {
+      this.showToast('请输入11位手机号');
       return;
     }
+
     //地址
     if (this.data.region.length <= 0) {
       this.showToast('请选择收货地区');
       return;
     }
+
     //详细地址
-    if (!address.address || (item.address != null && item.address.length == 0)) {
+    if (!address.address && !item.address) {
       this.showToast('请输入详细地址');
       return;
+    }
+
+    //收货人
+    if (item.receiver == null || item.receiver.length == 0) {
+      item.receiver = address.receiver;
+    }
+    //手机号码
+    if (item.mobile == null || item.mobile.length == 0) {
+      item.mobile = address.mobile;
+    }
+
+    //详细地址
+    if (item.address == null || item.address.length == 0) {
+      item.address = address.address;
     }
     //邮政编码
     // if (!address.post) {
@@ -194,10 +212,15 @@ Page({
     $api.getAddress(data).then(res => {
       //关闭loading
       this.hideLoading();
-      this.setData({
-        address: res.data,
-        region: [res.data.province, res.data.city, res.data.area]
-      })
+      //请求成功 判断状态码
+      if (res.code == 200) {
+        this.setData({
+          address: res.data,
+          region: [res.data.province, res.data.city, res.data.area]
+        })
+      } else {
+        $api.showToast(res.message, 'none');
+      }
     }).catch(err => {
       //关闭loading
       this.hideLoading();
@@ -223,7 +246,7 @@ Page({
       } else {
         $api.showToast(res.message, 'none');
       }
-      
+
     }).catch(err => {
       //关闭loading
       this.hideLoading();
@@ -241,16 +264,16 @@ Page({
     this.showLoading('处理中...');
     //下面开始调用新增收货地址接口
     $api.updateAddress(data).then(res => {
-     //关闭loading
-     this.hideLoading();
-     //请求成功  判断状态码  更新完成
-     if (res.code == 200) {
-       $api.showToast(res.message, 'success');
-       //关闭当前页面
-       setTimeout(this.finish, 1000);
-     } else {
-       $api.showToast(res.message, 'none');
-     }
+      //关闭loading
+      this.hideLoading();
+      //请求成功  判断状态码  更新完成
+      if (res.code == 200) {
+        $api.showToast(res.message, 'success');
+        //关闭当前页面
+        setTimeout(this.finish, 1000);
+      } else {
+        $api.showToast(res.message, 'none');
+      }
     }).catch(err => {
       //关闭loading
       this.hideLoading();

@@ -25,7 +25,7 @@
       </view>
     </view>
 
-    <text class="iv-explain">试运营阶段邀请好友可获得30金币奖励</text>
+    <text class="iv-explain">{{explain}}</text>
 
     <button class="invite-friend" bindtap="inviteClick" open-type="share">邀请好友得金币奖励</button>
 
