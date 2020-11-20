@@ -219,7 +219,7 @@ Page({
           region: [res.data.province, res.data.city, res.data.area]
         })
       } else {
-        $api.showToast(res.message, 'none');
+        // $api.showToast(res.message, 'none');
       }
     }).catch(err => {
       //关闭loading

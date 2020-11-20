@@ -91,7 +91,6 @@ Page({
     }
     //下面开始调用商品详情接口
     $api.getProConvertList(data).then(res => {
-      console.log(res.data.list)
       //请求成功  判断状态码
       if (res.code == 200) {
         this.setData({
@@ -119,7 +118,7 @@ Page({
       url = '/pages/home/index';
     }
     return {
-      title: '走走换换',
+      title: '换金币兑超值商品',
       path: url
     }
   },
@@ -135,7 +134,7 @@ Page({
       url = '/pages/home/index';
     }
     return {
-      title: '走走换换',
+      title: '换金币兑超值商品',
       query: url
     }
   }

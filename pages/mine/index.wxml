@@ -1,67 +1,79 @@
 <import src="/template/authlogin/index.wxml" />
 <view>
-  <view wx:if="{{userInfo.headimgurl}}" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.headimgurl}}" mode="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.name}}</text>
-  </view>
-  <view wx:else class="userinfo">
-    <image class="userinfo-avatar" src="/image/nologin.png" background-size="cover"></image>
-    <text class="userinfo-nickname" bindtap="goLogin">立即登录</text>
-  </view>
+  <view class="info-group">
+    <!-- 背景 -->
+    <image mode="scaleToFill" src="../../image/bg_userinfo.png" class="bg-info"></image>
+    <!-- 用户头像 -->
+    <image class="userinfo-avatar" wx:if="{{userInfo.headimgurl}}" src="{{userInfo.headimgurl}}" mode="cover"></image>
+    <image class="userinfo-avatar" wx:else src="/image/nologin.png" background-size="cover"></image>
+    <!-- 用户昵称 -->
+    <text class="userinfo-nickname" wx:if="{{userInfo.name}}">{{userInfo.name}}</text>
+    <text class="userinfo-nickname" wx:else bindtap="goLogin">立即登录</text>
+    <!-- 二维码 -->
+    <image class="img-qr-code" src="../../image/icon_qr_code.png" mode="scaleToFill"></image>
 
-  <view class="asset">
-    <!-- <view class='item' bindtap='goAsset'>
-      <view class="text">{{energy}}</view>
-      <view class="tv">包邮能量</view>
-    </view> -->
-    <view class='item' bindtap='coinRecord'>
-      <view class="text">{{userInfo.coin_total}}</view>
-      <view class="tv">金币</view>
+    <!-- 金币 步数 邀请记录 -->
+    <view class="asset">
+      <view class='item' bindtap='coinRecord'>
+        <view class="text">{{userInfo.coin_total}}</view>
+        <view class="tv">现有金币</view>
+      </view>
+
+      <view class='item' bindtap='stepsRecord'>
+        <view class="text">{{userInfo.steps_total}}</view>
+        <view class="tv">已走步数</view>
+      </view>
+
+      <view class='item' bindtap='inviteRecord'>
+        <view class="text">{{userInfo.invite_total}}</view>
+        <view class="tv">邀请好友</view>
+      </view>
     </view>
-    <view class='item' bindtap='inviteRecord'>
-      <view class="text">{{userInfo.invite_total}}</view>
-      <view class="tv">邀请好友</view>
-    </view>
-  </view>
-
-  <view class="order-address-line"></view>
-
-  <view class='order-address'>
-
-    <view class='item' bindtap='toMyOrder'>
-      <image class="icon" src="../../image/myorder.png" background-size="cover"></image>
-      <view class='text'>我的订单</view>
-    </view>
-
-    <view class='item' bindtap='toMyAddress'>
-      <image class="icon" src="../../image/myaddress.png" background-size="cover"></image>
-      <view class='text'>我的地址</view>
-    </view>
-
-    <view class='item' bindtap='toRule'>
-      <image class="icon" src="../../image/rule.png" background-size="cover"></image>
-      <view class='text'>规则说明</view>
-    </view>
-
   </view>
 
-  <view class='order-address'>
-
-    <view class='item' bindtap='toAbout'>
-      <image class="icon" src="../../image/feedback.png" background-size="cover"></image>
-      <view class='text'>关于我们</view>
-    </view>
-
-    <view class='item' bindtap='toFAQ'>
-      <image class="icon" src="../../image/about.png" background-size="cover"></image>
-      <view class='text'>常见问题</view>
-    </view>
-
-    <view class='item'>
-
-    </view>
-
+  <!-- 我的订单 -->
+  <view class='item-group' bindtap='toMyOrder'>
+    <image class="icon" src="../../image/myorder.png" mode="aspectFit"></image>
+    <view class='tv-content'>我的订单</view>
+    <image class="icon-enter" src="../../image/icon_enter.png" mode="aspectFit"></image>
   </view>
+
+  <view class="thin-line"></view>
+
+  <!-- 我的地址 -->
+  <view class='item-group' bindtap='toMyAddress'>
+    <image class="icon" src="../../image/myaddress.png" mode="aspectFit"></image>
+    <view class='tv-content'>我的地址</view>
+    <image class="icon-enter" src="../../image/icon_enter.png" mode="aspectFit"></image>
+  </view>
+
+  <view class="thick-line"></view>
+
+  <!-- 规则说明 -->
+  <view class='item-group' bindtap='toRule'>
+    <image class="icon" src="../../image/rule.png" mode="aspectFit"></image>
+    <view class='tv-content'>规则说明</view>
+    <image class="icon-enter" src="../../image/icon_enter.png" mode="aspectFit"></image>
+  </view>
+
+  <view class="thin-line"></view>
+
+  <!-- 关于我们 -->
+  <view class='item-group' bindtap='toAbout'>
+    <image class="icon" src="../../image/about.png" mode="aspectFit"></image>
+    <view class='tv-content'>关于我们</view>
+    <image class="icon-enter" src="../../image/icon_enter.png" mode="aspectFit"></image>
+  </view>
+
+  <view class="thick-line"></view>
+
+  <!-- 常见问题 -->
+  <view class='item-group' bindtap='toFAQ'>
+    <image class="icon" src="../../image/faq.png" mode="aspectFit"></image>
+    <view class='tv-content'>常见问题</view>
+    <image class="icon-enter" src="../../image/icon_enter.png" mode="aspectFit"></image>
+  </view>
+
 
   <!-- <official-account></official-account> -->
   <!-- <image class="push" src="../../image/push.jpg" mode="aspectFit"/> -->

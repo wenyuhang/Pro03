@@ -1,51 +1,69 @@
 @import "/template/authlogin/index.wxss";
 
-page{
-  background: #eee;
-}
-.index-container{
-  width: 100%;
-  padding-bottom: 30rpx;
-  background-color: white;
-}
-/* 能量 金币布局 */
-.info-data {
-  padding: 20rpx 20rpx;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.info-data .group{
-  display: flex;
-}
-.info-data .img{
-  width: 40rpx;
-  height: 40rpx;
+page {
+  background: #F6F9FF;
 }
 
-.info-data .tv{
-  font-size: 30rpx;
+.index-container {
+  width: 100%;
+  background-color: white;
+}
+
+/* 能量 金币布局 */
+.info-data {
+  padding:20rpx 20rpx 20rpx 26rpx;
+}
+
+.info-data .img {
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: top;
+}
+
+.info-data .title {
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-left: 14rpx;
+  color: #000000;
+  vertical-align: top;
+}
+
+.info-data .tv {
+  font-size: 28rpx;
+  line-height: 40rpx;
   margin-left: 5rpx;
+  color: #F18800;
+  vertical-align: top;
+}
+
+.img-top-right {
+  width: 183rpx;
+  height: 117rpx;
+  float: right;
+  margin-top: -50rpx;
+  margin-right: 26rpx;
+}
+
+.img-bottom-left {
+  width: 61rpx;
+  height: 54rpx;
+  margin: 0 0 50rpx 26rpx;
 }
 
 /* 兑换运动步数 */
-.convert-strps {
-  width: 340rpx;
-  height: 340rpx;
+.convert-steps {
+  width: 384rpx;
+  height: 350rpx;
   position: relative;
   margin: 0 auto;
-  border-radius: 50%;
-  background: #FE4634;
 }
 
 .cs-bg {
-  width: 300rpx;
-  height: 300rpx;
+  width: 384rpx;
+  height: 350rpx;
   position: absolute;
-  left: 20rpx;
-  top: 20rpx;
-  border-radius: 50%;
-  background: white;
 }
 
 .cs-tv {
@@ -58,82 +76,148 @@ page{
 }
 
 .cs-tv .cs-tv-f {
-  font-size: 25rpx;
-  margin-top: 24%;
-  color: #313131;
+  font-size: 34rpx;
+  margin-top: 22%;
+  color: #000000;
 }
 
-.cs-tv .cs-tv-t {
+/* .cs-tv .cs-tv-t {
   font-size: 18rpx;
   color: #939393;
-}
+} */
 
 .cs-tv .cs-tv-n {
-  font-size: 50rpx;
-  color: #313131;
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #000000;
+  /* margin-top: 10rpx; */
 }
 
 .cs-tv .cs-tv-c {
-  font-size: 28rpx;
-  color: #F7365F;
+  width: 230rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  /* font-size: 28rpx; */
+  text-align: center;
+  color: #F18800;
+  background: rgba(241, 136, 0, 0.2);
+  border-radius: 30px;
+  margin-top: 10rpx;
+}
+
+.cs-img-person {
+  width: 229rpx;
+  height: 200rpx;
+  margin-left: 140rpx;
+  margin-top: -50rpx;
+}
+
+.cs-img-steps-bottom {
+  width: 100%;
+  height: 85rpx;
+  margin-top: -50rpx;
+}
+
+.bg-line {
+  width: 100%;
+  height: 25rpx;
+  background: #F6F9FF;
+  margin-top: -12rpx;
+}
+
+/* 邀请模块 */
+
+.ll-btn-invite {
+  background: white;
+  padding-top: 40rpx;
+  margin: 0 auto;
+}
+
+.ll-btn-invite .img-bg-invite {
+  position: absolute;
+  width: 100%;
+  height: 190rpx;
+  background: white;
 }
 
 /* 邀请好友 */
-.invite-friend{
-  width: 70% ;
-  height: 90rpx;
-  font-size: 35rpx;
-  line-height: 90rpx;
-  text-align: center;
-  margin-top: 20rpx;
-  background:linear-gradient(#FF3E3B,#FD502D);
-  border-radius: 50rpx;
-  color: white;
-}
-
-.iv-explain{
+.ll-btn-invite .invite-friend {
   width: 100%;
-  display: inline-block;
-  font-size: 30rpx;
-  text-align: center;
-  margin-top: 25rpx;
+  height: 190rpx;
+  opacity: 0;
+  position: absolute;
 }
 
-.iv-group{
+
+.iv-explain {
+  position: absolute;
+  font-size: 24rpx;
+  font-weight: bold;
+  margin-left: 80rpx;
+  margin-top: 125rpx;
+  color: #FFC926;
+}
+
+.iv-group {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  margin-top: 30rpx;
 }
 
-.iv-img{
+.ll-header-group {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 190rpx;
+  background: white;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  padding-left: 13rpx;
+  padding-right: 13rpx;
+}
+
+.ll-header-group .ll-header {
   width: 90rpx;
   height: 90rpx;
-  border:1px solid #F3F3F3;
-  background-color: #F4F8FB;
+}
+
+.ll-header-group .ll-header .btn-invite-friend {
+  width: 90rpx;
+  height: 90rpx;
+  opacity: 0;
+  position: absolute;
+}
+
+.ll-header-group .ll-header .iv-img {
+  position: absolute;
+  width: 90rpx;
+  height: 90rpx;
   border-radius: 50%;
+  background-color: rgba(255,241,208, 0.5);
+  border: 1px solid rgba(253,136,4, 0.5);
   /* margin: 12rpx 12rpx; */
 }
 
-.iv-img-plus{
+
+.ll-header-group .ll-header .lltv {
+  position: absolute;
   width: 90rpx;
   height: 90rpx;
-  border:1px solid red;
-  background-color: #F4F8FB;
-  border-radius: 50%;
-  /* margin: 12rpx 12rpx; */
+  font-size: 64rpx;
+  text-align: center;
+  color: rgba(253,136,4, 0.5);
+  margin-left: 2rpx;
 }
 
 
 
-.ad-tv{
+.ad-tv {
   width: 500rpx;
   height: 260rpx;
   font-size: 45rpx;
   line-height: 260rpx;
   text-align: center;
   color: white;
-  background:linear-gradient(#60A13D,#83C144);
+  background: linear-gradient(#60A13D, #83C144);
   margin: 0 auto;
   margin-top: 100rpx;
 }

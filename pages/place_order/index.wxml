@@ -5,7 +5,9 @@
       <image class="ad-icon" src="../../image/myaddress.png" background-size="cover" mode="aspectFit"></image>
       <view class="cl-group">
         <view class="l">收件人：{{address.receiver}} {{address.mobile}}</view>
-        <view class="a">{{address.province + address.city + address.area + address.address}}</view>
+
+        <view class="a" wx:if="{{address.receiver}}">{{address.province + address.city + address.area + address.address}}</view>
+        <view class="a" wx:else >暂无地址信息</view>
       </view>
       <image class="into-icon" src="../../image/enter.png" background-size="cover" mode="aspectFit"></image>
     </view>

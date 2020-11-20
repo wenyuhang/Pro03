@@ -3,45 +3,91 @@
 <view>
   <view class="index-container">
     <view class="info-data">
-      <view class="group">
-        <image class="img" src="../../image/coin.png" />
-        <view class="tv">步数金币：{{userInfo.coin_total}}</view>
-
-        <view class="group">
-          <!-- <image class="img" src="../../image/energy.png"/>
-    <view class="tv">包邮能量：{{energy}}</view> -->
-        </view>
-      </view>
-
+      <image class="img" src="../../image/coin.png" />
+      <text class="title">步数金币：</text>
+      <text class="tv">{{userInfo.coin_total}}</text>
     </view>
 
-    <view class="convert-strps" bindtap="converClick">
-      <view class="cs-bg"></view>
+    <image class="img-top-right" src="../../image/bg_top_right.png" />
+
+    <view class="convert-steps" bindtap="converClick">
+      <image class="cs-bg" src="../../image/bg_steps.png" mode="scaleToFill"></image>
       <view class="cs-tv">
         <text class="cs-tv-f">今日步数</text>
-        <text class="cs-tv-t">(次日清零)</text>
+        <!-- <text class="cs-tv-t">(次日清零)</text> -->
         <text class="cs-tv-n">{{steps}}</text>
         <text class="cs-tv-c">点击兑换金币</text>
       </view>
     </view>
 
+    <image class="img-bottom-left" src="../../image/bg_bottom_left.png" />
+
+    <image class="cs-img-person" src="../../image/icon_steps_person.png" mode="scaleToFill"></image>
+
+    <image class="cs-img-steps-bottom" src="../../image/bg_steps_bottom.png" mode="scaleToFill"></image>
+
+
+
+  </view>
+  <view class="bg-line"></view>
+
+  <!-- 邀请模块 -->
+  <view class="ll-btn-invite">
+
+    <image class="img-bg-invite" src="../../image/bg_invite.png" mode="scaleToFit"></image>
+
     <text class="iv-explain">{{explain}}</text>
 
-    <button class="invite-friend" bindtap="inviteClick" open-type="share">邀请好友得金币奖励</button>
+    <button class="invite-friend" open-type="share"></button>
 
-    <text class="iv-explain">金币可帮您兑换包邮商品哦</text>
-
-    <view class="iv-group">
-      <image class="iv-img" src="{{items[0].user.headimgurl}}"></image>
-      <image class="iv-img" src="{{items[1].user.headimgurl}}"></image>
-      <image class="iv-img" src="{{items[2].user.headimgurl}}"></image>
-      <image class="iv-img" src="{{items[3].user.headimgurl}}"></image>
-      <image class="iv-img" src="{{items[4].user.headimgurl}}"></image>
-      <image class="iv-img-plus" src="../../image/plus.png" mode="center"></image>
-    </view>
   </view>
-  <!-- <button class="ad-tv">赚取更多金币</button> -->
+
+
+  <view class="ll-header-group">
+    <view class="ll-header">
+      <image class="iv-img" src="{{items[0].user.headimgurl}}"></image>
+      <text class="lltv" wx:if="{{!items[0].user.headimgurl}}">＋</text>
+      <button class="btn-invite-friend" open-type="share" wx:if="{{!items[0].user.headimgurl}}"></button>
+    </view>
+
+    <view class="ll-header">
+      <image class="iv-img" src="{{items[1].user.headimgurl}}"></image>
+      <text class="lltv" wx:if="{{!items[1].user.headimgurl}}">＋</text>
+      <button class="btn-invite-friend" open-type="share" wx:if="{{!items[1].user.headimgurl}}"></button>
+    </view>
+
+    <view class="ll-header">
+      <image class="iv-img" src="{{items[2].user.headimgurl}}"></image>
+      <text class="lltv" wx:if="{{!items[2].user.headimgurl}}">＋</text>
+      <button class="btn-invite-friend" open-type="share" wx:if="{{!items[2].user.headimgurl}}"></button>
+    </view>
+
+    <view class="ll-header">
+      <image class="iv-img" src="{{items[3].user.headimgurl}}"></image>
+      <text class="lltv" wx:if="{{!items[3].user.headimgurl}}">＋</text>
+      <button class="btn-invite-friend" open-type="share" wx:if="{{!items[3].user.headimgurl}}"></button>
+    </view>
+
+    <view class="ll-header">
+      <image class="iv-img" src="{{items[4].user.headimgurl}}"></image>
+      <text class="lltv" wx:if="{{!items[4].user.headimgurl}}">＋</text>
+      <button class="btn-invite-friend" open-type="share" wx:if="{{!items[4].user.headimgurl}}"></button>
+    </view>
+
+    <view class="ll-header">
+      <image class="iv-img" src="{{items[5].user.headimgurl}}"></image>
+      <text class="lltv" wx:if="{{!items[5].user.headimgurl}}">＋</text>
+      <button class="btn-invite-friend" open-type="share" wx:if="{{!items[5].user.headimgurl}}"></button>
+    </view>
+
+  </view>
+
+
+  
+  <!-- <text>金币可帮您兑换包邮商品哦</text> -->
+
   <official-account></official-account>
+
 </view>
 
 

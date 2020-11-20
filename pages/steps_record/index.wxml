@@ -1,0 +1,40 @@
+<!-- 引入wxs脚本 -->
+<wxs src="../../utils/subutil.wxs" module="tools" />
+
+<view class="index-container">
+
+  <view class="user-steps">
+
+    <image class="img-person" src="../../image/icon_steps_person.png" mode="aspectFit"></image>
+
+    <view>
+      <text class="tv-steps">您已累计走了</text>
+      <text class="steps-num">{{steps}}</text>
+      <text class="tv-steps">步</text>
+    </view>
+  </view>
+
+  <view class="record-title">每日明细</view>
+
+  <view wx:if="{{items.length>0}}">
+    <view class="steps-info" wx:for="{{items}}" wx:key="item">
+
+      <image src="../../image/icon_logo.jpg" class="steps-icon" mode="aspectFit" lazy-load="true" />
+
+      <view class="tv-steps-a">您在</view>
+
+      <text class="tv-steps-time">{{tools.sub(item.createdate,0,10)}}</text>
+
+      <text class="tv-steps-b">这天走了</text>
+
+      <text class="tv-steps-num">{{item.steps}}</text>
+
+      <text class="tv-steps-c">步</text>
+
+    </view>
+  </view>
+  <view class="empty-text" wx:else>
+    您还没有步数记录哦！
+  </view>
+
+</view>

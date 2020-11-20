@@ -99,7 +99,9 @@ const API = {
   //获取用户信息
   getUserInfo:(data) => request(POST,'/userinfo/getUserInfo',data),
   //获取商品兑换记录
-  getProConvertList:(data) => request(POST,'/order/orderListByProduct',data)
+  getProConvertList:(data) => request(POST,'/order/orderListByProduct',data),
+  //用户步数记录
+  getStepsRecord:(data) => request(POST,'/userinfo/stepsRecord',data)
 }
 
 module.exports = {

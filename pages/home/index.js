@@ -18,7 +18,7 @@ Page({
     coin: 0.00,
     steps: 0,
     items: [],
-    explain:''
+    explain: ''
   },
   //事件处理函数
   onLoad: function () {
@@ -41,32 +41,17 @@ Page({
       })
       //获取微信运动 拒绝后不再获取
       if (res && isGetRunData) {
-        //获取微信步数
-        wx.getWeRunData({
-          success: (result) => {
-            const encryptedData = result.encryptedData;
-            isGetRunData = true;
-            // 发送请求 处理数据
-            let data = {
-              'uid': wx.getStorageSync('uid'),
-              'data': encryptedData,
-              'iv': result.iv
-            }
-            this.getRunSteps(data);
-          },
-          fail: (err) => {
-            console.log(err);
-            isGetRunData = false;
-          }
-        })
+        this.authWeRunData();
       }
-      //获取用户信息
+      //
       let uid = wx.getStorageSync('uid');
-      if (!e && !this.data.userInfo.openid && res && uid) {
-        this.getUserInfo(uid);
-      }
-      //获取邀请用户列表
+      // if (!e && !this.data.userInfo.openid && res && uid) {
+      //   this.getUserInfo(uid);
+      // }
+
+      //获取邀请用户列表    获取用户信息
       if (uid && !isGetInviteData) {
+        this.getUserInfo(uid);
         this.getInviteRecord(uid);
       }
     })
@@ -77,16 +62,23 @@ Page({
   converClick: function () {
     //判断是否点击兑换 防止二次点击
     if (isConvert) return
+
     let steps = this.data.steps;
     let that = this;
 
     let uid = wx.getStorageSync('uid');
     if (uid) {
+      //没有授权获取微信步数 重新授权
+      if (!isGetRunData) {
+        this.authWeRunData();
+        return;
+      }
+      //判断可以兑换步数
       if (steps === 0) {
         $api.showModal('兑换提示', '步数为0无法兑换金币，多走一点步数再来兑换吧~', false);
         return;
       }
-      
+
       let coin = (steps / 1000).toFixed(2);
       wx.showModal({
         title: '兑换提示',
@@ -103,6 +95,26 @@ Page({
         wxlogin: false
       })
     }
+  },
+  //授权获取微信运动数据
+  authWeRunData: function () {
+    //获取微信步数
+    wx.getWeRunData({
+      success: (result) => {
+        const encryptedData = result.encryptedData;
+        isGetRunData = true;
+        // 发送请求 处理数据
+        let data = {
+          'uid': wx.getStorageSync('uid'),
+          'data': encryptedData,
+          'iv': result.iv
+        }
+        this.getRunSteps(data);
+      },
+      fail: (err) => {
+        isGetRunData = false;
+      }
+    })
   },
   //授权登录 获取用户信息回调
   processLogin(e) {
@@ -209,7 +221,7 @@ Page({
     let data = {
       'id': id,
       'page': 1,
-      'size': 5
+      'size': 6
     }
     //下面开始调用邀请记录接口
     $api.getInviteRecord(data).then(res => {
@@ -241,7 +253,7 @@ Page({
       url = '/pages/home/index';
     }
     return {
-      title: '走走换换',
+      title: '换金币兑超值商品',
       path: url
     }
   },
@@ -257,7 +269,7 @@ Page({
       url = '/pages/home/index';
     }
     return {
-      title: '走走换换',
+      title: '换金币兑超值商品',
       query: url
     }
   },

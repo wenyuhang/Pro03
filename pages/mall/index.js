@@ -12,13 +12,16 @@ Page({
     hasNextPage: true,
     items: [],
     banners: [{
-        "picUrl": "https://dcdn.it120.cc/2019/12/29/8396f65d-d615-46d8-b2e5-aa41820b9fe5.png"
+        "picUrl": "img/product/banner_01.png",
+        "id":60
       },
       {
-        "picUrl": "https://dcdn.it120.cc/2019/12/29/daca65ee-4347-4792-a490-ccbac4b3c1d7.png"
+        "picUrl": "img/product/banner_02.png",
+        "id":61
       },
       {
-        "picUrl": "https://dcdn.it120.cc/2019/12/29/2e79921a-92b3-4d1d-8182-cb3d524be5fb.png"
+        "picUrl": "img/product/banner_03.png",
+        "id":63
       }
     ]
   },
@@ -62,6 +65,16 @@ Page({
     } else {
       wx.showToast({
         title: '没有更多数据',
+      })
+    }
+  },
+  /**
+   * banner点击
+   */
+  tapBanner: function (e) {
+    if(this.data.userInfo.coin_total){
+      wx.navigateTo({
+        url: '/pages/product/index?id=' + e.currentTarget.id + '&mycoin=' + this.data.userInfo.coin_total
       })
     }
   },
@@ -146,11 +159,13 @@ Page({
    * @param {*} e 
    */
   tabClick: function (e) {
-    wx.navigateTo({
-      url: '/pages/product/index?id=' + e.currentTarget.id+'&mycoin='+this.data.userInfo.coin_total
-    })
+    if(this.data.userInfo.coin_total){
+      wx.navigateTo({
+        url: '/pages/product/index?id=' + e.currentTarget.id + '&mycoin=' + this.data.userInfo.coin_total
+      })
+    }
   },
-    /**
+  /**
    * 用户点击分享
    */
   onShareAppMessage: function (res) {
@@ -162,7 +177,7 @@ Page({
       url = '/pages/home/index';
     }
     return {
-      title: '走走换换',
+      title: '换金币兑超值商品',
       path: url
     }
   },
@@ -178,7 +193,7 @@ Page({
       url = '/pages/home/index';
     }
     return {
-      title: '走走换换',
+      title: '换金币兑超值商品',
       query: url
     }
   }

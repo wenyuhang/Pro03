@@ -57,6 +57,14 @@ Page({
     })
   },
   /**
+   * 步数记录
+   */
+  stepsRecord: function () {
+    wx.navigateTo({
+      url: '/pages/steps_record/index?steps_total=' + this.data.userInfo.steps_total,
+    })
+  },
+  /**
    * 邀请记录
    */
   inviteRecord: function () {
@@ -161,7 +169,7 @@ Page({
       wxlogin: false
     })
   },
-    /**
+  /**
    * 用户点击分享
    */
   onShareAppMessage: function (res) {
@@ -173,7 +181,7 @@ Page({
       url = '/pages/home/index';
     }
     return {
-      title: '走走换换',
+      title: '换金币兑超值商品',
       path: url
     }
   },
@@ -189,7 +197,7 @@ Page({
       url = '/pages/home/index';
     }
     return {
-      title: '走走换换',
+      title: '换金币兑超值商品',
       query: url
     }
   }

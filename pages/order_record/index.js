@@ -34,6 +34,15 @@ Page({
     }
   },
   /**
+   * 列表点击
+   * @param {*} e 
+   */
+  tabClick: function (e) {
+    wx.navigateTo({
+      url: '/pages/product/index?id=' + e.currentTarget.id + '&mycoin=' + app.globalData.userInfo.coin_total
+    })
+  },
+  /**
    * 获取我的订单列表
    * @param {*} id 
    */
@@ -72,7 +81,7 @@ Page({
       $api.showToast();
     })
   },
-    /**
+  /**
    * 关闭刷新
    */
   cancelLoading: function () {

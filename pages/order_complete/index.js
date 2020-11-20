@@ -14,7 +14,7 @@ Page({
       url = '/pages/home/index';
     }
     return {
-      title: '走走换换',
+      title: '换金币兑超值商品',
       path: url
     }
   },
@@ -30,7 +30,7 @@ Page({
       url = '/pages/home/index';
     }
     return {
-      title: '走走换换',
+      title: '换金币兑超值商品',
       query: url
     }
   }

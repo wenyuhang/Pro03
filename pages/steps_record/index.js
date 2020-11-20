@@ -1,10 +1,12 @@
-//获取应用实例
+//获取api实例
 const app = getApp();
 const $api = require("../../utils/api").API;
+
 
 Page({
   data: {
     baseurl: app.globalData.BASE_URL,
+    steps:0,
     page: 1,
     hasNextPage: true,
     items: []
@@ -12,8 +14,11 @@ Page({
   onLoad: function (e) {
     let uid = wx.getStorageSync('uid');
     if (uid) {
-      this.getInviteRecord(uid);
+      this.getStepsRecord(uid);
     }
+    this.setData({
+      steps:e.steps_total
+    })
   },
    //触底函数
    onReachBottom: function () {
@@ -24,7 +29,7 @@ Page({
         mask: true
       })
       let uid = wx.getStorageSync('uid');
-      this.getInviteRecord(uid)
+      this.getStepsRecord(uid)
     } else {
       wx.showToast({
         title: '没有更多数据',
@@ -32,18 +37,18 @@ Page({
     }
   },
   /**
-   * 获取我的邀请记录
+   * 获取我的步数记录
    * @param {*} id 
    */
-  getInviteRecord: function (id) {
+  getStepsRecord: function (id) {
     //填充参数
     let data = {
       'id': id,
       'page': this.data.page,
       'size': 20
     }
-    //下面开始调用邀请记录接口
-    $api.getInviteRecord(data).then(res => {
+    //下面开始调用步数记录接口
+    $api.getStepsRecord(data).then(res => {
       //关闭刷新
       this.cancelLoading();
       //请求成功  判断状态码

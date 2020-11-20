@@ -3,26 +3,52 @@
     <view class="order-group" wx:for="{{items}}" wx:key="item">
 
       <view class="order">
-        <text class="tv-order-code">订单编号:</text>
-        <text class="order-code">{{item.ordercode}}</text>
 
-        <text class="order-status" wx:if="{{item.status === 10}}">已兑换</text>
-        <text class="order-status" wx:elif="{{item.status === 20}}">已发货</text>
-        <text class="order-status" wx:else>已完成</text>
+        <view>
+          <image class="icon_logo" src="../../image/icon_logo.jpg" mode="scaleToFill"></image>
+
+          <text class="title">走走换换</text>
+
+          <text class="order-status" wx:if="{{item.status === 10}}">已兑换</text>
+          <text class="order-status" wx:elif="{{item.status === 20}}">已发货</text>
+          <text class="order-status" wx:else>已完成</text>
+        </view>
 
         <image src="{{baseurl + item.product.imageurl}}" class="pro-img" mode="aspectFill" lazy-load="true" />
         <view class="cl-group">
           <view class="name">{{item.product.name}}</view>
-          <view class="price">{{item.product.coin}}金币 x1</view>
+          <view class="cl-price-group">
+            <text class="price">{{item.product.coin}}</text>
+            <text class="unit">金币</text>
+            <text class="count">x1</text>
+          </view>
         </view>
 
-        <view>
-          <text class="tv-order-number">快递编号:</text>
+        <view class="number-group">
+          <text class="tv-order">订单编号:</text>
+          <text class="order-number">{{item.ordercode}}</text>
+        </view>
+
+        <view class="number-group">
+          <text class="tv-order">快递编号:</text>
           <text class="order-number" wx:if="{{item.couriernumber}}">{{item.couriernumber}}</text>
           <text class="order-number" wx:else>暂未发货</text>
         </view>
-        <view class="order-time">{{item.createdate}}</view>
+
+        <view class="number-group">
+          <text class="tv-order">兑换时间:</text>
+          <text class="order-number">{{item.createdate}}</text>
+
+          <text class="goods-convert" bindtap="tabClick" id="{{item.product.id}}">再次兑换</text>
+        </view>
+
+       
+
       </view>
+
+
+
+
 
     </view>
   </view>

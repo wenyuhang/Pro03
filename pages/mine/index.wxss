@@ -1,37 +1,58 @@
 @import "/template/authlogin/index.wxss";
 
-page{
-  background: #eee;
+page {
+  background: #F6F9FF;
 }
-.userinfo {
-  padding: 30rpx;
-  background: #fff;
-  padding-bottom: 70rpx;
+
+.info-group {
+  width: 700rpx;
+  height: 340rpx;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 24rpx;
+  margin-bottom: 30rpx;
+}
+
+.bg-info {
+  position: absolute;
+  width: 100%;
+  height: 340rpx;
+}
+
+.img-qr-code {
+  position: relative;
+  float: right;
+  width: 42rpx;
+  height: 42rpx;
+  margin-right: 53rpx;
+  margin-top: 53rpx;
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
+  position: relative;
+  width: 92rpx;
+  height: 92rpx;
   border-radius: 50%;
+  margin-top: 44rpx;
+  margin-left: 56rpx;
 }
 
 .userinfo-nickname {
-  display: inline-block;
-  height: 128rpx;
-  line-height: 128rpx;
-  font-size: 35rpx;
+  position: absolute;
+  height: 32rpx;
+  font-size: 32rpx;
+  color: #FFFFFF;
   font-weight: bold;
-  vertical-align:top; 
-  margin-left: 20rpx;
+  margin-left: 23rpx;
+  margin-top: 70rpx;
 }
 
 .asset {
+  position: absolute;
+  width: 100%;
   display: flex;
   justify-content: space-around;
-  background-color: #fff;
-  margin-top: 20rpx;
-  padding-top: 30rpx;
-  padding-bottom: 20rpx;
+  margin-top: 50rpx;
 }
 
 .asset .item {
@@ -40,55 +61,59 @@ page{
   text-align: center;
   font-size: 13px;
   line-height: 20px;
-  color: #333;
 }
 
-.asset .item .text{
-  font-size: 50rpx;
-  margin-bottom: 10rpx;
-}
-.asset .item .tv{
+.asset .item .text {
   font-size: 30rpx;
-  color: #999;
+  margin-bottom: 10rpx;
+  color: #FFFFFF;
+}
+
+.asset .item .tv {
+  font-size: 30rpx;
+  color: #FFFFFF;
+}
+
+.item-group {
+  width: 100%;
+  height: 114rpx;
+  background: #FFFFFF;
+}
+
+.item-group .icon {
+  width: 42rpx;
+  height: 100%;
+  margin-left: 49rpx;
+}
+
+.item-group .tv-content {
+  display: inline-block;
+  font-size: 28rpx;
+  height: 114rpx;
+  line-height: 114rpx;
+  vertical-align: top;
+  color: #333333;
+  margin-left: 15rpx;
+}
+
+.item-group .icon-enter {
+  width: 12rpx;
+  height: 100%;
+  float: right;
+  margin-right: 35rpx;
+}
+
+/* 细线 */
+.thin-line{
+  height: 1px;
+  margin-left: 90rpx;
+  margin-top: -1px;
+  background: #F6F9FF;
+}
+
+/* 粗线 */
+.thick-line{
+  height: 18rpx;
 }
 
 
-.order-address-line{
-  border-top: 20rpx solid #eee;
-}
-
-.order-address {
-  display: flex;
-  justify-content: space-around;
-  background-color: #fff;
-  padding-top: 40rpx;
-  padding-bottom: 40rpx;
-}
-
-.order-address .item {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-
-  width: 150rpx;
-  text-align: center;
-}
-
-
-
-.order-address .item .icon {
-  width: 67rpx;
-  height: 67rpx;
-  margin-left: 45rpx;
-}
-
-.order-address .item .text {
-  margin-top: 8rpx;
-  font-size: 24rpx;
-  color: #666;
-}
-
-.push{
-  display: flex;
-  margin: 0 auto;
-}

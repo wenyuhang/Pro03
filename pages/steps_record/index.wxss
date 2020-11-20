@@ -1,0 +1,97 @@
+page {
+  background: #F6F9FF;
+}
+
+.user-steps{
+  height: 350rpx;
+  background:linear-gradient(#FFFFFF,#F9CF99);
+  border-radius: 10rpx;
+  margin: 25rpx;
+  padding-left: 25rpx;
+}
+.user-steps .img-person{
+  width: 286rpx;
+  height: 249rpx;
+}
+.user-steps .tv-steps{
+  font-size: 30rpx;
+}
+
+.user-steps .steps-num{
+  margin-top: 45rpx;
+  font-weight: bold;
+  font-size: 50rpx;
+}
+
+.record-title{
+  font-size: 35rpx;
+  font-weight: bold;
+  margin-left: 25rpx;
+  margin-bottom: 25rpx;
+}
+
+
+.steps-info{
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-left: 25rpx;
+  margin-right: 30rpx;
+  color:#333333;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+}
+
+.steps-info .steps-icon{
+  width: 70rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-left: 20rpx;
+}
+
+.steps-info .tv-steps-a{
+  display: inline-block;
+  height: 100rpx;
+  vertical-align: top;
+  font-size: 26rpx;
+  margin-left: 40rpx;
+}
+
+.steps-info .tv-steps-time{
+  display: inline-block;
+  height: 100rpx;
+  vertical-align: top;
+  font-weight: bold;
+  font-size: 30rpx;
+  margin-left: 10rpx;
+}
+
+.steps-info .tv-steps-num{
+  display: inline-block;
+  height: 100rpx;
+  vertical-align: top;
+  font-weight: bold;
+  font-size: 30rpx;
+  margin-left: 10rpx;
+}
+
+.steps-info .tv-steps-b{
+  display: inline-block;
+  height: 100rpx;
+  vertical-align: top;
+  font-size: 26rpx;
+  margin-left: 10rpx;
+}
+
+.steps-info .tv-steps-c{
+  display: inline-block;
+  height: 100rpx;
+  vertical-align: top;
+  font-size: 26rpx;
+  margin-left: 10rpx;
+}
+
+.empty-text{
+  text-align: center;
+  font-size: 32rpx;
+  margin-top: 380rpx;
+}

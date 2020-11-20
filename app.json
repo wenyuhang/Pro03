@@ -12,7 +12,8 @@
     "pages/coin_record/index",
     "pages/rule_desc/index",
     "pages/faq/index",
-    "pages/about/index"
+    "pages/about/index",
+    "pages/steps_record/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -22,7 +23,7 @@
   },
   "tabBar": {
     "color": "#a9b7b7",
-    "selectedColor": "#FF4A3B",
+    "selectedColor": "#FE8503",
     "borderStyle": "black",
     "list": [
       {

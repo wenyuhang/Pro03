@@ -1,37 +1,37 @@
 <view>
 
   <swiper class="swiper1" indicator-dots="true" indicator-active-color="#fff" autoplay circular>
-    <swiper-item wx:for="{{banners}}" wx:key="id">
-      <image  mode="aspectFit" bindtap="tapBanner"  src="{{item.picUrl}}" />
+    <swiper-item wx:for="{{banners}}" wx:key="item">
+      <image mode="aspectFit" bindtap="tapBanner" src="{{baseurl + item.picUrl}}" id="{{item.id}}"/>
     </swiper-item>
   </swiper>
 
-  <view class="goods-tag">
-    <image class="img-tag" src="../../image/tag.png"></image>
-    <view class="tv-tag">包邮专区</view>
-  </view>
+
+  <image class="img-goods-tag" src="../../image/icon_goods_tag.png" mode="aspectFit"></image>
+
 
 
   <view class="goods-container">
     <view class="goods-box" wx:for="{{items}}" wx:key="item" bindtap="tabClick" id="{{item.id}}">
-      <view class="img-box" >
+      <view class="img-box">
         <image src="{{baseurl + item.imageurl}}" class="image" mode="aspectFill" lazy-load="true" />
       </view>
       <view class="goods-title">{{item.name}}</view>
 
-      <view class="goods-original-price">原价：{{item.price}}</view>
+      <!-- <view class="goods-original-price">原价：{{item.price}}</view> -->
 
-      <view style='display:flex;'>
+      <view class="price-group">
         <!-- <view class="goods-price">{{item.energy}}</view>
         <view class="unit">能量</view>
 
         <view class="goods-plus">＋</view> -->
 
-        <view class="goods-price">{{item.coin}}</view>
-        <view class="unit">金币</view>
+        <text class="goods-price">{{item.coin}}</text>
+        <text class="unit">金币</text>
+        <view class="goods-convert">去兑换</view>
       </view>
 
-      <view class="goods-convert">免邮兑换</view>
+
 
     </view>
   </view>
