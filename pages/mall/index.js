@@ -85,7 +85,7 @@ Page({
     //填充参数
     let data = {
       'page': this.data.page,
-      'size': 10
+      'size': 20
     }
     //下面开始调用商品列表接口
     $api.getProductList(data).then(res => {

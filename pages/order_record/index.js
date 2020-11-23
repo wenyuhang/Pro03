@@ -51,7 +51,7 @@ Page({
     let data = {
       'id': id,
       'page': this.data.page,
-      'size': 10
+      'size': 20
     }
     //下面开始调用商品列表接口
     $api.getMyOrder(data).then(res => {

@@ -9,7 +9,7 @@
     <view wx:if="{{item.name}}" class="pro-info-name">{{item.name}}</view>
   </view>
 
-  <view class="pro-info-original-price">原价：{{item.price}}</view>
+  <!-- <view class="pro-info-original-price">原价：{{item.price}}</view> -->
 
   <view class="pro-info-coin-group">
     <!-- <view class="pro-info-energy">{{item.energy}}</view>

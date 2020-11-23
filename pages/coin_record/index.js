@@ -50,7 +50,7 @@ Page({
     let data = {
       'id': id,
       'page': this.data.page,
-      'size': 10
+      'size': 20
     }
     //下面开始调用邀请记录接口
     $api.getCoinRecord(data).then(res => {

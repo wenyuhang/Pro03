@@ -38,7 +38,7 @@ page {
 .pro-info-coin-group {
   display: flex;
   padding-bottom: 20rpx;
-  border-bottom: 10px solid rgba(248, 245, 253, 0.3);
+  border-bottom: 10px solid rgba(248, 245, 253, 0.5);
 }
 
 .pro-info-coin {
@@ -60,12 +60,12 @@ page {
   margin: 4rpx 0 0 20rpx;
 }
 
-.pro-info-original-price {
+/* .pro-info-original-price {
   margin-left: 20rpx;
   font-size: 25rpx;
   color: #aaa;
   text-decoration: line-through;
-}
+} */
 
 .pro-info-stock {
   color: #aaa;

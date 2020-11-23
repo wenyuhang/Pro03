@@ -19,6 +19,7 @@
   line-height: 100rpx;
   vertical-align: top;
   margin-left: 20rpx;
+  font-size: 30rpx;
   word-break: keep-all;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -29,6 +30,7 @@
   line-height: 100rpx;
   vertical-align: top;
   float: right;
+  font-size: 25rpx;
 }
 
 .empty-text{
