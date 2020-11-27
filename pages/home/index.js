@@ -39,12 +39,14 @@ Page({
         wxlogin: res,
         userInfo: app.globalData.userInfo
       })
+      
+      let uid = wx.getStorageSync('uid');
       //获取微信运动 拒绝后不再获取
-      if (res && isGetRunData) {
-        this.authWeRunData();
+      if (res && uid && isGetRunData) {
+        this.authWeRunData(uid);
       }
       //
-      let uid = wx.getStorageSync('uid');
+     
       // if (!e && !this.data.userInfo.openid && res && uid) {
       //   this.getUserInfo(uid);
       // }
@@ -97,7 +99,7 @@ Page({
     }
   },
   //授权获取微信运动数据
-  authWeRunData: function () {
+  authWeRunData: function (id) {
     //获取微信步数
     wx.getWeRunData({
       success: (result) => {
@@ -105,7 +107,7 @@ Page({
         isGetRunData = true;
         // 发送请求 处理数据
         let data = {
-          'uid': wx.getStorageSync('uid'),
+          'uid': id,
           'data': encryptedData,
           'iv': result.iv
         }
