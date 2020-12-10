@@ -101,7 +101,11 @@ const API = {
   //获取商品兑换记录
   getProConvertList:(data) => request(POST,'/order/orderListByProduct',data),
   //用户步数记录
-  getStepsRecord:(data) => request(POST,'/userinfo/stepsRecord',data)
+  getStepsRecord:(data) => request(POST,'/userinfo/stepsRecord',data),
+  //用户步数排行榜
+  getStepsRankList:(data) => request(POST,'/userinfo/getStepsRankList',data),
+  //用户邀请排行榜
+  getInviteRankList:(data) => request(POST,'/userinfo/getInviteRankList',data)
 }
 
 module.exports = {

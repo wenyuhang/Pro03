@@ -7,9 +7,7 @@ const $api = require("../../utils/api").API;
 Page({
   data: {
     wxlogin: true,
-    userInfo: app.globalData.userInfo,
-    coin: 0,
-    invite: 0
+    userInfo: app.globalData.userInfo
   },
   //事件处理函数
   onLoad: function () {
@@ -46,6 +44,22 @@ Page({
       if (res && uid) {
         this.getUserInfo(uid);
       }
+    })
+  },
+  /**
+   * 步数排行榜
+   */
+  toStepsRank: function () {
+    wx.navigateTo({
+      url: '/pages/steps_rank/index'
+    })
+  },
+  /**
+   * 邀请排行榜
+   */
+  toInviteRank: function () {
+    wx.navigateTo({
+      url: '/pages/invite_rank/index'
     })
   },
   /**

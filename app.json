@@ -13,7 +13,9 @@
     "pages/rule_desc/index",
     "pages/faq/index",
     "pages/about/index",
-    "pages/steps_record/index"
+    "pages/steps_record/index",
+    "pages/steps_rank/index",
+    "pages/invite_rank/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

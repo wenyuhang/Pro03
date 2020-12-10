@@ -31,6 +31,30 @@
     </view>
   </view>
 
+  <!-- 排行榜入口 -->
+  <view class="entry-info">
+    <image class="img-bg-entry" src="../../image/icon_entry.png" mode="scaleToFill"></image>
+
+    <view class="group-entry">
+
+      <view class="group-info" bindtap="toStepsRank">
+        <view class="num">No.{{userInfo.stepsRank}}</view>
+        <view class="title">步数排行榜</view>
+      </view>
+
+      <view class="ver-line"></view>
+
+      <view class="group-info" bindtap="toInviteRank">
+        <view class="num">No.{{userInfo.inviteRank}}</view>
+        <view class="title">邀请排行榜</view>
+      </view>
+
+    </view>
+
+
+  </view>
+
+
   <!-- 我的订单 -->
   <view class='item-group' bindtap='toMyOrder'>
     <image class="icon" src="../../image/myorder.png" mode="aspectFit"></image>
