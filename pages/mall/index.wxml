@@ -1,5 +1,5 @@
+<import src="/template/authlogin/index.wxml" />
 <view>
-
   <swiper class="swiper1" indicator-dots="true" indicator-active-color="#fff" autoplay circular>
     <swiper-item wx:for="{{banners}}" wx:key="item">
       <image mode="aspectFit" bindtap="tapBanner" src="{{baseurl + item.picUrl}}" id="{{item.id}}"/>
@@ -31,8 +31,8 @@
         <view class="goods-convert">去兑换</view>
       </view>
 
-
-
     </view>
   </view>
 </view>
+
+<template is="apifmLogin" data="{{wxlogin: wxlogin}}" />

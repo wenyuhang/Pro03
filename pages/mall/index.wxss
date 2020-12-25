@@ -1,3 +1,5 @@
+@import "/template/authlogin/index.wxss";
+
 page {
   background: #F6F9FF;
 }

@@ -21,6 +21,9 @@ Page({
       this.setData({
         userInfo: e,
       })
+      if (!e.stepsRank && e.id) {
+        this.getUserInfo(e.id);
+      }
     }
     //检查登录状态
     AUTH.checkHasLogined().then(res => {
@@ -50,65 +53,107 @@ Page({
    * 步数排行榜
    */
   toStepsRank: function () {
-    wx.navigateTo({
-      url: '/pages/steps_rank/index'
-    })
+    if (this.data.userInfo.id) {
+      wx.navigateTo({
+        url: '/pages/steps_rank/index'
+      })
+    } else {
+      this.setData({
+        wxlogin: false
+      })
+    }
   },
   /**
    * 邀请排行榜
    */
   toInviteRank: function () {
-    wx.navigateTo({
-      url: '/pages/invite_rank/index'
-    })
+    if (this.data.userInfo.id) {
+      wx.navigateTo({
+        url: '/pages/invite_rank/index'
+      })
+    } else {
+      this.setData({
+        wxlogin: false
+      })
+    }
   },
   /**
    * 金币记录
    */
   coinRecord: function () {
-    wx.navigateTo({
-      url: '/pages/coin_record/index?coin_total=' + this.data.userInfo.coin_total,
-    })
+    if (this.data.userInfo.id) {
+      wx.navigateTo({
+        url: '/pages/coin_record/index?coin_total=' + this.data.userInfo.coin_total
+      })
+    } else {
+      this.setData({
+        wxlogin: false
+      })
+    }
   },
   /**
    * 步数记录
    */
   stepsRecord: function () {
-    wx.navigateTo({
-      url: '/pages/steps_record/index?steps_total=' + this.data.userInfo.steps_total,
-    })
+    if (this.data.userInfo.id) {
+      wx.navigateTo({
+        url: '/pages/steps_record/index?steps_total=' + this.data.userInfo.steps_total
+      })
+    } else {
+      this.setData({
+        wxlogin: false
+      })
+    }
   },
   /**
    * 邀请记录
    */
   inviteRecord: function () {
-    wx.navigateTo({
-      url: '/pages/invite_record/index',
-    })
+    if (this.data.userInfo.id) {
+      wx.navigateTo({
+        url: '/pages/invite_record/index'
+      })
+    } else {
+      this.setData({
+        wxlogin: false
+      })
+    }
   },
   /**
    * 我的订单
    */
   toMyOrder: function () {
-    wx.navigateTo({
-      url: '/pages/order_record/index',
-    })
+    if (this.data.userInfo.id) {
+      wx.navigateTo({
+        url: '/pages/order_record/index'
+      })
+    } else {
+      this.setData({
+        wxlogin: false
+      })
+    }
   },
   /**
    * 我的地址
    */
   toMyAddress: function () {
-    //去编辑收货地址
-    wx.navigateTo({
-      url: '/pages/address/index',
-    })
+    if (this.data.userInfo) {
+      //去编辑收货地址
+      wx.navigateTo({
+        url: '/pages/address/index'
+      })
+    } else {
+      this.setData({
+        wxlogin: false
+      })
+    }
   },
   /**
    * 规则说明
    */
   toRule: function () {
     wx.navigateTo({
-      url: '/pages/rule_desc/index',
+      url: '/pages/rule_desc/index'
     })
   },
   /**
@@ -116,7 +161,7 @@ Page({
    */
   toAbout: function () {
     wx.navigateTo({
-      url: '/pages/about/index',
+      url: '/pages/about/index'
     })
   },
   /**
@@ -124,7 +169,7 @@ Page({
    */
   toFAQ: function () {
     wx.navigateTo({
-      url: '/pages/faq/index',
+      url: '/pages/faq/index'
     })
   },
   //授权登录 获取用户信息回调
@@ -171,13 +216,13 @@ Page({
       $api.showToast(err, 'none')
     })
   },
-
   //取消授权
   cancelLogin() {
     this.setData({
       wxlogin: true
     })
   },
+  //授权登录
   goLogin() {
     this.setData({
       wxlogin: false
@@ -206,9 +251,7 @@ Page({
     let url = '';
     let uid = wx.getStorageSync('uid');
     if (uid > 0) {
-      url = '/pages/home/index?inviter_id=' + uid;
-    } else {
-      url = '/pages/home/index';
+      url = 'inviter_id=' + uid;
     }
     return {
       title: '换金币兑超值商品',

@@ -4,7 +4,7 @@ const $api = require("../../utils/api").API;
 const $util = require("../../utils/util");
 
 Page({
-  data:{
+  data: {
     baseurl: app.globalData.BASE_URL,
     items: [],
     topone: {},
@@ -12,17 +12,21 @@ Page({
     topthree: {},
     userRanking: 0
   },
-  onLoad:function(){
+  onLoad: function () {
     let uid = wx.getStorageSync('uid');
     if (uid) {
       this.getInviteRankList(uid);
     }
   },
-/**
+  /**
    * 获取邀请排行榜
    * @param {*} id 
    */
   getInviteRankList: function (id) {
+    //显示loading
+    wx.showLoading({
+      title: '加载中',
+    })
     //填充参数
     let data = {
       'id': id,
@@ -40,8 +44,8 @@ Page({
           dataList = res.data.rankList;
         }
         //遍历数据 处理步数num
-        for (var i = 0; i < dataList.length; i++) { 
-          dataList[i].tvSteps= $util.bigNumberTransform(dataList[i].invite_total);
+        for (var i = 0; i < dataList.length; i++) {
+          dataList[i].tvSteps = $util.bigNumberTransform(dataList[i].invite_total);
         };
         //取出前三名数据
         let one = dataList[0];
@@ -49,6 +53,8 @@ Page({
         let three = dataList[2];
         //排序列表移除前三名信息
         dataList.splice(0, 3);
+        //隐藏loading
+        wx.hideLoading();
         this.setData({
           items: dataList,
           topone: one,
@@ -57,9 +63,13 @@ Page({
           userRanking: res.data.userRanking
         })
       } else {
+        //隐藏loading
+        wx.hideLoading();
         $api.showToast(res.message, 'none');
       }
     }).catch(err => {
+      //隐藏loading
+      wx.hideLoading();
       //网络错误
       $api.showToast();
     })

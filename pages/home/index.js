@@ -10,6 +10,8 @@ var isGetRunData = true;
 var isConvert = false;
 //是否已获取过邀请记录
 var isGetInviteData = false;
+//是否首次获取数据
+var isFirstReq = true;
 
 Page({
   data: {
@@ -39,14 +41,14 @@ Page({
         wxlogin: res,
         userInfo: app.globalData.userInfo
       })
-      
+
       let uid = wx.getStorageSync('uid');
       //获取微信运动 拒绝后不再获取
       if (res && uid && isGetRunData) {
         this.authWeRunData(uid);
       }
       //
-     
+
       // if (!e && !this.data.userInfo.openid && res && uid) {
       //   this.getUserInfo(uid);
       // }
@@ -134,7 +136,18 @@ Page({
    * @param {*请求参数} data 
    */
   getRunSteps: function (data) {
+    //首次请求显示dialog
+    if (isFirstReq) {
+      wx.showLoading({
+        title: '数据获取中',
+      })
+    }
     $api.getRunSteps(data).then(res => {
+      if (isFirstReq) {
+        //隐藏loading
+        wx.hideLoading();
+        isFirstReq = false;
+      }
       //请求成功 判断状态码
       if (res.code == 200) {
         //可兑换运动步数
@@ -144,6 +157,11 @@ Page({
         })
       }
     }).catch(err => {
+      if (isFirstReq) {
+        //隐藏loading
+        wx.hideLoading();
+        isFirstReq = false;
+      }
       //请求失败
       console.log(err);
     })
@@ -205,7 +223,11 @@ Page({
         this.setData({
           userInfo: res.data
         })
-
+        //查询是否含有公告
+        // console.log(res.data.account_status+"====>"+res.data.haveNotice)
+        if (res.data.haveNotice) {
+          this.getUserNotices(uid);
+        }
       } else {
         $api.showToast(res.message, 'none')
       }
@@ -244,6 +266,28 @@ Page({
     })
   },
   /**
+   * 获取用户公告
+   * @param {*} id 
+   */
+  getUserNotices: function (id) {
+    //填充参数
+    let data = {
+      'id': id
+    }
+    //调用获取用户公告
+    $api.getUserNotice(data).then(res =>{
+      //请求成功 判断状态码
+      if(res.code == 200){
+        let notice = res.data.p_desc;
+        if(notice){
+          $api.showModal('提示', notice, false);
+        }
+      }
+    }).catch(err =>{
+      //网络错误
+    })
+  },
+  /**
    * 用户点击分享
    */
   onShareAppMessage: function (res) {
@@ -266,9 +310,7 @@ Page({
     let url = '';
     let uid = wx.getStorageSync('uid');
     if (uid > 0) {
-      url = '/pages/home/index?inviter_id=' + uid;
-    } else {
-      url = '/pages/home/index';
+      url = 'inviter_id=' + uid;
     }
     return {
       title: '换金币兑超值商品',

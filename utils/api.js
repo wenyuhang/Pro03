@@ -26,7 +26,7 @@ function request(method, url, data) {
       header: header,
       success: (res) => {
         //请求成功 errCode
-        if(res.statusCode === 200){
+        if (res.statusCode === 200) {
           resolve(res.data);
         }
 
@@ -91,21 +91,23 @@ const API = {
   //获取邀请好友记录
   getInviteRecord: (data) => request(POST, '/userinfo/getInviteRecord', data),
   //获取金币交易记录
-  getCoinRecord:(data) => request(POST,'/userinfo/coinRecord',data),
+  getCoinRecord: (data) => request(POST, '/userinfo/coinRecord', data),
   //解密微信步数
-  getRunSteps:(data) => request(POST,'/userinfo/getRunSteps',data),
+  getRunSteps: (data) => request(POST, '/userinfo/getRunSteps', data),
   //步数转换金币
-  convertSteps:(data) => request(POST,'/userinfo/convertSteps',data),
+  convertSteps: (data) => request(POST, '/userinfo/convertSteps', data),
   //获取用户信息
-  getUserInfo:(data) => request(POST,'/userinfo/getUserInfo',data),
+  getUserInfo: (data) => request(POST, '/userinfo/getUserInfo', data),
   //获取商品兑换记录
-  getProConvertList:(data) => request(POST,'/order/orderListByProduct',data),
+  getProConvertList: (data) => request(POST, '/order/orderListByProduct', data),
   //用户步数记录
-  getStepsRecord:(data) => request(POST,'/userinfo/stepsRecord',data),
+  getStepsRecord: (data) => request(POST, '/userinfo/stepsRecord', data),
   //用户步数排行榜
-  getStepsRankList:(data) => request(POST,'/userinfo/getStepsRankList',data),
+  getStepsRankList: (data) => request(POST, '/userinfo/getStepsRankList', data),
   //用户邀请排行榜
-  getInviteRankList:(data) => request(POST,'/userinfo/getInviteRankList',data)
+  getInviteRankList: (data) => request(POST, '/userinfo/getInviteRankList', data),
+  //用户获取公告
+  getUserNotice: (data) => request(POST, '/notices/getUserNoticesRecord', data)
 }
 
 module.exports = {

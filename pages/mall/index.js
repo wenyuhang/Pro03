@@ -1,5 +1,6 @@
 //获取应用实例
 const app = getApp();
+const AUTH = require('../../utils/auth');
 const $api = require("../../utils/api").API;
 
 
@@ -8,20 +9,21 @@ Page({
   data: {
     baseurl: app.globalData.BASE_URL,
     userInfo: app.globalData.userInfo,
+    wxlogin: true,
     page: 1,
     hasNextPage: true,
     items: [],
     banners: [{
         "picUrl": "img/product/banner_01.png",
-        "id":60
+        "id": 60
       },
       {
         "picUrl": "img/product/banner_02.png",
-        "id":61
+        "id": 61
       },
       {
         "picUrl": "img/product/banner_03.png",
-        "id":63
+        "id": 63
       }
     ]
   },
@@ -40,9 +42,21 @@ Page({
       this.getUserInfo(wx.getStorageSync('uid'));
     }
     //刷新用户信息
-    this.setData({
-      userInfo: app.globalData.userInfo
-    })
+    if (e) {
+      app.globalData.userInfo = e;
+      this.setData({
+        wxlogin: true,
+        userInfo: e
+      })
+      if (!e.stepsRank && e.id) {
+        this.getUserInfo(e.id);
+      }
+    } else {
+      this.setData({
+        wxlogin: true,
+        userInfo: app.globalData.userInfo
+      })
+    }
   },
   //下拉刷新触发函数
   onPullDownRefresh: function () {
@@ -72,11 +86,17 @@ Page({
    * banner点击
    */
   tapBanner: function (e) {
-    if(this.data.userInfo.coin_total){
+    let uid = wx.getStorageSync('uid');
+    if (uid) {
       wx.navigateTo({
         url: '/pages/product/index?id=' + e.currentTarget.id + '&mycoin=' + this.data.userInfo.coin_total
       })
+    } else {
+      this.setData({
+        wxlogin: false
+      })
     }
+
   },
   /**
    * 获取商品列表
@@ -159,11 +179,35 @@ Page({
    * @param {*} e 
    */
   tabClick: function (e) {
-    if(this.data.userInfo.coin_total){
+    let uid = wx.getStorageSync('uid');
+    if (uid) {
       wx.navigateTo({
         url: '/pages/product/index?id=' + e.currentTarget.id + '&mycoin=' + this.data.userInfo.coin_total
       })
+    } else {
+      this.setData({
+        wxlogin: false
+      })
     }
+  },
+  //授权登录 获取用户信息回调
+  processLogin(e) {
+    if (!this.data.userInfo) return;
+    if (!e.detail.userInfo) {
+      wx.showToast({
+        title: '已取消',
+        icon: 'none'
+      })
+      return;
+    }
+    app.globalData.userInfo = e.detail.userInfo;
+    AUTH.userLogin(this);
+  },
+  //取消授权
+  cancelLogin() {
+    this.setData({
+      wxlogin: true
+    })
   },
   /**
    * 用户点击分享
@@ -188,9 +232,7 @@ Page({
     let url = '';
     let uid = wx.getStorageSync('uid');
     if (uid > 0) {
-      url = '/pages/home/index?inviter_id=' + uid;
-    } else {
-      url = '/pages/home/index';
+      url = 'inviter_id=' + uid;
     }
     return {
       title: '换金币兑超值商品',

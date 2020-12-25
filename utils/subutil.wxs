@@ -9,3 +9,19 @@ var sub = function (val, start=0, end=10) {
   }
 }
 module.exports.sub = sub;
+
+// 步数转公里
+var getDistanceByStep = function (steps){
+  var num = steps / 1398.7055;
+  return num.toFixed(2);
+}
+
+module.exports.getDistanceByStep = getDistanceByStep;
+
+// 步数转卡路里
+var getCalorieByStep = function (steps){
+  var cal = steps / 46.4731;
+  return cal.toFixed(0);
+}
+
+module.exports.getCalorieByStep = getCalorieByStep;

@@ -5,10 +5,10 @@
     <image mode="scaleToFill" src="../../image/bg_userinfo.png" class="bg-info"></image>
     <!-- 用户头像 -->
     <image class="userinfo-avatar" wx:if="{{userInfo.headimgurl}}" src="{{userInfo.headimgurl}}" mode="cover"></image>
-    <image class="userinfo-avatar" wx:else src="/image/nologin.png" background-size="cover"></image>
+    <image class="userinfo-avatar" wx:else src="../../image/nologin.png" background-size="cover" bindtap='goLogin'></image>
     <!-- 用户昵称 -->
     <text class="userinfo-nickname" wx:if="{{userInfo.name}}">{{userInfo.name}}</text>
-    <text class="userinfo-nickname" wx:else bindtap="goLogin">立即登录</text>
+    <text class="userinfo-nickname" bindtap='goLogin' wx:else>立即登录</text>
     <!-- 二维码 -->
     <image class="img-qr-code" src="../../image/icon_qr_code.png" mode="scaleToFill"></image>
 

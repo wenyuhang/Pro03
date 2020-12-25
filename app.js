@@ -72,12 +72,8 @@ App({
     //保存邀请人
     if (e && e.query && e.query.inviter_id) {
       if(!(wx.getStorageSync('uid') === e.query.inviter_id)){
-        console.log("不相等")
         wx.setStorageSync('referrer',e.query.inviter_id);
-      }else{
-        console.log("相等")
       }
-   
     }
   },
 
@@ -88,7 +84,11 @@ App({
       name:'立即登录',
       headimgurl:'',
       coin_total:0,
-      invite_total:0
+      invite_total:0,
+      steps_total:0,
+      stepsRank:0,
+      inviteRank:0,
+      userTodayRank:0
     }
   }
 })

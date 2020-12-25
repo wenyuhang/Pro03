@@ -1,5 +1,9 @@
 <!--index.wxml-->
 <import src="/template/authlogin/index.wxml" />
+
+<!-- 引入wxs脚本 -->
+<wxs src="../../utils/subutil.wxs" module="tools" />
+
 <view>
   <view class="index-container">
     <view class="info-data">
@@ -26,7 +30,23 @@
 
     <image class="cs-img-steps-bottom" src="../../image/bg_steps_bottom.png" mode="scaleToFill"></image>
 
+   <!-- 卡路里 今日排名 公里 -->
+   <view class="steps-info" wx:if="{{userInfo.userTodaySteps}}">
+      <view class='item'>
+        <view class="text">{{tools.getCalorieByStep(userInfo.userTodaySteps)}}</view>
+        <view class="tv">卡路里</view>
+      </view>
 
+      <view class='item'>
+        <view class="text">{{userInfo.userTodayRank}}</view>
+        <view class="tv">今日排名</view>
+      </view>
+
+      <view class='item'>
+        <view class="text">{{tools.getDistanceByStep(userInfo.userTodaySteps)}}</view>
+        <view class="tv">公里数</view>
+      </view>
+    </view>
 
   </view>
   <view class="bg-line"></view>

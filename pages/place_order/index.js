@@ -167,22 +167,6 @@ Page({
       title: '换金币兑超值商品',
       path: url
     }
-  },
-  /**
-   * 用户分享到朋友圈
-   */
-  onShareTimeline: function (res) {
-    let url = '';
-    let uid = wx.getStorageSync('uid');
-    if (uid > 0) {
-      url = '/pages/home/index?inviter_id=' + uid;
-    } else {
-      url = '/pages/home/index';
-    }
-    return {
-      title: '换金币兑超值商品',
-      query: url
-    }
   }
 
 })
