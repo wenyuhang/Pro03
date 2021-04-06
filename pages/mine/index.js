@@ -6,12 +6,18 @@ const $api = require("../../utils/api").API;
 
 Page({
   data: {
+    canIUseGetUserProfile: false,
     wxlogin: true,
     userInfo: app.globalData.userInfo
   },
   //事件处理函数
   onLoad: function () {
-
+   //处理新版获取用户信息api
+   if (wx.getUserProfile) {
+    this.setData({
+      canIUseGetUserProfile: true
+    })
+  }
   },
 
   onShow: function (e) {
@@ -175,13 +181,13 @@ Page({
   //授权登录 获取用户信息回调
   processLogin(e) {
     if (!this.data.userInfo) return;
-    if (!e.detail.userInfo) {
-      wx.showToast({
-        title: '已取消',
-        icon: 'none'
-      })
-      return;
-    }
+    // if (!e.detail.userInfo) {
+    //   wx.showToast({
+    //     title: '已取消',
+    //     icon: 'none'
+    //   })
+    //   return;
+    // }
     app.globalData.userInfo = e.detail.userInfo;
     AUTH.userLogin(this);
 

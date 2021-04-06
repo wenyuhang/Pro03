@@ -30,49 +30,144 @@ async function checkHasLogined() {
 }
 
 //注册用户
+// async function userLogin(page) {
+//   let _this = this;
+//   wx.login({
+//     success: (res) => {
+//       let code = res.code;
+//       //发送res.code 到后台换取 openId sessionKey unionId
+//       wx.getUserInfo({
+//         success: res => {
+//           console.log(res);
+//           let iv = res.iv; //解密初始向量
+//           let encryptedData = res.encryptedData; //用户数据 加密
+//           let referrer = ''; //推荐人
+//           let referrer_storge = wx.getStorageSync('referrer');
+//           if (referrer_storge) {
+//             referrer = referrer_storge;
+//           }
+//           //填充参数
+//           let data = {
+//             'code': code,
+//             'encryptedData': encryptedData,
+//             'iv': iv,
+//             'referrer': referrer
+//           }
+//           //下面开始调用注册接口
+//           $api.login(data).then(res => {
+//             //请求成功
+//             wx.setStorageSync('uid', res.data.id);
+//             //回调页面 刷新数据
+//             if (page) {
+//               page.onShow(res.data);
+//             }
+//           }).catch(err => {
+//             //请求失败
+//             console.log(err);
+//           })
+//         },
+//       })
+
+
+//     },
+//     fail: err => {
+//       console.log(err);
+//     }
+//   })
+// }
+
 async function userLogin(page) {
   let _this = this;
-  wx.login({
-    success: (res) => {
-      let code = res.code;
-      //发送res.code 到后台换取 openId sessionKey unionId
-      wx.getUserInfo({
-        success: res => {
-          let iv = res.iv; //解密初始向量
-          let encryptedData = res.encryptedData; //用户数据 加密
-          let referrer = ''; //推荐人
-          let referrer_storge = wx.getStorageSync('referrer');
-          if (referrer_storge) {
-            referrer = referrer_storge;
-          }
-          //填充参数
-          let data = {
-            'code': code,
-            'encryptedData': encryptedData,
-            'iv': iv,
-            'referrer': referrer
-          }
-          //下面开始调用注册接口
-          $api.login(data).then(res => {
-            //请求成功
-            wx.setStorageSync('uid', res.data.id);
-            //回调页面 刷新数据
-            if (page) {
-              page.onShow(res.data);
+  //新版获取用户信息
+  if (wx.getUserProfile) {
+    wx.getUserProfile({
+      desc: '展示用户信息',
+      success: res => {
+        let iv = res.iv; //解密初始向量
+        let encryptedData = res.encryptedData; //用户数据 加密
+        let referrer = ''; //推荐人
+        let referrer_storge = wx.getStorageSync('referrer');
+        if (referrer_storge) {
+          referrer = referrer_storge;
+        }
+        //微信登录
+        wx.login({
+          success: (res) => {
+            let code = res.code;
+            //填充参数
+            let data = {
+              'code': code,
+              'encryptedData': encryptedData,
+              'iv': iv,
+              'referrer': referrer
             }
-          }).catch(err => {
-            //请求失败
+            //下面开始调用注册接口
+            $api.login(data).then(res => {
+              //请求成功
+              wx.setStorageSync('uid', res.data.id);
+              //回调页面 刷新数据
+              if (page) {
+                page.onShow(res.data);
+              }
+            }).catch(err => {
+              //请求失败
+              console.log(err);
+            })
+          },
+          fail: err => {
             console.log(err);
-          })
-        },
-      })
+          }
+        });
+      },
+      fail: err => {
+        console.log(err);
+      }
+    })
+  } else {
+    //旧版获取用户信息
+    wx.login({
+      success: (res) => {
+        let code = res.code;
+        //发送res.code 到后台换取 openId sessionKey unionId
+        wx.getUserInfo({
+          success: res => {
+            let iv = res.iv; //解密初始向量
+            let encryptedData = res.encryptedData; //用户数据 加密
+            let referrer = ''; //推荐人
+            let referrer_storge = wx.getStorageSync('referrer');
+            if (referrer_storge) {
+              referrer = referrer_storge;
+            }
+            //填充参数
+            let data = {
+              'code': code,
+              'encryptedData': encryptedData,
+              'iv': iv,
+              'referrer': referrer
+            }
+            //下面开始调用注册接口
+            $api.login(data).then(res => {
+              //请求成功
+              wx.setStorageSync('uid', res.data.id);
+              //回调页面 刷新数据
+              if (page) {
+                page.onShow(res.data);
+              }
+            }).catch(err => {
+              //请求失败
+              console.log(err);
+            })
+          },
+        })
 
 
-    },
-    fail: err => {
-      console.log(err);
-    }
-  })
+      },
+      fail: err => {
+        console.log(err);
+      }
+    })
+  }
+
 }
 
 

@@ -6,7 +6,7 @@
   "setting": {
     "urlCheck": false,
     "es6": true,
-    "enhance": false,
+    "enhance": true,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,
@@ -38,7 +38,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.13.0",
+  "libVersion": "2.16.0",
   "appid": "wx7daac9b7e03f1cf4",
   "projectname": "Pro03",
   "debugOptions": {

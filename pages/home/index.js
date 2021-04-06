@@ -15,6 +15,7 @@ var isFirstReq = true;
 
 Page({
   data: {
+    canIUseGetUserProfile: false,
     wxlogin: true,
     userInfo: app.globalData.userInfo,
     coin: 0.00,
@@ -24,7 +25,12 @@ Page({
   },
   //事件处理函数
   onLoad: function () {
-
+    //处理新版获取用户信息api
+    if (wx.getUserProfile) {
+      this.setData({
+        canIUseGetUserProfile: true
+      })
+    }
   },
 
   onShow: function (e) {
@@ -122,13 +128,13 @@ Page({
   },
   //授权登录 获取用户信息回调
   processLogin(e) {
-    if (!e.detail.userInfo) {
-      wx.showToast({
-        title: '已取消',
-        icon: 'none'
-      })
-      return;
-    }
+    // if (!e.detail.userInfo) {
+    //   wx.showToast({
+    //     title: '已取消',
+    //     icon: 'none'
+    //   })
+    //   return;
+    // }
     AUTH.userLogin(this);
   },
   /**

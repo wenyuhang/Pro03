@@ -24,8 +24,10 @@
           只是为了给您提供更好的的服务
         </view>
         
-
-      <button class="l" open-type="getUserInfo" bindgetuserinfo="processLogin">允许</button>
+      <!-- 适配新版本获取用户信息api -->
+      <button wx:if="{{canIUseGetUserProfile}}" class="l" bindtap="processLogin">(新版)允许</button>
+      <button wx:else class="l" open-type="getUserInfo" bindgetuserinfo="processLogin">(旧版)允许</button>
+      
       <button class="c" bindtap="cancelLogin" type="defult">暂不登录</button>
     </view>
     

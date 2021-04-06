@@ -8,6 +8,7 @@ const $api = require("../../utils/api").API;
 Page({
   data: {
     baseurl: app.globalData.BASE_URL,
+    canIUseGetUserProfile: false,
     userInfo: app.globalData.userInfo,
     wxlogin: true,
     page: 1,
@@ -29,6 +30,12 @@ Page({
   },
   //页面加载
   onLoad: function (e) {
+      //处理新版获取用户信息api
+      if (wx.getUserProfile) {
+        this.setData({
+          canIUseGetUserProfile: true
+        })
+      }
     //获取商品列表
     this.products();
   },
@@ -193,13 +200,13 @@ Page({
   //授权登录 获取用户信息回调
   processLogin(e) {
     if (!this.data.userInfo) return;
-    if (!e.detail.userInfo) {
-      wx.showToast({
-        title: '已取消',
-        icon: 'none'
-      })
-      return;
-    }
+    // if (!e.detail.userInfo) {
+    //   wx.showToast({
+    //     title: '已取消',
+    //     icon: 'none'
+    //   })
+    //   return;
+    // }
     app.globalData.userInfo = e.detail.userInfo;
     AUTH.userLogin(this);
   },
