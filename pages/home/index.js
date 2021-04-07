@@ -15,7 +15,7 @@ var isFirstReq = true;
 
 Page({
   data: {
-    canIUseGetUserProfile: false,
+    canIUseGetUserProfile: false, 
     wxlogin: true,
     userInfo: app.globalData.userInfo,
     coin: 0.00,
@@ -25,12 +25,12 @@ Page({
   },
   //事件处理函数
   onLoad: function () {
-    //处理新版获取用户信息api
-    if (wx.getUserProfile) {
-      this.setData({
-        canIUseGetUserProfile: true
-      })
-    }
+   //处理新版获取用户信息api
+   if (wx.getUserProfile) {
+    this.setData({
+      canIUseGetUserProfile: true
+    })
+  }
   },
 
   onShow: function (e) {
@@ -235,6 +235,10 @@ Page({
           this.getUserNotices(uid);
         }
       } else {
+        this.setData({
+          wxlogin: false
+        })
+        wx.removeStorageSync('uid');
         $api.showToast(res.message, 'none')
       }
     }).catch(err => {

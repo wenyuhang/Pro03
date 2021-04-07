@@ -213,6 +213,10 @@ Page({
         })
 
       } else {
+        this.setData({
+          wxlogin: false
+        });
+        wx.removeStorageSync('uid');
         $api.showToast(res.message, 'none')
       }
     }).catch(err => {
