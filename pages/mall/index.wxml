@@ -1,5 +1,5 @@
 <import src="/template/authlogin/index.wxml" />
-<view>
+<view wx:if="{{isreview}}">
   <swiper class="swiper1" indicator-dots="true" indicator-active-color="#fff" autoplay circular>
     <swiper-item wx:for="{{banners}}" wx:key="item">
       <image mode="aspectFit" bindtap="tapBanner" src="{{baseurl + item.picUrl}}" id="{{item.id}}"/>
@@ -33,6 +33,72 @@
 
     </view>
   </view>
+</view>
+
+<view wx:else >
+ <!-- 头部背景 -->
+ <image src="../../image/bg_steps_rank.jpg" class="bg-top"></image>
+    <!-- 排行榜 -->
+    <view class="user-rank-info">
+      <!-- 前三名布局 -->
+      <view class="top-info">
+        <!-- 第二名 -->
+        <view class="top-two">
+          <image src="../../image/icon_top_two.png" class="icon-top"></image>
+          <image src="{{toptwo.headimgurl}}" class="img-herader" mode="aspectFit" lazy-load="true" />
+          <view class="tv-top-name">{{toptwo.name}}</view>
+          <view>
+            <image src="../../image/icon_steps.png" class="icon-steps" mode="aspectFit" lazy-load="true" />
+
+            <view class="tv-steps-num">{{toptwo.tvSteps}}</view>
+          </view>
+        </view>
+        <!-- 第一名 -->
+        <view class="top-one">
+          <image src="../../image/icon_top_one.png" class="icon-top"></image>
+          <image src="{{topone.headimgurl}}" class="img-herader" mode="aspectFit" lazy-load="true" />
+          <view class="tv-top-name">{{topone.name}}</view>
+          <view>
+            <image src="../../image/icon_steps.png" class="icon-steps" mode="aspectFit" lazy-load="true" />
+
+            <view class="tv-steps-num">{{topone.tvSteps}}</view>
+          </view>
+        </view>
+
+        <!-- 第三名 -->
+        <view class="top-three">
+          <image src="../../image/icon_top_three.png" class="icon-top"></image>
+          <image src="{{topthree.headimgurl}}" class="img-herader" mode="aspectFit" lazy-load="true" />
+          <view class="tv-top-name">{{topthree.name}}</view>
+          <view>
+            <image src="../../image/icon_steps.png" class="icon-steps" mode="aspectFit" lazy-load="true" />
+
+            <view class="tv-steps-num">{{topthree.tvSteps}}</view>
+          </view>
+        </view>
+      </view>
+      <!-- 排行榜列表 -->
+      <view wx:if="{{items.length>0}}">
+        <view class="rank-info" wx:for="{{items}}" wx:key="item">
+
+          <view class="index-info">
+            <image src="../../image/icon_rank.png" class="icon-rank" mode="aspectFit" lazy-load="true" />
+            <text class="tv-index">{{index+4}}</text>
+          </view>
+
+
+          <image src="{{item.headimgurl}}" class="img-herader" mode="aspectFit" lazy-load="true" />
+
+          <text class="tv-name">{{item.name}}</text>
+
+          <view class="num-info">
+            <image src="../../image/icon_steps.png" class="icon-steps" mode="aspectFit" lazy-load="true" />
+
+            <text class="tv-steps-num">{{item.tvSteps}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
 </view>
 
 <template is="apifmLogin" data="{{wxlogin: wxlogin,canIUseGetUserProfile: canIUseGetUserProfile}}" />

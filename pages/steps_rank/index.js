@@ -66,13 +66,13 @@ Page({
       } else {
         //隐藏loading
         wx.hideLoading();
-        $api.showToast(res.message, 'none');
+        $api.showToast(res.message, 'error');
       }
     }).catch(err => {
       //隐藏loading
       wx.hideLoading();
       //网络错误
-      $api.showToast();
+      $api.showToast('访问失败','error');
     })
   }
 })

@@ -112,3 +112,162 @@ page {
   border-radius: 30rpx;
   margin-right: 20rpx;
 }
+
+
+/* 排行榜 */
+.bg-top{
+  position: relative;
+  width: 100%;
+}
+
+.user-rank-info{
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  margin-left: 26rpx;
+  margin-right: 26rpx;
+  padding-left: 26rpx;
+  padding-right: 26rpx;
+  margin-top: -110rpx;
+}
+
+.top-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 338rpx;
+}
+.top-info .top-two{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.top-info .top-one{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 238rpx;
+  height: 292rpx;
+  border-radius: 10rpx;
+  background: white;
+  box-shadow:0px 0px 3px 3px rgba(254, 133, 3, 0.1);
+  margin-top: -64rpx;
+}
+.top-info .top-three{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-one .img-herader{
+  width: 92rpx;
+  height: 92rpx;
+  border-radius: 50%;
+  border: 4rpx solid #DCDBDA;
+  margin-top: 12rpx;
+}
+
+.top-two .img-herader{
+  width: 82rpx;
+  height: 82rpx;
+  border-radius: 50%;
+  border: 4rpx solid #DCDBDA;
+  margin-top: 15rpx;
+}
+
+.top-three .img-herader{
+  width: 82rpx;
+  height: 82rpx;
+  border-radius: 50%;
+  border: 4rpx solid #DCDBDA;
+  margin-top: 15rpx;
+}
+
+.icon-top{
+  width: 75rpx;
+  height: 93rpx;
+  margin-top: -55rpx;
+}
+
+.top-info .tv-top-name{
+  width: 164rpx;
+  font-size: 26rpx;
+  color: rgba(0, 0, 0, 0.8);
+  max-lines: 1;
+  text-align: center;
+  word-break: keep-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 32rpx;
+}
+
+.rank-info{
+  height: 70rpx;
+
+  border-bottom: 48rpx solid white;
+}
+
+.rank-info .index-info{
+  width: 42rpx;
+  height: 70rpx;
+  display: inline-block;
+
+}
+
+.rank-info .index-info .icon-rank{
+  position: absolute;
+  width: 42rpx;
+  height: 48rpx;
+  margin-top: 11rpx;
+}
+
+.rank-info .index-info .tv-index{
+  position: absolute;
+  width: 42rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 24rpx;
+  color: #5B6DBB;
+}
+
+.rank-info .img-herader{
+  width: 62rpx;
+  height: 62rpx;
+  border-radius: 50%;
+  border: 4rpx solid #DCDBDA;
+  margin-left: 11rpx;
+}
+
+.rank-info .tv-name{
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 26rpx;
+  width: 300rpx;
+  height: 70rpx;
+  vertical-align: top;
+  line-height: 70rpx;
+  margin-left: 10rpx;
+  word-break: keep-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rank-info .num-info{
+  float: right;
+  display: block;
+}
+.tv-steps-num{
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 34rpx;
+  font-weight: bold;
+  display: inline-block;
+  width: 150rpx;
+}
+.icon-steps{
+  width: 24rpx;
+  height: 29rpx;
+  line-height: 70rpx;
+  margin-right: 11rpx;
+  margin-top: 20rpx;
+}

@@ -107,7 +107,9 @@ const API = {
   //用户邀请排行榜
   getInviteRankList: (data) => request(POST, '/userinfo/getInviteRankList', data),
   //用户获取公告
-  getUserNotice: (data) => request(POST, '/notices/getUserNoticesRecord', data)
+  getUserNotice: (data) => request(POST, '/notices/getUserNoticesRecord', data),
+  //用户获取配置项
+  getConfig: (data) => request(POST, '/userinfo/getConfig', data)
 }
 
 module.exports = {

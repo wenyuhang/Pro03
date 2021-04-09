@@ -2,11 +2,13 @@
 const app = getApp();
 const AUTH = require('../../utils/auth');
 const $api = require("../../utils/api").API;
+const $util = require("../../utils/util");
 
 
 
 Page({
   data: {
+    version: 109,
     baseurl: app.globalData.BASE_URL,
     canIUseGetUserProfile: false,
     userInfo: app.globalData.userInfo,
@@ -26,18 +28,22 @@ Page({
         "picUrl": "img/product/banner_03.png",
         "id": 63
       }
-    ]
+    ],
+    topone: {},
+    toptwo: {},
+    topthree: {},
+    isreview: false
   },
   //页面加载
   onLoad: function (e) {
-      //处理新版获取用户信息api
-      if (wx.getUserProfile) {
-        this.setData({
-          canIUseGetUserProfile: true
-        })
-      }
-    //获取商品列表
-    this.products();
+    //获取配置项
+    this.getConfig();
+    //处理新版获取用户信息api
+    if (wx.getUserProfile) {
+      this.setData({
+        canIUseGetUserProfile: true
+      })
+    }
   },
   //页面显示
   onShow: function (e) {
@@ -67,26 +73,30 @@ Page({
   },
   //下拉刷新触发函数
   onPullDownRefresh: function () {
-    this.setData({
-      page: 1
-    })
-    //导航条显示加载动画
-    wx.showNavigationBarLoading();
-    this.products()
+    if (this.data.isreview) {
+      this.setData({
+        page: 1
+      })
+      //导航条显示加载动画
+      wx.showNavigationBarLoading();
+      this.products()
+    }
   },
   //触底函数
   onReachBottom: function () {
-    if (this.data.hasNextPage) {
-      //显示loading 框 需主动关闭
-      wx.showLoading({
-        title: '加载中...',
-        mask: true
-      })
-      this.products()
-    } else {
-      wx.showToast({
-        title: '没有更多数据',
-      })
+    if (this.data.isreview) {
+      if (this.data.hasNextPage) {
+        //显示loading 框 需主动关闭
+        wx.showLoading({
+          title: '加载中...',
+          mask: true
+        })
+        this.products()
+      } else {
+        wx.showToast({
+          title: '没有更多数据',
+        })
+      }
     }
   },
   /**
@@ -245,5 +255,95 @@ Page({
       title: '换金币兑超值商品',
       query: url
     }
+  },
+  /**
+   * 获取步数排行榜
+   * @param {*} id 
+   */
+  getStepsRankList: function (id) {
+    //填充参数
+    let data = {
+      'id': id,
+      'page': 1,
+      'size': 50
+    }
+    //下面开始调用步数排行榜接口
+    $api.getStepsRankList(data).then(res => {
+
+      //请求成功 判断状态码
+      if (res.code == 200) {
+        let dataList = [];
+        if (this.data.page > 1) {
+          dataList = this.data.items.concat(res.data.rankList);
+        } else {
+          dataList = res.data.rankList;
+        }
+        //遍历数据 处理步数num
+        for (var i = 0; i < dataList.length; i++) {
+          dataList[i].tvSteps = $util.bigNumberTransform(dataList[i].steps_total);
+        };
+        //取出前三名数据
+        let one = dataList[0];
+        let two = dataList[1];
+        let three = dataList[2];
+        //排序列表移除前三名信息
+        dataList.splice(0, 3);
+
+        this.setData({
+          items: dataList,
+          topone: one,
+          toptwo: two,
+          topthree: three,
+          userRanking: res.data.userRanking
+        })
+        //隐藏loading
+        wx.hideLoading();
+      } else {
+        //隐藏loading
+        wx.hideLoading();
+        $api.showToast(res.message, 'none');
+      }
+    }).catch(err => {
+      //隐藏loading
+      wx.hideLoading();
+      //网络错误
+      $api.showToast(err.message, 'none');
+    })
+  },
+  /**
+   * 获取配置项
+   */
+  getConfig: function () {
+    let data = {};
+    //显示loading
+    wx.showLoading({
+      title: '加载中',
+    })
+    $api.getConfig(data).then(res => {
+      //请求成功 判断状态码
+      if (res.code == 200) {
+        let vcode = res.data.version;
+        //如果小于等于当前版本号 就显示商品模块 否则 榜单
+        this.setData({
+          isreview: this.data.version < vcode ? true : false
+        });
+
+        if (this.data.isreview) {
+          //获取商品列表
+          this.products();
+        } else {
+          this.getStepsRankList(22);
+        }
+      } else {
+        //隐藏loading
+        wx.hideLoading();
+        $api.showToast(res.message, 'error');
+      }
+    }).catch(err => {
+      //隐藏loading
+      wx.hideLoading();
+      //网络错误
+      $api.showToast('访问失败', 'error');
+    });
   }
 })

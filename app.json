@@ -38,7 +38,7 @@
         "iconPath": "image/mall.png",
         "selectedIconPath": "image/mall_select.png",
         "pagePath": "pages/mall/index",
-        "text": "商城"
+        "text": "榜单"
       },
       {
         "iconPath": "image/mine.png",
