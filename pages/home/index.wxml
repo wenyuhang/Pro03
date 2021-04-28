@@ -62,7 +62,7 @@
 
   </view>
 
-
+<!-- 好友邀请列表 -->
   <view class="ll-header-group">
     <view class="ll-header">
       <image class="iv-img" src="{{items[0].user.headimgurl}}"></image>
@@ -106,7 +106,7 @@
   
   <!-- <text>金币可帮您兑换包邮商品哦</text> -->
 
-  <official-account></official-account>
+  <ad unit-id="adunit-117dad61ea9236cd"></ad>
 
 </view>
 

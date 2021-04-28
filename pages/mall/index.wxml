@@ -2,103 +2,114 @@
 <view wx:if="{{isreview}}">
   <swiper class="swiper1" indicator-dots="true" indicator-active-color="#fff" autoplay circular>
     <swiper-item wx:for="{{banners}}" wx:key="item">
-      <image mode="aspectFit" bindtap="tapBanner" src="{{baseurl + item.picUrl}}" id="{{item.id}}"/>
+      <image mode="aspectFit" bindtap="tapBanner" src="{{baseurl + item.picUrl}}" id="{{item.id}}" />
     </swiper-item>
   </swiper>
 
 
   <image class="img-goods-tag" src="../../image/icon_goods_tag.png" mode="aspectFit"></image>
 
-
+  <view class="tips-tv">—— 商品价格受每日市场价格影响会有浮动 ——</view>
 
   <view class="goods-container">
     <view class="goods-box" wx:for="{{items}}" wx:key="item" bindtap="tabClick" id="{{item.id}}">
-      <view class="img-box">
-        <image src="{{baseurl + item.imageurl}}" class="image" mode="aspectFill" lazy-load="true" />
+      <!-- 自定义广告信息 -->
+      <view wx:if="{{index%21===0 && index !== 0}}">
+        <ad-custom unit-id="adunit-4d7e08d3f03d96be" ad-intervals="30"></ad-custom>
       </view>
-      <view class="goods-title">{{item.name}}</view>
+      <!-- 商品信息 -->
+      <view wx:else>
+        <view class="img-box">
+          <image src="{{baseurl + item.imageurl}}" class="image" mode="aspectFill" lazy-load="true" />
+        </view>
+        <view class="goods-title">{{item.name}}</view>
 
-      <!-- <view class="goods-original-price">原价：{{item.price}}</view> -->
+        <!-- <view class="goods-original-price">原价：{{item.price}}</view> -->
 
-      <view class="price-group">
-        <!-- <view class="goods-price">{{item.energy}}</view>
+        <view class="price-group">
+          <!-- <view class="goods-price">{{item.energy}}</view>
         <view class="unit">能量</view>
 
         <view class="goods-plus">＋</view> -->
 
-        <text class="goods-price">{{item.coin}}</text>
-        <text class="unit">金币</text>
-        <view class="goods-convert">去兑换</view>
+          <text class="goods-price">{{item.coin}}</text>
+          <text class="unit">金币</text>
+          <view class="goods-convert">去兑换</view>
+        </view>
       </view>
 
+
+
+
     </view>
+
   </view>
 </view>
 
-<view wx:else >
- <!-- 头部背景 -->
- <image src="../../image/bg_steps_rank.jpg" class="bg-top"></image>
-    <!-- 排行榜 -->
-    <view class="user-rank-info">
-      <!-- 前三名布局 -->
-      <view class="top-info">
-        <!-- 第二名 -->
-        <view class="top-two">
-          <image src="../../image/icon_top_two.png" class="icon-top"></image>
-          <image src="{{toptwo.headimgurl}}" class="img-herader" mode="aspectFit" lazy-load="true" />
-          <view class="tv-top-name">{{toptwo.name}}</view>
-          <view>
-            <image src="../../image/icon_steps.png" class="icon-steps" mode="aspectFit" lazy-load="true" />
+<view wx:else>
+  <!-- 头部背景 -->
+  <image src="../../image/bg_steps_rank.jpg" class="bg-top"></image>
+  <!-- 排行榜 -->
+  <view class="user-rank-info">
+    <!-- 前三名布局 -->
+    <view class="top-info">
+      <!-- 第二名 -->
+      <view class="top-two">
+        <image src="../../image/icon_top_two.png" class="icon-top"></image>
+        <image src="{{toptwo.headimgurl}}" class="img-herader" mode="aspectFit" lazy-load="true" />
+        <view class="tv-top-name">{{toptwo.name}}</view>
+        <view>
+          <image src="../../image/icon_steps.png" class="icon-steps" mode="aspectFit" lazy-load="true" />
 
-            <view class="tv-steps-num">{{toptwo.tvSteps}}</view>
-          </view>
-        </view>
-        <!-- 第一名 -->
-        <view class="top-one">
-          <image src="../../image/icon_top_one.png" class="icon-top"></image>
-          <image src="{{topone.headimgurl}}" class="img-herader" mode="aspectFit" lazy-load="true" />
-          <view class="tv-top-name">{{topone.name}}</view>
-          <view>
-            <image src="../../image/icon_steps.png" class="icon-steps" mode="aspectFit" lazy-load="true" />
-
-            <view class="tv-steps-num">{{topone.tvSteps}}</view>
-          </view>
-        </view>
-
-        <!-- 第三名 -->
-        <view class="top-three">
-          <image src="../../image/icon_top_three.png" class="icon-top"></image>
-          <image src="{{topthree.headimgurl}}" class="img-herader" mode="aspectFit" lazy-load="true" />
-          <view class="tv-top-name">{{topthree.name}}</view>
-          <view>
-            <image src="../../image/icon_steps.png" class="icon-steps" mode="aspectFit" lazy-load="true" />
-
-            <view class="tv-steps-num">{{topthree.tvSteps}}</view>
-          </view>
+          <view class="tv-steps-num">{{toptwo.tvSteps}}</view>
         </view>
       </view>
-      <!-- 排行榜列表 -->
-      <view wx:if="{{items.length>0}}">
-        <view class="rank-info" wx:for="{{items}}" wx:key="item">
+      <!-- 第一名 -->
+      <view class="top-one">
+        <image src="../../image/icon_top_one.png" class="icon-top"></image>
+        <image src="{{topone.headimgurl}}" class="img-herader" mode="aspectFit" lazy-load="true" />
+        <view class="tv-top-name">{{topone.name}}</view>
+        <view>
+          <image src="../../image/icon_steps.png" class="icon-steps" mode="aspectFit" lazy-load="true" />
 
-          <view class="index-info">
-            <image src="../../image/icon_rank.png" class="icon-rank" mode="aspectFit" lazy-load="true" />
-            <text class="tv-index">{{index+4}}</text>
-          </view>
+          <view class="tv-steps-num">{{topone.tvSteps}}</view>
+        </view>
+      </view>
 
+      <!-- 第三名 -->
+      <view class="top-three">
+        <image src="../../image/icon_top_three.png" class="icon-top"></image>
+        <image src="{{topthree.headimgurl}}" class="img-herader" mode="aspectFit" lazy-load="true" />
+        <view class="tv-top-name">{{topthree.name}}</view>
+        <view>
+          <image src="../../image/icon_steps.png" class="icon-steps" mode="aspectFit" lazy-load="true" />
 
-          <image src="{{item.headimgurl}}" class="img-herader" mode="aspectFit" lazy-load="true" />
-
-          <text class="tv-name">{{item.name}}</text>
-
-          <view class="num-info">
-            <image src="../../image/icon_steps.png" class="icon-steps" mode="aspectFit" lazy-load="true" />
-
-            <text class="tv-steps-num">{{item.tvSteps}}</text>
-          </view>
+          <view class="tv-steps-num">{{topthree.tvSteps}}</view>
         </view>
       </view>
     </view>
+    <!-- 排行榜列表 -->
+    <view wx:if="{{items.length>0}}">
+      <view class="rank-info" wx:for="{{items}}" wx:key="item">
+
+        <view class="index-info">
+          <image src="../../image/icon_rank.png" class="icon-rank" mode="aspectFit" lazy-load="true" />
+          <text class="tv-index">{{index+4}}</text>
+        </view>
+
+
+        <image src="{{item.headimgurl}}" class="img-herader" mode="aspectFit" lazy-load="true" />
+
+        <text class="tv-name">{{item.name}}</text>
+
+        <view class="num-info">
+          <image src="../../image/icon_steps.png" class="icon-steps" mode="aspectFit" lazy-load="true" />
+
+          <text class="tv-steps-num">{{item.tvSteps}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
 
 <template is="apifmLogin" data="{{wxlogin: wxlogin,canIUseGetUserProfile: canIUseGetUserProfile}}" />

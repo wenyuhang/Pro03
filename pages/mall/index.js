@@ -8,7 +8,7 @@ const $util = require("../../utils/util");
 
 Page({
   data: {
-    version: 109,
+    version: 110,
     baseurl: app.globalData.BASE_URL,
     canIUseGetUserProfile: false,
     userInfo: app.globalData.userInfo,
@@ -132,6 +132,8 @@ Page({
       if (res.code == 200) {
         let dataList = [];
         if (this.data.page > 1) {
+          //取余21 增加一个广告位
+          res.data.list.unshift(res.data.list[0]);
           dataList = this.data.items.concat(res.data.list);
         } else {
           dataList = res.data.list;

@@ -24,6 +24,11 @@ page {
   margin-top: 12rpx;
 }
 
+.tips-tv{
+  text-align: center;
+  font-size: 25rpx;
+}
+
 .goods-container{
   display: flex;
   /* 控制子元素 两端对齐各自贴边 */

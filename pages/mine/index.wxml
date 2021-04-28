@@ -101,6 +101,7 @@
 
   <!-- <official-account></official-account> -->
   <!-- <image class="push" src="../../image/push.jpg" mode="aspectFit"/> -->
+  <ad unit-id="adunit-41d1c280aec53aa7" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad>
 
 </view>
 

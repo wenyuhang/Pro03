@@ -255,7 +255,7 @@ Page({
     let data = {
       'id': id,
       'page': 1,
-      'size': 6
+      'size': 5
     }
     //下面开始调用邀请记录接口
     $api.getInviteRecord(data).then(res => {

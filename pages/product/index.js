@@ -2,14 +2,33 @@
 const app = getApp();
 const $api = require("../../utils/api").API;
 
+// 在页面中定义插屏广告
+var interstitialAd = null
+
 Page({
   data: {
     baseurl: app.globalData.BASE_URL,
     coin_total: 0,
     item: {},
-    convertList:[]
+    convertList: []
   },
   onLoad: function (option) {
+    // 在页面onLoad回调事件中创建插屏广告实例
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-bc8f0076d1d94358'
+      })
+      interstitialAd.onLoad(() => {
+        // 在适合的场景显示插屏广告
+        if (interstitialAd) {
+          interstitialAd.show().catch((err) => {
+            console.error(err)
+          })
+        }
+      })
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
     //获取商品详情
     if (option.id > 0) {
       this.getProduct(option.id);
@@ -84,9 +103,9 @@ Page({
   getProConvertList: function (id) {
     //填充参数
     let data = {
-      'page':1,
-      'size':10,
-      "isApp":1,
+      'page': 1,
+      'size': 10,
+      "isApp": 1,
       'id': id
     }
     //下面开始调用商品详情接口
@@ -106,7 +125,7 @@ Page({
       $api.showToast(res.message, 'none');
     })
   },
-    /**
+  /**
    * 用户点击分享
    */
   onShareAppMessage: function (res) {

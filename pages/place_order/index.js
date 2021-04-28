@@ -2,6 +2,9 @@
 const app = getApp();
 const $api = require("../../utils/api").API;
 
+// 在页面中定义激励视频广告
+var videoAd = null
+
 Page({
   data: {
     baseurl: app.globalData.BASE_URL,
@@ -13,6 +16,30 @@ Page({
     //获取商品详情
     if (e.id > 0) {
       this.getProduct(e.id)
+    }
+    // 在页面onLoad回调事件中创建激励视频广告实例
+    if (wx.createRewardedVideoAd) {
+      videoAd = wx.createRewardedVideoAd({
+        adUnitId: 'adunit-8892aa0bddba8e1c'
+      })
+      videoAd.onLoad(() => {})
+      videoAd.onError((err) => {})
+      //监听用户关闭广告
+      videoAd.onClose((res) => {
+        // 用户点击了【关闭广告】按钮
+        if (res && res.isEnded) {
+          // 正常播放结束，可以下发游戏奖励
+          console.log("正常播放结束，可以下发游戏奖励");
+          this.placeDialog();
+        } else {
+          // 播放中途退出，不下发游戏奖励
+          wx.showModal({
+            title: '提示',
+            content: '看完完整的广告才可以下单哦~\n（ 广告是为了更多的免费 ）',
+            showCancel: false
+          })
+        }
+      })
     }
   },
   onShow: function (e) {
@@ -32,7 +59,6 @@ Page({
   },
   //点击下单
   convertClick: function (e) {
-    let that = this;
     //判断收货地址
     if (!this.data.address.address) {
       wx.showModal({
@@ -42,10 +68,44 @@ Page({
       })
       return;
     }
+
     //用户确认下单
     wx.showModal({
       title: '提示',
-      content: '下单成功后我们扣除您的包邮能量和金币！~',
+      content: '需要看完一段广告才可进行下单 ~\n（ 广告是为了更多的免费 ）',
+      showCancel: true,
+      success(res) {
+        if (res.confirm) {
+          // 用户触发广告后，显示激励视频广告
+          if (videoAd) {
+            videoAd.show().catch(() => {
+              // 失败重试
+              videoAd.load()
+                .then(() => videoAd.show())
+                .catch(err => {
+                  console.log('激励视频 广告显示失败')
+                })
+            })
+          }
+        } else {
+          //取消下单
+          wx.showToast({
+            title: '取消下单',
+          })
+        }
+      }
+    })
+
+  },
+  /**
+   * 用户确认下单
+   */
+  placeDialog: function () {
+    let that = this;
+    //用户确认下单
+    wx.showModal({
+      title: '提示',
+      content: '下单成功后我们扣除您对应的金币！~',
       showCancel: true,
       success(res) {
         if (res.confirm) {
@@ -152,7 +212,7 @@ Page({
       url: '/pages/order_complete/index',
     })
   },
-    /**
+  /**
    * 用户点击分享
    */
   onShareAppMessage: function (res) {

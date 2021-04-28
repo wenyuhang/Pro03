@@ -65,6 +65,9 @@
   <view class="express-remark">
     （新疆、西藏等偏远地区暂不支持发货）
   </view>
+  
+  <ad unit-id="adunit-ae4e1da75311d6e2"></ad>
+
   <view class="convert-group">
     <button class="pro-convert" bindtap="convertClick" id="{{item.id}}">立即兑换</button>
   </view>
